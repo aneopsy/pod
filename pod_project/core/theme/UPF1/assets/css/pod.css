@@ -393,6 +393,7 @@ footer {
   background: -ms-linear-gradient(top, #262425 0%, #262425 100%);
   background: linear-gradient(to bottom, #262425 0%, #262425 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#262425',endColorstr='#262425',GradientType=0);
+  color: #bfbfc0
 }
 footer #semmLOGO {
   width: 100%;
@@ -411,6 +412,14 @@ footer .btn-link:hover,
 footer .btn-link:focus,
 footer .btn-link:active {
   color: #0570B8;
+}
+.span4 {
+	width: 370px;
+}
+[class*="span"] {
+	float: left;
+	min-height: 1px;
+	margin-left: 30px;
 }
 /*******************************************************************************
 
