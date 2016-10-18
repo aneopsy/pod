@@ -20,15 +20,56 @@ voir http://www.gnu.org/licenses/
 {% endcomment %}
 {% load i18n %}
 {% load staticfiles %}
+
+<footer class="container">
+
+                        <div id="yui_3_17_2_1_1476831739842_57" class="span4">
+                            <img src="https://www.espadon.upf.pf/theme/image.php/cleanupf/theme/1475201965/logo-blanc" alt="Logo de l'Université de la Polynésie Française">
+    						<p id="yui_3_17_2_1_1476831739842_61" class="adressed">
+    							<strong id="yui_3_17_2_1_1476831739842_60">Université de la Polynésie française</strong><br>
+    							Campus d'Outumaoro - Punaauia<br>
+    							B.P. 6570 - 98702 Faa'a<br>
+    							Tahiti - Polynésie française
+    						</p>
+                            <div id="course-footer"></div>
+
+                        </div>
+    					<div id="yui_3_17_2_1_1476831739842_75" class="span4">
+    						<h4>Assistance</h4>
+
+    						<p><strong>Pôle <abbr title="Technologies de l'Information et de la Communication pour l'Enseignement">TICE</abbr> - <abbr title="Direction des Systèmes d'Information">DSI</abbr></strong></p>
+
+
+    						<p><span class="label label-footer"><i class="fa fa-phone"> </i> (+689) 40 866 446</span></p>
+
+
+    					</div>
+                        <div id="yui_3_17_2_1_1476831739842_72" class="span4">
+    						<div id="social-footer">
+    							<h4>Restez connecté !</h4>
+    							<p>
+    								<a href="http://www.upf.pf" title="Site Internet de l'UPF"><i class="fa fa-globe fa-2x social"></i></a>
+    								<a href="https://www.facebook.com/univpf" title="Page Facebook de l'UPF"><i class="fa fa-facebook-square fa-2x social"></i></a>
+    								<a href="https://twitter.com/universitepf" title="Compte Twitter de l'UPF"><i class="fa fa-twitter-square fa-2x social"></i></a>
+    							</p>
+    							<p id="yui_3_17_2_1_1476831739842_71">
+    								<a href="https://www.linkedin.com/company/universit-de-la-polyn-sie-fran-aise" title="Compte Linked In de l'UPF"><i class="fa fa-linkedin-square fa-2x social"></i></a>
+    								<a href="https://www.youtube.com/channel/UC535-cUv9j7pnLabFCFc17g" title="Chaîne Youtube de l'UPF"><i class="fa fa-youtube-square fa-2x social"></i></a>
+    								<a id="yui_3_17_2_1_1476831739842_74" href="https://www.flickr.com/photos/univpf" title="Compte Flickr de l'UPF"><i id="yui_3_17_2_1_1476831739842_73" class="fa fa-flickr fa-2x social"></i></a>
+    							</p>
+
+    						</div>
+    					</div>
+</footer>
+<!--
 <footer class="container">
     <div class="row">
         <div class="col-sm-4 col-xs-6"><img src="{% static  SERV_LOGO %}" alt="SEMM" id="semmLOGO" /></div>
         <div class="col-sm-4 col-xs-12">
+            <h4>Assistance</h4>
+            <p>Pôle TICE - DSI</p>
             <a href="{% url 'contact_us' %}" title="{% trans "Contact us" %}" class="btn btn-block btn-link">
                 <span class="glyphicon glyphicon-chevron-right"></span> {% trans "Contact us" %}
-            </a>
-            <a href="https://github.com/esupportail/pod/wiki/Foire-Aux-Questions" title="{% trans "FAQ" %}" class="btn btn-block btn-link">
-                <span class="glyphicon glyphicon-chevron-right"></span> {% trans "FAQ" %}
             </a>
             {% for page in PAGES_MENU_BAS %}
                 <a href="{{ page.page.url }}" title="{{ page.page.title }}" class="btn btn-block btn-link">
@@ -37,10 +78,10 @@ voir http://www.gnu.org/licenses/
             {% endfor %}
         </div>
         <div class="col-sm-4 col-xs-12">
-            <a href="https://www.esup-portail.org/" title="Esup Portail : Communauté d'établissements francais d'enseignement supérieur pour l'innovation numérique" class="btn btn-block btn-link" target="_blank"><span class="glyphicon glyphicon-chevron-right"></span> <abbr title="Esup Portail : Communauté d'établissements francais d'enseignement supérieur pour l'innovation numérique">Esup Portail</abbr></a>
             <a href="https://github.com/aneopsy/pod" class="btn btn-block btn-link"  target="_blank"><span class="glyphicon glyphicon-chevron-right"></span> Projet Pod (Github)</a>
-            <a href="http://www.univ-lille1.fr" title="Université Lille1" class="btn btn-block btn-link"><span class="glyphicon glyphicon-chevron-right"></span> Université de Lille, sciences et technologies</a>
+            <a href="http://www.upf.pf" title="Université De La Polynésie Française" class="btn btn-block btn-link"><span class="glyphicon glyphicon-chevron-right"></span> Université De La Polynésie Française</a>
         </div>
     </div>
 </footer>
+-->
 <!-- INSERER SCRIPT ANALYTICS PIWIK -->
