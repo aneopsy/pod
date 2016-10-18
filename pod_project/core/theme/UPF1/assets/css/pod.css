@@ -46,13 +46,6 @@ body > .navbar[role="navigation"] {
   border-radius: 0 !important;
   border: none;
   background-color: #ff8e00;
-  background: -moz-linear-gradient(top, #ff8e00 0%, #ee7d19 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff8e00), color-stop(100%, #ee7d19));
-  background: -webkit-linear-gradient(top, #ff8e00 0%, #ee7d19 100%);
-  background: -o-linear-gradient(top, #ff8e00 0%, #ee7d19 100%);
-  background: -ms-linear-gradient(top, #ff8e00 0%, #ee7d19 100%);
-  background: linear-gradient(to bottom, #ff8e00 0%, #ee7d19 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8e00',endColorstr='#ee7d19',GradientType=0);
   margin-bottom: 0;
   position: relative;
   z-index: 1040;
