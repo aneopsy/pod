@@ -387,10 +387,10 @@ aside .form-group.show-all .more {
 }
 footer {
   text-align: left;
-  border-top: 10px solid #0570B8;
+  border-top: 10px solid #FF8E00;
   border-top-width: 10px;
   border-top-style: solid;
-  border-top-color: rgb(5, 112, 184);
+  border-top-color: #FF8E00;
   text-align: left;
   background-color: #262425;
   color: #bfbfc0;
@@ -398,11 +398,6 @@ footer {
 }
 footer row {
   margin-left: -30px;
-}
-footer #semmLOGO {
-  width: 100%;
-  height: auto;
-  margin-bottom: 15px;
 }
 footer .btn {
   padding: 6px 12px;
@@ -415,7 +410,7 @@ footer .btn-link,
 footer .btn-link:hover,
 footer .btn-link:focus,
 footer .btn-link:active {
-  color: #0570B8;
+  color: #FF8E00;
 }
 .span4 {
 	width: 370px;
@@ -439,7 +434,7 @@ footer .adressed {
 .label-footer {
 	padding: 7px;
 	font-size: 0.9em;
-	background-color: #0570B8;
+	background-color: #FF8E00;
 }
 /*******************************************************************************
 
