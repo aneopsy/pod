@@ -45,14 +45,14 @@ body > .page-header > .container > .row form select.input-sm.language {
 body > .navbar[role="navigation"] {
   border-radius: 0 !important;
   border: none;
-  background-color: #f8af19;
-  background: -moz-linear-gradient(top, #f8af19 0%, #ee7d19 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8af19), color-stop(100%, #ee7d19));
-  background: -webkit-linear-gradient(top, #f8af19 0%, #ee7d19 100%);
-  background: -o-linear-gradient(top, #f8af19 0%, #ee7d19 100%);
-  background: -ms-linear-gradient(top, #f8af19 0%, #ee7d19 100%);
-  background: linear-gradient(to bottom, #f8af19 0%, #ee7d19 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8af19',endColorstr='#ee7d19',GradientType=0);
+  background-color: #ff8e00;
+  background: -moz-linear-gradient(top, #ff8e00 0%, #ee7d19 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff8e00), color-stop(100%, #ee7d19));
+  background: -webkit-linear-gradient(top, #ff8e00 0%, #ee7d19 100%);
+  background: -o-linear-gradient(top, #ff8e00 0%, #ee7d19 100%);
+  background: -ms-linear-gradient(top, #ff8e00 0%, #ee7d19 100%);
+  background: linear-gradient(to bottom, #ff8e00 0%, #ee7d19 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8e00',endColorstr='#ee7d19',GradientType=0);
   margin-bottom: 0;
   position: relative;
   z-index: 1040;
@@ -410,7 +410,7 @@ footer .btn-link,
 footer .btn-link:hover,
 footer .btn-link:focus,
 footer .btn-link:active {
-  color: #3f9ec2;
+  color: #0570B8;
 }
 /*******************************************************************************
 
@@ -602,7 +602,7 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
   position: static !important;
   font-size: 3em !important;
   line-height: 1 !important;
-  color: #3f9ec2 !important;
+  color: #0570B8 !important;
 }
 .vjs-default-skin .vjs-big-play-button:hover {
   -webkit-box-shadow: none !important;
@@ -610,7 +610,7 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
   box-shadow: none !important;
 }
 .vjs-default-skin .vjs-big-play-button:hover:before {
-  color: #2C6F89 !important;
+  color: #0570B8 !important;
 }
 /*******************************************************************************
 
@@ -624,7 +624,7 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #fff;
-  background-color: #f8af19;
+  background-color: #ff8e00;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -633,6 +633,6 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   color: #fff;
-  background-color: #f8af19;
-  border-color: #f8af19;
+  background-color: #ff8e00;
+  border-color: #ff8e00;
 }
