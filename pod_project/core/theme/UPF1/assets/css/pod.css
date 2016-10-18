@@ -64,7 +64,7 @@ body > .navbar[role="navigation"].navbar-default > .container > .navbar-header .
   width: 175px;
 }
 body > .navbar[role="navigation"].navbar-default > .container .navbar-nav > li:not(.open) > a {
-  color: #333;
+  color: #282C34;
 }
 body > .container[role="main"] {
   background: #fff;
@@ -153,7 +153,7 @@ aside .form-group.show-all .more {
   color: #575757;
 }
 #acces {
-  background: #333;
+  background: #282C34;
   padding: 2px;
 }
 #mainMenu {
@@ -275,7 +275,7 @@ aside .form-group.show-all .more {
 .embed #info_video {
   border-radius: 4px;
   font-size: 12px;
-  color: #333;
+  color: #282C34;
   top: 10%;
   left: 10%;
   right: 10%;
@@ -313,7 +313,7 @@ aside .form-group.show-all .more {
   text-decoration: none !important;
 }
 #page-video .tag-list a:hover span {
-  color: #333 !important;
+  color: #282C34 !important;
 }
 #page-video .authors-views {
   margin: 0 0 10px 0;
@@ -385,14 +385,14 @@ aside .form-group.show-all .more {
 footer {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #333;
-  background: -moz-linear-gradient(top, #333 0%, #333 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(100%, #333));
-  background: -webkit-linear-gradient(top, #333 0%, #333 100%);
-  background: -o-linear-gradient(top, #333 0%, #333 100%);
-  background: -ms-linear-gradient(top, #333 0%, #333 100%);
-  background: linear-gradient(to bottom, #333 0%, #333 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333',endColorstr='#333',GradientType=0);
+  background-color: #282C34;
+  background: -moz-linear-gradient(top, #282C34 0%, #282C34 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282C34), color-stop(100%, #282C34));
+  background: -webkit-linear-gradient(top, #282C34 0%, #282C34 100%);
+  background: -o-linear-gradient(top, #282C34 0%, #282C34 100%);
+  background: -ms-linear-gradient(top, #282C34 0%, #282C34 100%);
+  background: linear-gradient(to bottom, #282C34 0%, #282C34 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#282C34',endColorstr='#282C34',GradientType=0);
 }
 footer #semmLOGO {
   width: 100%;
