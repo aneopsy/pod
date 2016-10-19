@@ -1103,7 +1103,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #3f9ec2;
+  color: #0570B8;
   text-decoration: none;
 }
 a:hover,
@@ -3238,7 +3238,7 @@ fieldset[disabled] .btn-success.focus {
 }
 .btn-info {
   color: #ffffff;
-  background-color: #3f9ec2;
+  background-color: #0570B8;
   border-color: #388fb0;
 }
 .btn-info:focus,
@@ -3286,11 +3286,11 @@ fieldset[disabled] .btn-info:focus,
 .btn-info.disabled.focus,
 .btn-info[disabled].focus,
 fieldset[disabled] .btn-info.focus {
-  background-color: #3f9ec2;
+  background-color: #0570B8;
   border-color: #388fb0;
 }
 .btn-info .badge {
-  color: #3f9ec2;
+  color: #0570B8;
   background-color: #ffffff;
 }
 .btn-warning {
@@ -3408,7 +3408,7 @@ fieldset[disabled] .btn-danger.focus {
   background-color: #ffffff;
 }
 .btn-link {
-  color: #3f9ec2;
+  color: #0570B8;
   font-weight: normal;
   border-radius: 0;
 }
@@ -3571,7 +3571,7 @@ tbody.collapse.in {
 .dropdown-menu > li > a:focus {
   text-decoration: none;
   color: #ffffff;
-  background-color: #3f9ec2;
+  background-color: #0570B8;
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
@@ -4013,7 +4013,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a:hover,
 .nav .open > a:focus {
   background-color: #eeeeee;
-  border-color: #3f9ec2;
+  border-color: #0570B8;
 }
 .nav .nav-divider {
   height: 1px;
@@ -4733,7 +4733,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding: 6px 12px;
   line-height: 1.42857143;
   text-decoration: none;
-  color: #3f9ec2;
+  color: #0570B8;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   margin-left: -1px;
@@ -4898,7 +4898,7 @@ a.label:focus {
   background-color: #449d44;
 }
 .label-info {
-  background-color: #3f9ec2;
+  background-color: #0570B8;
 }
 .label-info[href]:hover,
 .label-info[href]:focus {
@@ -4952,7 +4952,7 @@ a.badge:focus {
 }
 .list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #3f9ec2;
+  color: #0570B8;
   background-color: #ffffff;
 }
 .list-group-item > .badge {
@@ -4984,7 +4984,7 @@ a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #3f9ec2;
+  border-color: #0570B8;
 }
 .thumbnail .caption {
   padding: 9px;
@@ -5136,7 +5136,7 @@ a.thumbnail.active {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .progress-bar-info {
-  background-color: #3f9ec2;
+  background-color: #0570B8;
 }
 .progress-striped .progress-bar-info {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
