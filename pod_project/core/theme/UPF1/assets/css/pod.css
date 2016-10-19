@@ -377,7 +377,6 @@ aside .form-group.show-all .more {
 */
 .container {
     margin-top: 10px;
-	width: 1300px;
 }
 footer {
   text-align: left;
@@ -409,10 +408,10 @@ footer .btn-link:active {
 .span4 {
     overflow:hidden
     text-align: center;
-	width: 325px;
+	width: 300px;
 }
 .span12 {
-	width: 1300px;
+	width: 1200px;
 }
 [class*="span"] {
 	float: left;
