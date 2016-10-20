@@ -22,14 +22,7 @@ body {
 }
 #header {
   color: #333;
-  background-color: #f8af19;
-  background: -moz-linear-gradient(top, #f8af19 0%, #ee7d19 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8af19), color-stop(100%, #ee7d19));
-  background: -webkit-linear-gradient(top, #f8af19 0%, #ee7d19 100%);
-  background: -o-linear-gradient(top, #f8af19 0%, #ee7d19 100%);
-  background: -ms-linear-gradient(top, #f8af19 0%, #ee7d19 100%);
-  background: linear-gradient(to bottom, #f8af19 0%, #ee7d19 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8af19',endColorstr='#ee7d19',GradientType=0);
+  background-color: #FF8E00;
 }
 #branding h1 {
   color: #111;

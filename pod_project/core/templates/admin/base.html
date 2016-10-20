@@ -13,11 +13,10 @@
 <link href="{% static 'materialize/css/materialize.css' %}" rel="stylesheet">
 </head>
 {% load i18n %}
-
-<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}" {% if is_popup %}style="background:#fff; margin:0; padding:0"{% endif %}>
-
-<!-- Container -->
-<div id="container" class="card-panel">
+<body><!-- class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}" {% if is_popup %}style="background:#000; margin:0; padding:0"{% endif %}>
+-->
+<!-- CoAntainer -->
+<div class="card-panel" id="log-container">
     {% if not is_popup %}
     <!-- Header -->
     <div id="header">
@@ -47,7 +46,6 @@
     <div class="breadcrumbs">
     <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
     {% if title %} &rsaquo; {{ title }}{% endif %}
-    <h1> OKI </h1>
     </div>
     {% endblock %}
     {% endif %}
