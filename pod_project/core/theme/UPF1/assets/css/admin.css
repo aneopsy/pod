@@ -19,6 +19,15 @@ body {
   background-attachment: fixed;
   background-repeat: repeat;
 }
+#log-container {
+    width: 320px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0px;
+}
 #header {
   color: #333;
   background-color: #FF8E00;
