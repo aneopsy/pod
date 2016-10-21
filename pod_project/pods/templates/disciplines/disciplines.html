@@ -6,7 +6,7 @@ le redistribuer et/ou le modifier sous les termes
 de la licence GNU Public Licence telle que publiée
 par la Free Software Foundation, soit dans la
 version 3 de la licence, ou (selon votre choix)
-toute version ultérieure. 
+toute version ultérieure.
 Ce programme est distribué avec l'espoir
 qu'il sera utile, mais SANS AUCUNE
 GARANTIE : sans même les garanties
@@ -32,7 +32,7 @@ voir http://www.gnu.org/licenses/
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content="{{ request.build_absolute_uri }}" />
 	<meta property="og:image" content="//{{ request.META.HTTP_HOST }}{% static 'images/share.png' %}" />
-	<meta property="og:description" content="" /> 
+	<meta property="og:description" content="" />
 	<meta property="og:site_name" content="{{ TITLE_SITE }}" />
 {% endblock %}
 
@@ -41,7 +41,7 @@ voir http://www.gnu.org/licenses/
 {% block breadcrumbs %}{{ block.super }} <li class="active">{% trans 'Disciplines' %}</li>{% endblock breadcrumbs %}
 
 {% block mainToolbar %}
-    <div class="well well-sm">
+    <div class="well well-sm card-panel grey lighten-3">
         <div class="row">
             <div class="col-sm-8">
                 <form class="form-inline">
