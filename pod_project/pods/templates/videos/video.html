@@ -108,7 +108,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
 {% block dublincore %}
     {% if not video.is_draft %}{% load pod_filters %}
     <!-- Dublin Core -->
-    {% include 'videos/dublincore.html' with xml=False %}     
+    {% include 'videos/dublincore.html' with xml=False %}
     <!-- /Dublin Core -->
     {% endif %}
 {% endblock %}
@@ -458,7 +458,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
                     </div>
                 </div>
                 {% if not request.GET.is_iframe %}
-                    <aside class="col-sm-3">
+                    <aside class="col-sm-3 card-panel grey lighten-3">
                         <div class="widget notes text-right">
                             <h4 class="text-left">
                                 <span class="glyphicon glyphicon-paperclip"></span>
