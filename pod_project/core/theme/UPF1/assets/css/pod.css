@@ -246,7 +246,7 @@ aside .form-group.show-all .more {
   font-size: 50px;
 }
 .video-thumb .video-holder .poster .preview {
-  width: 100%;
+  width: 90%;
   height: auto;
 }
 .video-thumb .user-tools {
@@ -511,7 +511,7 @@ footer a {
 #preview {
   position: absolute;
   height: 64px;
-  width: 86px;
+  width: 80px;
   border: 1px solid black;
   margin: 0;
   padding: 0;
@@ -662,7 +662,7 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 
 .card-panel {
   transition: box-shadow .25s;
-  padding: 5px;
+  padding: 20px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
   background-color: #fff;
