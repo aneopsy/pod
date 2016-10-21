@@ -25,7 +25,7 @@ voir http://www.gnu.org/licenses/
 {% for owner in owners %}
 	<div class="video-thumb col-xs-6 col-md-4">
 	    <a href="{% url "videos" %}?owner={{owner.username}}" title="{{owner.get_full_name}} ({{owner.video_count}})">
-    		<span class="poster">
+    		<span class="poster card-panel">
 			{% if owner.userprofile.image %}
                 <img src="{% thumbnail owner.userprofile.image 285x160 crop upscale subject_location=owner.userprofile.image.subject_location %}" alt="{{owner.get_full_name}}" class="preview">
             {%else%}
@@ -42,4 +42,3 @@ voir http://www.gnu.org/licenses/
 {%endfor%}
 </div>
 {% block pagination %} {% pagination owners %}{% endblock %}
-
