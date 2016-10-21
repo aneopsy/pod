@@ -90,7 +90,7 @@ voir http://www.gnu.org/licenses/
     {% block video_list %}
 
         {% if result.hits.total > 0 %}
-            <div id="videoList" class="row">
+            <div id="videoList" class="row card-panel grey lighten-3">
             {% for hit in result.hits.hits %}
                 {% with video=hit|get:"_source" score=hit|get:"_score"  %}
                 <div class="video-thumb col-xs-6 col-md-4">
