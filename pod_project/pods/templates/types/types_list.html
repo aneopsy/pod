@@ -5,7 +5,7 @@ le redistribuer et/ou le modifier sous les termes
 de la licence GNU Public Licence telle que publiée
 par la Free Software Foundation, soit dans la
 version 3 de la licence, ou (selon votre choix)
-toute version ultérieure. 
+toute version ultérieure.
 Ce programme est distribué avec l'espoir
 qu'il sera utile, mais SANS AUCUNE
 GARANTIE : sans même les garanties
@@ -25,7 +25,7 @@ voir http://www.gnu.org/licenses/
 {% for type in types %}
 	<div class="video-thumb col-xs-6 col-md-4">
 	    <a href="{% url "videos" %}?type={{type.slug}}" title="{{type.title}} ({{type.video_count}})">
-		<span class="poster">
+		<span class="poster card-panel">
 			{% if type.headband %}
 			    <span class="play text-center">
     				<span class="glyphicon glyphicon-play-circle"></span>
@@ -41,4 +41,3 @@ voir http://www.gnu.org/licenses/
 {%endfor%}
 </div>
 {% block pagination %} {% pagination types %}{% endblock %}
-

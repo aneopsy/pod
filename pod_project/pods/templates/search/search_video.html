@@ -95,7 +95,7 @@ voir http://www.gnu.org/licenses/
                 {% with video=hit|get:"_source" score=hit|get:"_score"  %}
                 <div class="video-thumb col-xs-6 col-md-4">
                     <a href="{{ video.full_url }}" class="video-holder" title="{{ video.title }}">
-                        <span class="poster">
+                        <span class="poster card-panel">
                             <span class="play text-center">
                                 <span class="glyphicon glyphicon-play-circle"></span>
                             </span>
