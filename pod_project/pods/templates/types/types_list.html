@@ -25,12 +25,12 @@ voir http://www.gnu.org/licenses/
 {% for type in types %}
 	<div class="video-thumb col-xs-6 col-md-4">
 	    <a href="{% url "videos" %}?type={{type.slug}}" title="{{type.title}} ({{type.video_count}})">
-		<span class="poster card-panel">
+		<span class="poster">
 			{% if type.headband %}
 			    <span class="play text-center">
     				<span class="glyphicon glyphicon-play-circle"></span>
     			</span>
-                <img src="{% thumbnail type.headband 285x160 crop upscale subject_location=type.headband.subject_location %}" alt="{{type.title}}" class="preview">
+                <img src="{% thumbnail type.headband 285x160 crop upscale subject_location=type.headband.subject_location %}" alt="{{type.title}}" class="preview card-panel">
             {%else%}
                 <img alt="img" src="{% static DEFAULT_IMG %}" alt="{{owner.get_full_name}}" class="preview">
             {% endif %}
