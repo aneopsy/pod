@@ -116,9 +116,9 @@ voir http://www.gnu.org/licenses/
                                 </span>
                             </span>
                             {% if video.thumbnail %}
-                                <img src="{{video.thumbnail}}" alt="{{ video.title }}" class="preview card-panel orange lighten-5" style="max-height:140px"/>
+                                <img src="{{video.thumbnail}}" alt="{{ video.title }}" class="preview card-panel -5" style="max-height:140px"/>
                             {% else %}
-                                <img src="{% static DEFAULT_IMG %}" class="preview card-panel orange lighten-5" alt="{{ video.title }}" />
+                                <img src="{% static DEFAULT_IMG %}" class="preview card-panel -5" alt="{{ video.title }}" />
                             {% endif %}
                         </span>
                         <h5>{{ video.title|truncatechars:36 }} <!-- {{score}} - {{result.hits.max_score}} -->  {% is_new_date video.date_added %}</h5>
