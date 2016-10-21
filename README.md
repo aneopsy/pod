@@ -32,7 +32,7 @@
 
 > Avec la participation de :
 
->  ![Université de le Polynésie Française](http://www.upf.pf/)
+>  ![Université de le Polynésie Française](http://www.upf.pf/ "UPF")
 
 >  ![Université de Lille, Sciences et technologies](http://www.univ-lille1.fr/digitalAssets/38/38040_logo-trans.png "Université de Lille, Sciences et technologies")
 
