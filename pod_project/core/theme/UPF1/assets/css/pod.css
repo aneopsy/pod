@@ -63,6 +63,7 @@ body > .container[role="main"] {
   background: #fff;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin: auto;
 }
 /*******************************************************************************
 
@@ -379,7 +380,7 @@ aside .form-group.show-all .more {
     margin-top: 10px;
 }
 footer {
-  text-align: left;
+  text-align: center;
   border-top: 10px solid #FF8E00;
   border-top-width: 10px;
   border-top-style: solid;
@@ -411,7 +412,7 @@ footer .btn-link:active {
 	width: 300px;
 }
 .span12 {
-	width: 1200px;
+	width: 1280px;
 }
 [class*="span"] {
 	float: left;
@@ -426,6 +427,15 @@ footer .adressed {
 	padding-top: 10px;
 	font-size: 0.9em;
 }
+
+#footer-container {
+    width: 1280px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 0px;
+}
+
 .label-footer {
 	padding: 7px;
 	font-size: 0.9em;
