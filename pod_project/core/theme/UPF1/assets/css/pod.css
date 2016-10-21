@@ -412,7 +412,7 @@ footer .btn-link:active {
 	width: 300px;
 }
 .span12 {
-	width: 1280px;
+	width: 70%;
 }
 [class*="span"] {
 	float: left;
@@ -429,11 +429,9 @@ footer .adressed {
 }
 
 #footer-container {
-    width: 1280px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    padding: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
 }
 
 .label-footer {
