@@ -79,7 +79,7 @@ voir http://www.gnu.org/licenses/
                         <img
                             src="{% thumbnail video.thumbnail 285x160 crop upscale subject_location=video.thumbnail.subject_location %}"
                             alt="{{ video.title }}"
-                            class="preview"
+                            class="preview card-panel"
                         />
                     {% else %}
                         <img src="{% static DEFAULT_IMG %}" class="preview" alt="{{ video.title }}" />
