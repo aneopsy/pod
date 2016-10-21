@@ -53,7 +53,7 @@ voir http://www.gnu.org/licenses/
 					{% endif %}
 					{% if user.is_authenticated %}
                         <div class="btn-group">
-                            <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown">
+                            <button type="button" class="btn btn-sm dropdown-toggle orange" data-toggle="dropdown">
                                 {% if user.get_full_name != '' %}
                                     {{ user.get_full_name }}
                                 {% else %}
@@ -117,7 +117,7 @@ voir http://www.gnu.org/licenses/
                             </ul>
                         </div>
 					{% else %}
-					    <a href="{% url 'core.views.core_login' %}?next={{ request.get_full_path|urlencode }}" class="btn btn-warning btn-sm">
+					    <a href="{% url 'core.views.core_login' %}?next={{ request.get_full_path|urlencode }}" class="btn btn-sm blue">
                             <span class="glyphicon glyphicon-user"></span>
                             {% trans 'Log in' %}
                         </a>
