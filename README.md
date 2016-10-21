@@ -2,7 +2,7 @@
 
 ![Pod, plateforme de gestion de vidéo](http://www.upf.pf/sites/default/files/images/bienvenue/Logo/quadri/logo-upf-2014-fondtransp-quadri-rvb-pix-bd.png, "Plateforme vidéo")
 
-> La plateforme Pod, développée et déployée par l'université de Lille, sciences et technologies, est maintenu et promu par le consortium Esup Portail.
+> La plateforme V-PodCast, développée et déployée par l'université de Lille, sciences et technologies, est maintenu et promu par le consortium Esup Portail.
 
 > Elle a pour objectif de faciliter la mise à disposition de vidéos et de ce fait, d'encourager l'utilisation de celles-ci dans le cadre de l'enseignement et la recherche.
 
