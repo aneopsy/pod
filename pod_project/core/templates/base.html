@@ -45,6 +45,7 @@ voir http://www.gnu.org/licenses/
         <!--FontAwesome for Bootstrap-->
         <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" />
         <!--link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /-->
+        <link href="{% static 'materialize/css/materialize.css' %}" rel="stylesheet" />
         <script src="{% static 'js/main.js' %}"></script>
         {% if not request.GET.is_iframe %}
             <script>
@@ -88,7 +89,7 @@ voir http://www.gnu.org/licenses/
         {% bootstrap_messages %}
 
         {% block bootstrap3_content %}
-            <article class="container" role="main">
+            <article class="container card-panel" role="main">
                 <div class="row">
                     <div class="col-sm-9">
                         <ol class="breadcrumb">
@@ -135,7 +136,7 @@ voir http://www.gnu.org/licenses/
                     </div>
                     {% if not request.GET.is_iframe %}
                         {% block box %}
-                            <aside class="col-sm-3">
+                            <aside class="card-panel grey lighten-3 col-sm-3">
                                 {% block box_social %}
                                     <div class="widget social" id="share">
                                         <h4>
