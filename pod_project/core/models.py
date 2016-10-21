@@ -84,7 +84,6 @@ class PagesMenuBas(models.Model):
     def __str__(self):
         return "%s" % (self.page.title)
 
-
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     image = FilerImageField(null=True, blank=True, verbose_name=_('Avatar'),

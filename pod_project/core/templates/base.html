@@ -70,6 +70,7 @@ voir http://www.gnu.org/licenses/
         {% endif %}
         {% block bootstrap3_extra_head %}{% endblock %}
         {% block opengraph %}{% endblock %}
+        {% include 'material/includes/material_css.html' %}
     </head>
     <body>
         {% if not request.GET.is_iframe %}
