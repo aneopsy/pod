@@ -25,7 +25,7 @@ voir http://www.gnu.org/licenses/
 {% for discipline in disciplines %}
 	<div class="video-thumb col-xs-6 col-md-4">
 	    <a href="{% url "videos" %}?discipline={{discipline.slug}}" title="{{discipline.title}} ({{discipline.video_count}})">
-		<span class="poster card-panel">
+		<span class="poster">
 			{% if discipline.headband %}
                 <span class="play text-center">
     				<span class="glyphicon glyphicon-play-circle"></span>
