@@ -243,7 +243,7 @@ msgstr "La ressource demandée n'a pas été trouvée sur le serveur."
 
 #: core/templates/admin/base.html:28
 msgid "Welcome,"
-msgstr "Bienvenue, "
+msgstr "Bienvenue sur v-podcast, vous pourrez désormais déposer vos vidéos, voire les enrichir avec des images, du texte, des pdf... afin de partager votre savoir, vos connaissances et vos passions."
 
 #: core/templates/admin/base.html:33
 msgid "Documentation"
