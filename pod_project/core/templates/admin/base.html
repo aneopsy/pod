@@ -11,9 +11,6 @@
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 <link href="{% static 'css/admin.css' %}" rel="stylesheet">
 </head>
-{% include 'material/includes/material_css.html' %}
-    <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
-    {% include 'material/includes/material_js.html' %}
 {% load i18n %}
 <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}" {% if is_popup %}style="background:#000; margin:0; padding:0"{% endif %}>
 <!-- CoAntainer -->
