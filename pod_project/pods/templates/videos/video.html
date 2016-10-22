@@ -430,6 +430,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
                                             {% trans 'Video size' %}
                                             <select id="integration_size" class="form-control">
                                                 {% for enc in video.get_all_encoding_height %}
+                                                    {% if enc == 240 %}<option value="0" data-width="640" data-height="360">audio</option>{% endif %}
                                                     {% if enc == 240 %}<option value="240" data-width="640" data-height="360">240p</option>{% endif %}
                                                     {% if enc == 480 %}<option value="480" data-width="854" data-height="480">480p</option>{% endif %}
                                                     {% if enc == 720 %}<option value="720" data-width="1280" data-height="720">720p</option>{% endif %}
