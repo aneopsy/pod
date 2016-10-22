@@ -247,10 +247,10 @@ def encode_video(video_to_encode):
                 audiofilename = os.path.join(
                     settings.MEDIA_ROOT, VIDEOS_DIR, video.owner.username,
                     "%s" % video.id,
-                    "audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
+                    "video_audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
                 audiourl = os.path.join(
                     VIDEOS_DIR, video.owner.username, "%s" % video.id,
-                    "audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
+                    "video_audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
                 encode_mp3(VIDEO_ID, audiofilename, audiourl,
                            encod_audio, in_audio_rate)
             # MAKE THUMBNAILS
