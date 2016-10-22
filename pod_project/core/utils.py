@@ -234,22 +234,25 @@ def encode_video(video_to_encode):
         rootFolder = Folder.objects.get(
             name=video_to_encode.owner, owner=video_to_encode.owner, level=0)
         folder, created = Folder.objects.get_or_create(
-            name=video_to_encode.slug, owner=video_to_encode.owner, parent=rootFolder)
+            name=video_to_encode.slug, owner=video_to_encode.owner,
+            parent=rootFolder)
         if DEBUG:
             print "END FILER FOLDER"
         # FOR VIDEO
-        list_encod_audio = EncodingType.objects.filter(mediatype='audio')
-        for encod_audio in list_encod_audio:
-            video = Pod.objects.get(id=VIDEO_ID)
-            audiofilename = os.path.join(settings.MEDIA_ROOT, VIDEOS_DIR, video.owner.username, "%s" % video.id,
-                                         "audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
-            audiourl = os.path.join(VIDEOS_DIR, video.owner.username, "%s" % video.id,
-                                    "audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
-            encode_mp3(
-                VIDEO_ID, audiofilename, audiourl, encod_audio, in_audio_rate)
-            if ENCODE_WAV and os.access(audiofilename, os.F_OK):
-                encode_wav(VIDEO_ID, audiofilename, in_audio_rate, encod_audio)
         if is_video:
+            # MAKE MP3
+            list_encod_audio = EncodingType.objects.filter(mediatype='audio')
+            for encod_audio in list_encod_audio:
+                video = Pod.objects.get(id=VIDEO_ID)
+                audiofilename = os.path.join(
+                    settings.MEDIA_ROOT, VIDEOS_DIR, video.owner.username,
+                    "%s" % video.id,
+                    "audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
+                audiourl = os.path.join(
+                    VIDEOS_DIR, video.owner.username, "%s" % video.id,
+                    "audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
+                encode_mp3(VIDEO_ID, audiofilename, audiourl,
+                           encod_audio, in_audio_rate)
             # MAKE THUMBNAILS
             if int(video_to_encode.duration) > 3:
                 add_thumbnails(VIDEO_ID, in_width, in_height, folder)
