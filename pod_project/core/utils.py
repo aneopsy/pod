@@ -240,19 +240,6 @@ def encode_video(video_to_encode):
             print "END FILER FOLDER"
         # FOR VIDEO
         if is_video:
-            # MAKE MP3
-            list_encod_audio = EncodingType.objects.filter(mediatype='audio')
-            for encod_audio in list_encod_audio:
-                video = Pod.objects.get(id=VIDEO_ID)
-                audiofilename = os.path.join(
-                    settings.MEDIA_ROOT, VIDEOS_DIR, video.owner.username,
-                    "%s" % video.id,
-                    "video_audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
-                audiourl = os.path.join(
-                    VIDEOS_DIR, video.owner.username, "%s" % video.id,
-                    "video_audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
-                encode_mp3(VIDEO_ID, audiofilename, audiourl,
-                           encod_audio, in_audio_rate)
             # MAKE THUMBNAILS
             if int(video_to_encode.duration) > 3:
                 add_thumbnails(VIDEO_ID, in_width, in_height, folder)
@@ -280,6 +267,19 @@ def encode_video(video_to_encode):
                                in_audio_rate, encod_video, videofilename, videourl)
                     if ENCODE_WEBM and os.access(videofilename, os.F_OK):
                         encode_webm(VIDEO_ID, videofilename, encod_video, bufsize)
+            # MAKE MP3
+            list_encod_audio = EncodingType.objects.filter(mediatype='audio')
+            for encod_audio in list_encod_audio:
+                video = Pod.objects.get(id=VIDEO_ID)
+                audiofilename = os.path.join(
+                    settings.MEDIA_ROOT, VIDEOS_DIR, video.owner.username,
+                    "%s" % video.id,
+                    "audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
+                audiourl = os.path.join(
+                    VIDEOS_DIR, video.owner.username, "%s" % video.id,
+                    "audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
+                encode_mp3(VIDEO_ID, audiofilename, audiourl,
+                           encod_audio, in_audio_rate)
         else:
             list_encod_audio = EncodingType.objects.filter(mediatype='audio')
             for encod_audio in list_encod_audio:
