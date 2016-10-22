@@ -258,10 +258,18 @@ def encode_video(video_to_encode):
                     pass
                 if in_height >= encod_video.output_height or encod_video == list_encod_video.first():
                     video = Pod.objects.get(id=VIDEO_ID)
+                    audiofilename = os.path.join(settings.MEDIA_ROOT, VIDEOS_DIR, video.owner.username, "%s" % video.id,
+                                             "audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
+                    audiourl = os.path.join(VIDEOS_DIR, video.owner.username, "%s" % video.id,
+                                        "audio_%s_%s.mp3" % (video.id, encod_audio.output_height))
+                    encode_mp3(VIDEO_ID, audiofilename, audiourl, encod_audio, in_audio_rate)
+
                     videofilename = os.path.join(settings.MEDIA_ROOT, VIDEOS_DIR, video.owner.username, "%s" % video.id,
                                                  "video_%s_%s.mp4" % (video.id, encod_video.output_height))
                     videourl = os.path.join(VIDEOS_DIR, video.owner.username, "%s" % video.id,
                                             "video_%s_%s.mp4" % (video.id, encod_video.output_height))
+
+
                     encode_mp4(VIDEO_ID, in_width, in_height, bufsize,
                                in_audio_rate, encod_video, videofilename, videourl)
                     if ENCODE_WEBM and os.access(videofilename, os.F_OK):
