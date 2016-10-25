@@ -162,6 +162,7 @@
                 continue;
             }
             current_res = sources[i]['data-res'];
+            alert(current_res)
             if (typeof available_res[current_res] !== 'object') {
                 available_res[current_res] = [];
                 available_res.length++;
