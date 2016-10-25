@@ -192,7 +192,7 @@
                         }
                     }
                 }
-                console.debug(found_types)
+                alert(found_types)
                 // If we didn't find sources for all of the required types in the current res, remove it
                 if (found_types < settings.force_types.length) {
                     delete available_res[current_res];
