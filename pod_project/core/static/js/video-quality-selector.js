@@ -110,9 +110,9 @@
         // Add an item for each available resolution
         for (current_res in player.availableRes) {
             // Don't add an item for the length attribute
-            //if ('length' == current_res) {
-            //    continue;
-            //}
+            if ('length' == current_res) {
+                continue;
+            }
             items.push(new _V_.ResolutionMenuItem(player, {
                 res: current_res
             }));
@@ -147,7 +147,7 @@
             // Override default options with those provided
             settings = _V_.util.mergeOptions({
                 default_res: '', // (string) The resolution that should be selected by default ( '480' or '480,1080,240' )
-                force_types: false	// (array) List of media types. If passed, we need to have source for each type in each resolution or that resolution will not be an option
+                force_types: true	// (array) List of media types. If passed, we need to have source for each type in each resolution or that resolution will not be an option
             }, options || {}),
             available_res = { length: 0 },
             current_res,
