@@ -147,7 +147,7 @@
             // Override default options with those provided
             settings = _V_.util.mergeOptions({
                 default_res: '', // (string) The resolution that should be selected by default ( '480' or '480,1080,240' )
-                force_types: true	// (array) List of media types. If passed, we need to have source for each type in each resolution or that resolution will not be an option
+                force_types: false	// (array) List of media types. If passed, we need to have source for each type in each resolution or that resolution will not be an option
             }, options || {}),
             available_res = { length: 0 },
             current_res,
@@ -192,6 +192,7 @@
                         }
                     }
                 }
+                console.debug(found_types)
                 // If we didn't find sources for all of the required types in the current res, remove it
                 if (found_types < settings.force_types.length) {
                     delete available_res[current_res];
