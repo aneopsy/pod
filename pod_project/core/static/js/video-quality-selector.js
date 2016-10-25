@@ -176,6 +176,7 @@
                 if ('length' == current_res) {
                     continue;
                 }
+                alert(current_res.type)
                 i = settings.force_types.length;
                 found_types = 0;
                 // Loop through all required types
@@ -188,15 +189,14 @@
                         // Check if the current source matches the current type we're checking
                         if (settings.force_types[i] === available_res[current_res][j].type) {
                             found_types++;
-                            alert(available_res[current_res][j].type)
                             break;
                         }
                     }
                 }
                 // If we didn't find sources for all of the required types in the current res, remove it
-                //if (found_types < settings.force_types.length) {
-                //    delete available_res[current_res];
-                //    available_res.length--;
+                if (found_types < settings.force_types.length) {
+                    delete available_res[current_res];
+                    available_res.length--;
                 }
             }
         }
