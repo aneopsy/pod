@@ -494,7 +494,7 @@ def download_video(video, get_request):
     format = "video/mp4" if "video" in video.get_mediatype() else "audio/mp3"
     resolution = get_request.get(
         'resolution') if get_request.get('resolution') else 240
-    if resolution == '0':
+    if get_request.get('type') == 'audio':
         format = "audio/mp3"
     filename = EncodingPods.objects.get(
         video=video, encodingType__output_height=resolution,
@@ -1448,7 +1448,6 @@ def get_video_encoding(request, slug, csrftoken, size, type, ext):
             return HttpResponseRedirect(reverse('account_login') + '?next=%s' % urlquote(request.get_full_path()))
     encodingpods = get_object_or_404(EncodingPods,
                                      encodingFormat="%s/%s" % (type, ext), video=video, encodingType__output_height=size)
-    """
     #TODO
     import re
     referer = request.META.get('HTTP_REFERER')
@@ -1475,7 +1474,6 @@ def get_video_encoding(request, slug, csrftoken, size, type, ext):
     # print encodingpods.encodingFile.url
 
     #END TODO
-    """
     return HttpResponseRedirect("%s%s" % (settings.FMS_ROOT_URL, encodingpods.encodingFile.url))
 
 
