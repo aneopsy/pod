@@ -380,7 +380,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
                                             {% trans 'Download the audio'%} :
                                             {% for encoding in video.encodingpods_set.all %}
                                                 {% if encoding.encodingFormat == "audio/mp3" %}
-                                                <a href="{{video.get_absolute_url}}?action=download&resolution={{ encoding.encodingType.output_height }}" title="{{ video.slug }}" class="list-group-item" >
+                                                <a href="{{video.get_absolute_url}}?action=download&resolution=0" title="{{ video.slug }}" class="list-group-item" >
                                                     {{ video.slug }}.mp3
                                                     <span class="label label-primary blue">{{ encoding.encodingFile.size|filesizeformat }}</span>
                                                 </a>
