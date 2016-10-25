@@ -162,7 +162,6 @@
                 continue;
             }
             current_res = sources[i]['data-res'];
-            alert(current_res)
             if (typeof available_res[current_res] !== 'object') {
                 available_res[current_res] = [];
                 available_res.length++;
@@ -195,9 +194,9 @@
                     }
                 }
                 // If we didn't find sources for all of the required types in the current res, remove it
-                if (found_types < settings.force_types.length) {
-                    delete available_res[current_res];
-                    available_res.length--;
+                //if (found_types < settings.force_types.length) {
+                //    delete available_res[current_res];
+                //    available_res.length--;
                 }
             }
         }
