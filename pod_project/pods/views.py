@@ -494,10 +494,11 @@ def download_video(video, get_request):
     format = "video/mp4" if "video" in video.get_mediatype() else "audio/mp3"
     resolution = get_request.get(
         'resolution') if get_request.get('resolution') else 240
-    format = "audio/mp3"
-    print("\n\n####\n"+format+'\n')
+    if resolution == '0':
+        format = "audio/mp3"
     filename = EncodingPods.objects.get(
-        video=video, encodingType__output_height=resolution, encodingFormat=format).encodingFile.path
+        video=video, encodingType__output_height=resolution,
+        encodingFormat=format).encodingFile.path
     print("\n\n####\n"+filename+'\n')
     wrapper = FileWrapper(file(filename))
     response = HttpResponse(wrapper, content_type=format)
