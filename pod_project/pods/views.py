@@ -1448,6 +1448,7 @@ def get_video_encoding(request, slug, csrftoken, size, type, ext):
             return HttpResponseRedirect(reverse('account_login') + '?next=%s' % urlquote(request.get_full_path()))
     encodingpods = get_object_or_404(EncodingPods,
                                      encodingFormat="%s/%s" % (type, ext), video=video, encodingType__output_height=size)
+    '''
     #TODO
     import re
     referer = request.META.get('HTTP_REFERER')
@@ -1474,6 +1475,7 @@ def get_video_encoding(request, slug, csrftoken, size, type, ext):
     # print encodingpods.encodingFile.url
 
     #END TODO
+    '''
     return HttpResponseRedirect("%s%s" % (settings.FMS_ROOT_URL, encodingpods.encodingFile.url))
 
 
