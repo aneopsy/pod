@@ -110,9 +110,9 @@
         // Add an item for each available resolution
         for (current_res in player.availableRes) {
             // Don't add an item for the length attribute
-            if ('length' == current_res) {
-                continue;
-            }
+            //if ('length' == current_res) {
+            //    continue;
+            //}
             items.push(new _V_.ResolutionMenuItem(player, {
                 res: current_res
             }));
