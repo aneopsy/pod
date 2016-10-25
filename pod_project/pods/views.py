@@ -499,7 +499,6 @@ def download_video(video, get_request):
     filename = EncodingPods.objects.get(
         video=video, encodingType__output_height=resolution,
         encodingFormat=format).encodingFile.path
-    print("\n\n####\n"+filename+'\n')
     wrapper = FileWrapper(file(filename))
     response = HttpResponse(wrapper, content_type=format)
     response['Content-Length'] = os.path.getsize(filename)
