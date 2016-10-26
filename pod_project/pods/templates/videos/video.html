@@ -399,6 +399,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
                                     {%endwith%}
 
                                 {% endif %}
+                                {% trans 'Download the documents'%} :
                                 {% for docpods in video.docpods_set.all %}
                                     <a href="{{ docpods.document.url }}" title="{{ docpods.document }}" target="_blank" class="list-group-item">
                                         {{ docpods.document }}
