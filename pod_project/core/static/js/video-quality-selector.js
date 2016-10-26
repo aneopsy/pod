@@ -18,7 +18,7 @@
          * In a future version, this can be made more intelligent,
          * but for now, we'll just add a "p" at the end if we are passed
          * numbers.
-         *
+         * Added: audio format
          * @param (string) res The resolution to make a label for
          *
          * @returns (string) The label text string
