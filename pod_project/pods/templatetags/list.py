@@ -156,6 +156,9 @@ def user_menu(filters, queryset_user):
     for user in queryset_user.filter(last_name__iregex=r'^%s+' % filters):
         html += "<li class=\"subItem\"><a href=\"%s%s\">%s %s (%s)</a></li>" % (reverse(
             'videos'), "?owner=%s" % user.username, user.last_name, user.first_name, user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count())
+
+    for user in queryset_user.filter(last_name__iregex=r'^%s+' % filters):
+        html += "<li>oki</li>"
     return html
 
 
