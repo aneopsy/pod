@@ -9,6 +9,7 @@ ALL_LANG_CHOICES = (
     ('ab', _('Abkhazian')),
     ('aa', _('Afar')),
     ('af', _('Afrikaans')),
+    ('ar', _('Arabic')),
     ('sq', _('Albanian')),
     ('am', _('Amharic')),
     ('ar', _('Arabic')),
@@ -63,6 +64,7 @@ ALL_LANG_CHOICES = (
     ('id', _('Indonesian')),
     ('ia', _('Interlingua')),
     ('ie', _('Interlingue')),
+    ('it', _('Italian')),
     ('iu', _('Inuktitut')),
     ('ik', _('Inupiak')),
     ('ga', _('Irish')),
@@ -154,13 +156,11 @@ ALL_LANG_CHOICES = (
 )
 
 PREF_LANG_CHOICES = (
-    ('de', _('German')),
+    ('fr', _('French')),
+    ('tn', _('Tahitian')),
     ('en', _('English')),
-    ('ar', _('Arabic')),
     ('zh', _('Chinese')),
     ('es', _('Spanish')),
-    ('fr', _('French')),
-    ('it', _('Italian')),
+    ('de', _('German')),
     ('ja', _('Japanese')),
-    ('ru', _('Russian')),
 )
