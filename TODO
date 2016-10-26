@@ -1,0 +1,16 @@
+TODO-list
+
+mp3 format:                     ok
+download object:                ok
+tahitian:                       ok
+permissions:                    ok
+pdf:                            ok
+timestart video:                ok
+player audio label:             ok
+navbar Users:                   ko
+
+
+translate:
+    -tahitian
+    -download the audio
+    -download the document
