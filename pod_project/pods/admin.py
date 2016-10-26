@@ -171,7 +171,7 @@ class RecorderAdmin(admin.ModelAdmin):
     list_display = ('name', 'adress_ip', 'building', 'status', 'slide', 'is_restricted')
     list_display_links = ('name',)
     list_filter = ('building',)
-    list_editable = ('status', 'slide', 'is_restricted' )
+    list_editable = ('status', 'slide', 'is_restricted')
 
 admin.site.register(Recorder, RecorderAdmin)
 
