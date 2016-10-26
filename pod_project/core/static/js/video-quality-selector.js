@@ -147,7 +147,7 @@
             // Override default options with those provided
             settings = _V_.util.mergeOptions({
                 default_res: '', // (string) The resolution that should be selected by default ( '480' or '480,1080,240' )
-                force_types: ["video/webm"]	// (array) List of media types. If passed, we need to have source for each type in each resolution or that resolution will not be an option
+                force_types: false	// (array) List of media types. If passed, we need to have source for each type in each resolution or that resolution will not be an option
             }, options || {}),
             available_res = { length: 0 },
             current_res,
@@ -176,7 +176,6 @@
                 if ('length' == current_res) {
                     continue;
                 }
-                alert(current_res.type)
                 i = settings.force_types.length;
                 found_types = 0;
                 // Loop through all required types
