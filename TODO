@@ -7,8 +7,8 @@ permissions:                    ok
 pdf:                            ok
 timestart video:                ok
 player audio label:             ok
-navbar Users:                   ko
-
+navbar Users:                   ok
+cas:                            ko
 
 translate:
     -tahitian
