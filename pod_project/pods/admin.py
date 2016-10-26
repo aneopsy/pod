@@ -30,13 +30,14 @@ from django.core.urlresolvers import reverse
 from django.utils.html import format_html
 
 from django.contrib.auth.models import User
-#Ordering user by username !
+# Ordering user by username !
 User._meta.ordering = ["username"]
 
 
 def url_to_edit_object(obj):
     url = reverse(
-        'admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name), args=[obj.id])
+        'admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name),
+        args=[obj.id])
     return format_html('<a href="{}">{}</a>', url, obj.__unicode__())
 
 
@@ -65,35 +66,33 @@ class ThemeAdmin(admin.ModelAdmin):
     list_display = ('title', 'channel')
     list_filter = ['channel']
     prepopulated_fields = {'slug': ('title',)}
-    ordering = ('channel','title')
+    ordering = ('channel', 'title')
 admin.site.register(Theme, ThemeAdmin)
 
 class TypeAdmin(TranslationAdmin):
     prepopulated_fields = {'slug': ('title',)}
 admin.site.register(Type, TypeAdmin)
-
 class DisciplineAdmin(TranslationAdmin):
     prepopulated_fields = {'slug': ('title',)}
 admin.site.register(Discipline, DisciplineAdmin)
-
 class EncodingPodsInline(admin.TabularInline):
     model = EncodingPods
-    extra=0
+    extra = 0
 class ContributorPodsInline(admin.TabularInline):
     model = ContributorPods
-    extra=0
+    extra = 0
 class TrackPodsInline(admin.TabularInline):
     model = TrackPods
-    extra=0
+    extra = 0
 class DocPodsInline(admin.TabularInline):
     model = DocPods
-    extra=0
+    extra = 0
 class ChapterPodsInline(admin.TabularInline):
     model = ChapterPods
-    extra=0
+    extra = 0
 class EnrichPodsInline(admin.TabularInline):
     model = EnrichPods
-    extra=0
+    extra = 0
 
 
 class PodAdmin(admin.ModelAdmin):
@@ -106,15 +105,20 @@ class PodAdmin(admin.ModelAdmin):
     get_owner_by_name.allow_tags = True
     get_owner_by_name.short_description = _('Owner')
 
-    list_display = ('id', 'title', 'get_owner_by_name', 'type', 'date_added', 'view_count', 'is_draft', 'is_restricted', 'is_password', 'duration_in_time', 'encoding_in_progress', 'size_file', 'encoding_status', 'admin_thumbnail')
+    list_display = ('id', 'title', 'get_owner_by_name', 'type', 'date_added',
+                    'view_count', 'is_draft', 'is_restricted', 'is_password',
+                    'duration_in_time', 'encoding_in_progress',
+                    'encoding_status', 'admin_thumbnail')
     list_display_links = ('id', 'title')
     list_filter = ('date_added', 'channel', 'type', 'is_draft')
     list_editable = ('is_draft', 'is_restricted')
-    search_fields = ['id', 'title', 'description', 'video', 'owner__username', 'owner__first_name', 'owner__last_name']
+    search_fields = ['id', 'title', 'description', 'video', 'owner__username',
+                     'owner__first_name', 'owner__last_name']
     list_per_page = 20
-    #prepopulated_fields = {'slug': ('title',)}
-    filter_horizontal = ('discipline','channel','theme',)
-    readonly_fields=('duration', 'infoVideo', 'encoding_in_progress', 'encoding_status')
+    # prepopulated_fields = {'slug': ('title',)}
+    filter_horizontal = ('discipline', 'channel', 'theme',)
+    readonly_fields = ('duration', 'infoVideo',
+                       'encoding_in_progress', 'encoding_status')
     inlines = [
         EncodingPodsInline,
         ContributorPodsInline,
@@ -133,8 +137,8 @@ class PodAdmin(admin.ModelAdmin):
 
     def encode_video(self, request, queryset):
         for item in queryset:
-            item.encoding_in_progress=False
-            item.to_encode=True
+            item.encoding_in_progress = False
+            item.to_encode = True
             item.save()
     encode_video.short_description = _('Encode selected')
 
@@ -157,18 +161,21 @@ admin.site.register(ChapterPods)
 admin.site.register(EnrichPods)
 admin.site.register(Notes)
 
-#recorder
+
 class MediacoursesAdmin(admin.ModelAdmin):
+    # recorder
     list_display = ('title', 'user', 'mediapath', 'started', 'date_added')
     list_display_links = ('title',)
     list_filter = ('user',)
-    #list_editable = ('status', 'slide' )
+    # list_editable = ('status', 'slide' )
 
 admin.site.register(Mediacourses, MediacoursesAdmin)
 admin.site.register(Building)
 
+
 class RecorderAdmin(admin.ModelAdmin):
-    list_display = ('name', 'adress_ip', 'building', 'status', 'slide', 'is_restricted')
+    list_display = ('name', 'adress_ip', 'building', 'status',
+                    'slide', 'is_restricted')
     list_display_links = ('name',)
     list_filter = ('building',)
     list_editable = ('status', 'slide', 'is_restricted')
@@ -176,9 +183,10 @@ class RecorderAdmin(admin.ModelAdmin):
 admin.site.register(Recorder, RecorderAdmin)
 
 
-#Report Video
 class ReportAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'video', 'comment', 'answer', 'date_added', 'get_iframe_url_to_video')
+    # Report Video
+    list_display = ('id', 'user', 'video', 'comment', 'answer',
+                    'date_added', 'get_iframe_url_to_video')
     list_filter = ('date_added',)
-    list_display_links = ('id','user','video')
+    list_display_links = ('id', 'user', 'video')
 admin.site.register(ReportVideo, ReportAdmin)

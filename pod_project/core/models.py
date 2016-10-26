@@ -180,9 +180,6 @@ class Video(models.Model):
     encoding_status = models.CharField(
         _('Encoding status'), max_length=250, editable=False, blank=True, null=True)
 
-    size_file = models.IntegerField(
-        _('Duration'), default=0, editable=False, blank=True)
-
     thumbnail = FilerImageField(
         null=True, blank=True, verbose_name=_('Thumbnail'))
 
