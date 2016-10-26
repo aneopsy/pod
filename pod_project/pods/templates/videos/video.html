@@ -398,13 +398,15 @@ $(document).on('click', '#button_video_favorite', function (event) {
                                     {%endwith%}
 
                                 {% endif %}
-                                {% trans 'Download the documents'%} :
-                                {% for docpods in video.docpods_set.all %}
-                                    <a href="{{ docpods.document.url }}" title="{{ docpods.document }}" target="_blank" class="list-group-item">
-                                        {{ docpods.document }}
-                                       <span class="label label-primary blue">{{ docpods.document.size|filesizeformat }}</span>
-                                    </a>
-                                {% endfor %}
+                                {% if video.docpods_set.all %}
+                                    {% trans 'Download the documents'%} :
+                                    {% for docpods in video.docpods_set.all %}
+                                        <a href="{{ docpods.document.url }}" title="{{ docpods.document }}" target="_blank" class="list-group-item">
+                                            {{ docpods.document }}
+                                            <span class="label label-primary blue">{{ docpods.document.size|filesizeformat }}</span>
+                                        </a>
+                                    {% endfor %}
+                                {% endif %}
                             </div>
                         </div>
                         <!-- /TAB dl -->
