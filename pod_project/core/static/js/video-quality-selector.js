@@ -24,6 +24,9 @@
          * @returns (string) The label text string
          */
         res_label: function (res) {
+            if (res == '0') {
+                return 'audio';
+            }
             return ( /^\d+$/.test(res) ) ? res + 'p' : res;
         }
     };
