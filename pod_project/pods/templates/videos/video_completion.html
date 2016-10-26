@@ -457,7 +457,7 @@ function verify_fields(form){
                     {%endif%}
                     <!-- This button will add a new form when clicked -->
                     </span>
-                    <form  class = "form_new" id="form_new_contributor" action="{% url 'video_completion_contributor' slug=video.slug  %}" method="post">
+                    <form  class = "form_new blue" id="form_new_contributor" action="{% url 'video_completion_contributor' slug=video.slug  %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="action" value="new">
                         <input type="submit" value="{% trans "Add a new contributor" %}" class="new_contributor btn btn-info"/>
