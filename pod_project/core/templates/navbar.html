@@ -82,6 +82,8 @@ voir http://www.gnu.org/licenses/
                                 <a href="{% url 'owners' %}?owners_filter={{filter|urlencode}}">{{filter|upper}}</a>
                                 <ul class="dropdown-menu">
                                     {% user_menu filter OWNERS %}
+                                    {% user_menu %}
+                                    {% OWNERS %}
                                 </ul>
     						</li>
     					{% endfor %}
