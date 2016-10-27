@@ -223,7 +223,7 @@ class Video(models.Model):
             if (self.file_size >= factor):
                 break
         return '%.*f %s' % (2, self.file_size / factor, suffix)
-    file_size_mo.short_description = _('Original Size')
+    file_size_mo.short_description = _('Size')
     file_size_mo.allow_tags = True
 
     def admin_thumbnail(self):
