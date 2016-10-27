@@ -10,9 +10,9 @@ player audio label:             ok
 -
 navbar Users:                   ok
 video size:                     ok
-cas:                            ko
-
-translate:
+translate:                      ok
     -tahitian
     -download the audio
     -download the document
+admin design                    ok
+cas:                            ko
