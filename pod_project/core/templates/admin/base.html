@@ -10,11 +10,13 @@
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 <link href="{% static 'css/admin.css' %}" rel="stylesheet">
+</head>
 {% load i18n %}
-<body> <!-- class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}" {% if is_popup %}style="background:#000; margin:0; padding:0"{% endif %}>
--->
-<!-- CoAntainer -->
-<div class="card-panel" id="log-container">
+
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}" {% if is_popup %}style="background:#fff; margin:0; padding:0"{% endif %}>
+
+<!-- Container -->
+<div id="container">
     {% if not is_popup %}
     <!-- Header -->
     <div id="header">
@@ -72,5 +74,6 @@
     {% block footer %}<div id="footer"></div>{% endblock %}
 </div>
 <!-- END Container -->
+
 </body>
 </html>
