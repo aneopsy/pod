@@ -183,9 +183,6 @@ class Video(models.Model):
     thumbnail = FilerImageField(
         null=True, blank=True, verbose_name=_('Thumbnail'))
 
-    file_size = models.IntegerField(
-        _('Size'), default=0, editable=False, blank=True)
-
     to_encode = models.BooleanField(default=False, editable=False)
 
     overview = models.ImageField(
@@ -193,6 +190,10 @@ class Video(models.Model):
 
     duration = models.IntegerField(
         _('Duration'), default=0, editable=False, blank=True)
+
+    file_size = models.IntegerField(
+        _('Size'), default=0, editable=False, blank=True)
+
     infoVideo = models.TextField(null=True, blank=True, editable=False)
 
     class Meta:
