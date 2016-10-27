@@ -106,7 +106,7 @@ class PodAdmin(admin.ModelAdmin):
     get_owner_by_name.allow_tags = True
     get_owner_by_name.short_description = _('Owner')
 
-    list_display = ('id', 'title', 'get_owner_by_name', 'type', 'date_added', 'view_count', 'is_draft', 'is_restricted', 'is_password', 'duration_in_time', 'encoding_in_progress', 'encoding_status', 'admin_thumbnail')
+    list_display = ('id', 'title', 'get_owner_by_name', 'type', 'date_added', 'view_count', 'is_draft', 'is_restricted', 'is_password', 'duration_in_time', 'encoding_in_progress', 'size_file', 'encoding_status', 'admin_thumbnail')
     list_display_links = ('id', 'title')
     list_filter = ('date_added', 'channel', 'type', 'is_draft')
     list_editable = ('is_draft', 'is_restricted')
