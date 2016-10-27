@@ -184,7 +184,7 @@ class Video(models.Model):
         null=True, blank=True, verbose_name=_('Thumbnail'))
 
     file_size = models.IntegerField(
-        _('Duration'), default=0, editable=False, blank=True)
+        _('Size'), default=0, editable=False, blank=True)
 
     to_encode = models.BooleanField(default=False, editable=False)
 
