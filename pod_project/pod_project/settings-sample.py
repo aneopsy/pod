@@ -22,7 +22,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # Mettre url de production
-ALLOWED_HOSTS = ['pod.univ.fr']
+ALLOWED_HOSTS = ['v-podcast.upf.pf']
 
 # Liste des applications
 # https://docs.djangoproject.com/en/1.7/topics/migrations/#upgrading-from-south
