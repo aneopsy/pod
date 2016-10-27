@@ -216,9 +216,10 @@ class Video(models.Model):
         abbrevs = ((1 << 30L, 'Gio'),
                    (1 << 20L, 'Mio'),
                    (1 << 10L, 'Kio'),
-                   (1, 'octet'))
+                   (1, 'octet'),
+                   (0, 'None'))
         for factor, suffix in abbrevs:
-            if (bytes >= factor):
+            if (self.file_size >= factor):
                 break
         return '%.*f %s' % (2, self.file_size / factor, suffix)
 
