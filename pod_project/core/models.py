@@ -183,6 +183,9 @@ class Video(models.Model):
     thumbnail = FilerImageField(
         null=True, blank=True, verbose_name=_('Thumbnail'))
 
+    size_file = FilerImageField(
+        null=True, blank=True, verbose_name=_('Thumbnail'))
+
     to_encode = models.BooleanField(default=False, editable=False)
 
     overview = models.ImageField(
