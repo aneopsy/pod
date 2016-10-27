@@ -509,6 +509,7 @@ footer a {
   height: 100% !important;
 }
 #preview {
+  transition: box-shadow .25s;
   position: absolute;
   height: 64px;
   width: 86px;
@@ -666,10 +667,6 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
   background-color: #fff;
-}
-
-.card-panel .preview {
-  padding: 0px;
 }
 
 .grey.lighten-3 {
