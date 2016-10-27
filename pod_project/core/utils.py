@@ -102,6 +102,7 @@ def encode_video(video_to_encode):
         try:
             duration = float("%s" % info["format"]['duration'])
             video_to_encode.duration = int(duration)
+            video_to_encode.file_size = int(info["format"]['size'])
             video_to_encode.save()
         except Exception as e:
             msg = u'\n NO DURATION ***** Unexpected error :%r' % e
