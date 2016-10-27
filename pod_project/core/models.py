@@ -218,7 +218,7 @@ class Video(models.Model):
                    (1 << 10L, 'Kio'),
                    (1, 'octet'))
         for factor, suffix in abbrevs:
-            if bytes >= factor:
+            if (bytes >= factor):
                 break
         return '%.*f %s' % (2, self.file_size / factor, suffix)
 
