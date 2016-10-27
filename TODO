@@ -7,7 +7,9 @@ permissions:                    ok
 pdf:                            ok
 timestart video:                ok
 player audio label:             ok
+-
 navbar Users:                   ok
+video size:                     ok
 cas:                            ko
 
 translate:
