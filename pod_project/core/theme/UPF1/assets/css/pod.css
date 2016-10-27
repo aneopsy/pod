@@ -215,7 +215,7 @@ aside .form-group.show-all .more {
 }
 .video-thumb .video-holder {
   display: block;
-  overflow: hidden;
+  /*overflow: hidden;*/
   text-decoration: none;
 }
 .video-thumb .video-holder .poster {
