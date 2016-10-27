@@ -108,7 +108,7 @@ class PodAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'get_owner_by_name', 'type', 'date_added',
                     'view_count', 'is_draft', 'is_restricted', 'is_password',
                     'duration_in_time', 'encoding_in_progress',
-                    'encoding_status', 'admin_thumbnail')
+                    'encoding_status', 'admin_thumbnail', 'file_size')
     list_display_links = ('id', 'title')
     list_filter = ('date_added', 'channel', 'type', 'is_draft')
     list_editable = ('is_draft', 'is_restricted')
