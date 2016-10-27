@@ -220,7 +220,7 @@ class Video(models.Model):
         for factor, suffix in abbrevs:
             if bytes >= factor:
                 break
-        return '%;*f %s' % (2, self.file_size / factor, suffix)
+        return '%.*f %s' % (2, self.file_size / factor, suffix)
 
     def admin_thumbnail(self):
         try:
