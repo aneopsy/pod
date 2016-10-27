@@ -216,8 +216,9 @@ class Video(models.Model):
         abbrevs = ((1 << 30L, 'Gio'),
                    (1 << 20L, 'Mio'),
                    (1 << 10L, 'Kio'),
-                   (1, 'octet'),
-                   (0, 'None'))
+                   (1, 'octet'))
+        if self.file_size == 0:
+            return 'None'
         for factor, suffix in abbrevs:
             if (self.file_size >= factor):
                 break
