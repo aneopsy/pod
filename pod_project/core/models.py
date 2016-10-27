@@ -212,6 +212,16 @@ class Video(models.Model):
     def filename(self):
         return os.path.basename(self.video.name)
 
+    def file_size_mo(self):
+        abbrevs = ((1 << 30L, 'Gio'),
+                   (1 << 20L, 'Mio'),
+                   (1 << 10L, 'Kio'),
+                   (1, 'octet'))
+        for factor, suffix in abbrevs:
+            if bytes >= factor:
+                break
+        return '%;*f %s' % (2, self.file_size / factor, suffix)
+
     def admin_thumbnail(self):
         try:
             if self.thumbnail is None:
