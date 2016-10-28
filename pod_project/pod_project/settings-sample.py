@@ -206,7 +206,7 @@ LOGO_PLAYER = 'images/logo_white_compact.png'
 SERV_LOGO = 'images/semm.png'
 
 HELP_MAIL = 'assistance@univ.fr'
-WEBTV = '<a href="https://www.upf.pf" id="webtv" class="btn btn-sm orange">' \
+WEBTV = '<a href="https://www.upf.pf" id="webtv" class="btn btn-sm primary-color">' \
     'UPF<span class="glyphicon glyphicon-link"></span>' \
     '</a>'
 

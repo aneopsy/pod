@@ -372,7 +372,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
                                                 {% if encoding.encodingFormat == "video/mp4" %}
                                                     <a href="{{video.get_absolute_url}}?action=download&resolution={{ encoding.encodingType.output_height }}" title="{{ video.slug }}" class="list-group-item" >
                                                         {{ video.slug }}_{{ encoding.encodingType.output_height }}.mp4
-                                                        <span class="label label-primary blue">{{ encoding.encodingFile.size|filesizeformat }}</span>
+                                                        <span class="label label-primary primary-color">{{ encoding.encodingFile.size|filesizeformat }}</span>
                                                     </a>
                                                 {%endif%}
                                             {% endfor %}
@@ -381,7 +381,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
                                                 {% if encoding.encodingFormat == "audio/mp3" %}
                                                 <a href="{{video.get_absolute_url}}?action=download&resolution={{ encoding.encodingType.output_height }}&type=audio" title="{{ video.slug }}" class="list-group-item" >
                                                     {{ video.slug }}.mp3
-                                                    <span class="label label-primary blue">{{ encoding.encodingFile.size|filesizeformat }}</span>
+                                                    <span class="label label-primary primary-color">{{ encoding.encodingFile.size|filesizeformat }}</span>
                                                 </a>
                                                 {%endif%}
                                             {% endfor %}
@@ -390,7 +390,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
                                                 {% if encoding.encodingFormat == "audio/mp3" %}
                                                 <a href="{{video.get_absolute_url}}?action=download&resolution={{ encoding.encodingType.output_height }}" title="{{ video.slug }}" class="list-group-item" >
                                                     {{ video.slug }}.mp3
-                                                    <span class="label label-primary blue">{{ encoding.encodingFile.size|filesizeformat }}</span>
+                                                    <span class="label label-primary primary-color">{{ encoding.encodingFile.size|filesizeformat }}</span>
                                                 </a>
                                                 {%endif%}
                                             {%endfor%}
@@ -403,7 +403,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
                                     {% for docpods in video.docpods_set.all %}
                                         <a href="{{ docpods.document.url }}" title="{{ docpods.document }}" target="_blank" class="list-group-item">
                                             {{ docpods.document }}
-                                            <span class="label label-primary blue">{{ docpods.document.size|filesizeformat }}</span>
+                                            <span class="label label-primary primary-color">{{ docpods.document.size|filesizeformat }}</span>
                                         </a>
                                     {% endfor %}
                                 {% endif %}
@@ -470,7 +470,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
                     </div>
                 </div>
                 {% if not request.GET.is_iframe %}
-                    <aside class="col-sm-3 card-panel grey lighten-3">
+                    <aside class="col-sm-3 card-panel background-color">
                         <div class="widget notes text-right">
                             <h4 class="text-left">
                                 <span class="glyphicon glyphicon-paperclip"></span>
