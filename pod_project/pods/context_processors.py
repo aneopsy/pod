@@ -27,7 +27,7 @@ from django.contrib.auth.models import User
 def items_menu_header(request):
     return {
             'CHANNELS': Channel.objects.filter(visible=True),
-            'TYPES' : Type.objects.all(),
-            'DISCIPLINES' : Discipline.objects.all(),
-            'OWNERS' : User.objects.all() #User.objects.filter(pod__in=Pod.objects.filter(is_draft=False, encodingpods__gt=0).distinct()).order_by('last_name').distinct()
+            'TYPES': Type.objects.all(),
+            'DISCIPLINES': Discipline.objects.all(),
+            'OWNERS': User.objects.filter(pod__in=Pod.objects.filter(is_draft=False, encodingpods__gt=0).distinct()).order_by('last_name').distinct()
     }
