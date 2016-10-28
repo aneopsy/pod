@@ -190,7 +190,7 @@ def get_last_videos():
 def is_new(video):
     diff = datetime.datetime.now().date() - video.date_added
     if diff.total_seconds() < 604800:
-        return '<span class="label label-danger orange">%s !</span>' % _('New')
+        return '<span class="label label-new secondary-color">%s !</span>' % _('New')
     return ""
 
 
@@ -201,7 +201,7 @@ def is_new_date(date_added):
     date_added = datetime.datetime.strptime(date_added, "%Y-%m-%dT%H:%M:%S")
     diff = datetime.datetime.now().date() - date_added.date()
     if diff.total_seconds() < 604800:
-        return '<span class="label label-danger orange">%s !</span>' % _('New')
+        return '<span class="label label-new secondary-color">%s !</span>' % _('New')
     return ""
 
 @register.filter(name='get')
