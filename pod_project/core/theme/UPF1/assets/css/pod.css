@@ -45,7 +45,7 @@ body > .page-header > .container > .row form select.input-sm.language {
 body > .navbar[role="navigation"] {
   border-radius: 0 !important;
   border: none;
-  background-color: #ff8e00;
+  background-color: #0061AB;
   margin-bottom: 0;
   position: relative;
   z-index: 1040;
@@ -57,7 +57,7 @@ body > .navbar[role="navigation"].navbar-default > .container > .navbar-header .
   width: 175px;
 }
 body > .navbar[role="navigation"].navbar-default > .container .navbar-nav > li:not(.open) > a {
-  color: #262425;
+  color: #FFF;
 }
 body > .container[role="main"] {
   background: #fff;
@@ -295,7 +295,7 @@ aside .form-group.show-all .more {
   color: #888;
 }
 #page-video #fav.glyphicon.glyphicon-star {
-  color: #ee7d19 !important;
+  color: #FFF !important;
 }
 #page-video .tab-content {
   margin: 10px 0;
@@ -381,10 +381,10 @@ aside .form-group.show-all .more {
 }
 footer {
   text-align: center;
-  border-top: 10px solid #FF8E00;
+  border-top: 10px solid #0061AB;
   border-top-width: 10px;
   border-top-style: solid;
-  border-top-color: #FF8E00;
+  border-top-color: #0061AB;
   text-align: left;
   background-color: #262425;
   color: #bfbfc0;
@@ -404,7 +404,7 @@ footer .btn-link,
 footer .btn-link:hover,
 footer .btn-link:focus,
 footer .btn-link:active {
-  color: #FF8E00;
+  color: #0061AB;
 }
 .span4 {
     overflow:hidden
@@ -428,12 +428,12 @@ footer .adressed {
 	font-size: 0.9em;
 }
 footer a {
-    color: #0570B8;
+    color: #0061AB;
 }
 .label-footer {
 	padding: 7px;
 	font-size: 0.9em;
-	background-color: #FF8E00;
+	background-color: #0061AB;
 }
 /*******************************************************************************
 
@@ -625,7 +625,7 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
   position: static !important;
   font-size: 3em !important;
   line-height: 1 !important;
-  color: #0570B8 !important;
+  color: #0061AB !important;
 }
 .vjs-default-skin .vjs-big-play-button:hover {
   -webkit-box-shadow: none !important;
@@ -633,7 +633,7 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
   box-shadow: none !important;
 }
 .vjs-default-skin .vjs-big-play-button:hover:before {
-  color: #0570B8 !important;
+  color: #0061AB !important;
 }
 /*******************************************************************************
 
@@ -647,7 +647,7 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #fff;
-  background-color: #ff8e00;
+  background-color: #0061AB;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -656,8 +656,8 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   color: #fff;
-  background-color: #ff8e00;
-  border-color: #ff8e00;
+  background-color: #0061AB;
+  border-color: #0061AB;
 }
 
 .card-panel {
@@ -679,12 +679,12 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 }
 .blue{
   color: #fff;
-  background-color: #0570B8 !important;
+  background-color: #0061AB !important;
 }
 
 .orange {
   color: #fff;
-  background-color: #ff9800 !important;
+  background-color: #E15E16 !important;
 }
 
 .orange-text {
