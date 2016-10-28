@@ -659,20 +659,7 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
   border-color: #0061AB;
 }
 
-.card-panel {
-  transition: box-shadow .25s;
-  padding: 20px;
-  margin: 0.5rem 0 1rem 0;
-  border-radius: 2px;
-  background-color: #fff;
-}
-
-.card-panel.preview {
-  padding: 0px;
-  width: 100%;
-  height: auto;
-}
-
+##COLOR##
 .background-color {
   background-color: #eeeeee !important;
 }
@@ -686,12 +673,51 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
   background-color: #DC8B08 !important;
 }
 
+.primary-color:hover {
+  color: #fff;
+  background-color: #1576bf !important;
+}
+
+.secondary-color:hover {
+  color: #fff;
+  background-color: #f09e1a !important;
+}
+
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  will-change: opacity, transform;
+  transition: all .3s ease-out;
+}
+
+.card-panel {
+    transition: box-shadow .25s;
+    padding: 20px;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.card-panel.preview {
+    padding: 0px;
+    width: 100%;
+    height: auto;
+}
+
 .z-depth-0 {
   box-shadow: none !important;
 }
 
-/* disable: btn */
-.z-depth-1, nav, .card-panel, .card, .toast, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
+.z-depth-1, nav, btn, .card-panel, .card, .toast, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
