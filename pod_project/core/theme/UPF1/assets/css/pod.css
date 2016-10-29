@@ -657,7 +657,21 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 }
 
 ##COLOR##
-.background-color {
+.card-panel {
+    transition: box-shadow .25s;
+    padding: 20px;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.card-panel.preview {
+    padding: 0px;
+    width: 100%;
+    height: auto;
+}
+
+.back-color {
   background-color: #eeeeee !important;
 }
 .primary-color {
@@ -694,20 +708,6 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
   z-index: 1;
   will-change: opacity, transform;
   transition: all .3s ease-out;
-}
-
-.card-panel {
-    transition: box-shadow .25s;
-    padding: 20px;
-    margin: 0.5rem 0 1rem 0;
-    border-radius: 2px;
-    background-color: #fff;
-}
-
-.card-panel.preview {
-    padding: 0px;
-    width: 100%;
-    height: auto;
 }
 
 .z-depth-0 {
