@@ -21,7 +21,7 @@ voir http://www.gnu.org/licenses/
 {%endcomment%}
 {% load thumbnail %}
 
-<div id="video-list" class="row card-panel back-color">
+<div id="video-list" class="row card-panel background-color">
 {% for owner in owners %}
 	<div class="video-thumb col-xs-6 col-md-4">
 	    <a href="{% url "videos" %}?owner={{owner.username}}" title="{{owner.get_full_name}} ({{owner.video_count}})">

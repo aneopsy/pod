@@ -671,7 +671,7 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
     height: auto;
 }
 
-.back-color {
+.background-color {
   background-color: #eeeeee !important;
 }
 .primary-color {
@@ -736,6 +736,36 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 
 .z-depth-5 {
   box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+}
+
+##BTN##
+.btn-success {
+    background-color: #95C108;
+}
+
+.btn-warning {
+    background-color: #DC8B08;
+}
+
+.btn-info {
+    background-color: #5CA8DA;
+}
+.btn-success:hover {
+    background-color: #a4d114;
+    border-color: #a4d114;
+}
+
+.btn-warning:hover {
+    background-color: #f09e1a;
+    border-color: #F09E1A;
+}
+
+.btn-info:hover {
+    background-color: #71bbec;
+    border-color: #71bbec
+}
+.btn-default:hover {
+    background-color: #fff;
 }
 
 nav li:hover{

@@ -21,7 +21,7 @@ voir http://www.gnu.org/licenses/
 {% load i18n list staticfiles %}
 {% load thumbnail %}
 
-<div id="video-list" class="row card-panel back-color">
+<div id="video-list" class="row card-panel background-color">
 {% for type in types %}
 	<div class="video-thumb col-xs-6 col-md-4">
 	    <a href="{% url "videos" %}?type={{type.slug}}" title="{{type.title}} ({{type.video_count}})">

@@ -244,7 +244,7 @@
     "@popover-arrow-color": "#fff",
     "@popover-arrow-outer-width": "(@popover-arrow-width + 1)",
     "@popover-arrow-outer-color": "fadein(@popover-border-color, 5%)",
-    "@popover-arrow-outer-fallback-color": "darken(@popover-fallback-border-color, 20%)",
+    "@popover-arrow-outer-fallbackground-color": "darken(@popover-fallback-border-color, 20%)",
     "@label-default-bg": "@gray-light",
     "@label-primary-bg": "@brand-primary",
     "@label-success-bg": "@brand-success",
