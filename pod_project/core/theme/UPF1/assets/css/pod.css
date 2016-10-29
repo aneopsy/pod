@@ -18,7 +18,7 @@ http://www.gnu.org/licenses/
 */
 body {
   background-color: #222;
-  background-image: url("/static/images/binding_dark.png");
+  background-image: url("http://www.upf.pf/sites/all/themes/custom/upf/images/bg/bg-page.png");
   background-position: top center;
   background-attachment: fixed;
   background-repeat: repeat;
@@ -28,7 +28,7 @@ body > .page-header {
   margin: 0 0 0 0;
   padding-bottom: 9px;
   padding-top: 10px;
-  background-color: #0061AB
+  background-color: #282C34
 }
 body > .page-header .user-area {
   position: relative;
