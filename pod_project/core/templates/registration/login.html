@@ -71,9 +71,9 @@ $( document ).ready(function() {
 <p>&nbsp;</p>
 <div class="text-center">
     {% if USE_CAS %}
-	<a class="btn btn-success" href="{% url 'cas_login' %}?gateway=False&next={{ next|urlencode }}"  id="connCas" title="{% trans "Single sign on" %} {{TITLE_ETB}}"><i class="fa fa-user fa-fw"></i>{% trans "Single sign on" %} {{TITLE_ETB}}</a>
+	<a class="btn btn-success waves-effect" href="{% url 'cas_login' %}?gateway=False&next={{ next|urlencode }}"  id="connCas" title="{% trans "Single sign on" %} {{TITLE_ETB}}"><i class="fa fa-user fa-fw"></i>{% trans "Single sign on" %} {{TITLE_ETB}}</a>
 	{% endif %}
-	<a class="btn btn-default" href="#" id="connInv" title=""><i class="fa fa-user fa-fw"></i>{% trans "local sign on" %}</a>
+	<a class="btn btn-default waves-effect" href="#" id="connInv" title=""><i class="fa fa-user fa-fw"></i>{% trans "local sign on" %}</a>
 </div>
 
 <form method="post" action="{% url 'core.views.core_login' %}" id="formConn">
@@ -85,18 +85,18 @@ $( document ).ready(function() {
     <input type="hidden" name="gateway" value="False" />
 
     {% buttons %}
-        <button type="submit" class="btn btn-success">
+        <button type="submit" class="btn btn-success waves-effect">
             {% bootstrap_icon "ok" %} {% trans "Log in" %}
         </button>
 
-        <button type="reset" class="btn">
+        <button type="reset" class="btn btn-warning waves-effect">
             {% bootstrap_icon "remove" %} {% trans "Erase" %}
         </button>
         {% if not request.GET.is_iframe %}
         {% if request.META.HTTP_REFERER %}
-        <a href="{{request.META.HTTP_REFERER}}" class="btn btn-info">{% bootstrap_icon "arrow-left" %} {% trans "Back" %}</a>
+        <a href="{{request.META.HTTP_REFERER}}" class="btn btn-info waves-effect">{% bootstrap_icon "arrow-left" %} {% trans "Back" %}</a>
         {% else %}
-        <a href="/" class="btn btn-info">{% bootstrap_icon "arrow-left" %} {% trans "Home" %}</a>
+        <a href="/" class="btn btn-info waves-effect">{% bootstrap_icon "arrow-left" %} {% trans "Home" %}</a>
         {% endif %}
         {% endif %}
     {% endbuttons %}
