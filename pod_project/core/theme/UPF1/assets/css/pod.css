@@ -926,14 +926,17 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 /*BTN*/
 .btn-success {
     background-color: #95C108;
+    border-color: #95C108;
 }
 
 .btn-warning {
     background-color: #DC8B08;
+    border-color: #DC8B08;
 }
 
 .btn-info {
     background-color: #5CA8DA;
+    border-color: #5CA8DA;
 }
 .btn-success:hover {
     background-color: #a4d114;
