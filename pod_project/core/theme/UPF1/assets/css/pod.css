@@ -665,6 +665,11 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
     background-color: #fff;
 }
 
+#row.card-panel {
+    margin: 0px;
+    padding: 10px;
+}
+
 .card-panel.preview {
     padding: 0px;
     width: 100%;
