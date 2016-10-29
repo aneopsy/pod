@@ -105,6 +105,7 @@ voir http://www.gnu.org/licenses/
 {% block article %}
     {% block article_content %}
         {% if channel.headband %}
+        <div class="card-panel">
         <div align="center" class="channelheader">
             <img src="{{ channel.headband.url }}" alt="{% trans 'Headband' %} {{ channel.title }}" class="img-responsive" />
         </div>
@@ -112,7 +113,7 @@ voir http://www.gnu.org/licenses/
         {% if channel.description %}
             {{ channel.description|safe }}
         {% endif %}
-
+        </div>
         {% if channel.themes.all %}
             <p>{% trans 'Here related themes in this channel' %} :</p>
             <form class="form visible-xs" method="GET">
