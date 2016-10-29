@@ -16,5 +16,12 @@ translate:                      ok
     -download the document
 admin design                    ok
 cas:                            ko
+chainer banner:                 ok
+design:
+    -Materialize:
+        -button:                ok
+        -card:                  ok
+
+    -color:                     ko
 
 test
