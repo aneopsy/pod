@@ -27,8 +27,8 @@ dashboard.addWidget('buzzwords_widget', 'List', {
                    {label: 'Pivoting', value: 3},
                    {label: 'Leverage', value: 10},
                    {label: 'Streamlininess', value: 4},
-                   {label: 'Paradigm shift', value: 6},
-                   {label: 'Synergy', value: 7}]
+                   {label: 'Paradigm shift', value: 666},
+                   {label: 'Synergy', value: 777}]
             });
     }
 });
