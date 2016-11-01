@@ -5,10 +5,11 @@ from django.views.generic import RedirectView
 from django.contrib import admin
 
 from dashing.utils import router
-from .widgets import NbrVideoWidget
+
 admin.autodiscover()
 
-router.register(NbrVideoWidget, 'nbr_video_widget')
+from .widgets import NewClientsWidget
+router.register(NewClientsWidget, 'new_users_widget')
 
 urlpatterns = patterns(
     '',
