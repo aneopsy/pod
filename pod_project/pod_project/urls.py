@@ -3,7 +3,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic import RedirectView
 from django.contrib import admin
+
+from dashing.utils import router
+from .widgets import NbrVideoWidget
 admin.autodiscover()
+
+router.register(NbrVideoWidget, 'nbr_video_widget')
 
 urlpatterns = patterns(
     '',
@@ -56,6 +61,9 @@ urlpatterns = patterns(
     url(r'^liveState/$', 'pods.views.liveState', name="liveState"),
     url(r'^liveSlide/$', 'pods.views.liveSlide', name="liveSlide"),
     url(r'^live/(?P<pk>\d+)/$', 'pods.views.live', name="live"),
+
+    #EXTERN
+    url(r'^dashboard/', include(router.urls), name="dashboard"),
 
     # POD VIDEOS
     url(r'^owners/$', 'pods.views.owners', name='owners'),
