@@ -1,0 +1,14 @@
+{% extends 'dashing/base.html' %}
+{% load staticfiles %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'my/custom/style.css' %}">
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'my/custom/script.js' %}"></script>
+{% endblock %}
+
+{% block config_file %}
+<script type="text/javascript" src="{% static 'js/dashing-config.js' %}"></script>
+{% endblock %}
