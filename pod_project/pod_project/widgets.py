@@ -42,7 +42,7 @@ class SpaceWidget(KnobWidget):
         return _ntuple_diskusage(total, used, free, percent)
 
     def get_value(self):
-        space = self.disk_usage('/')
+        space = self.disk_usage('/').percent
         return int(space)
 
     def get_more_info(self):
