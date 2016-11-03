@@ -6,6 +6,40 @@ from dashing.widgets import ListWidget
 from dashing.widgets import NumberWidget
 from random import randint
 from time import gmtime, strftime
+import os
+from collections import namedtuple
+
+_ntuple_diskusage = namedtuple('usage', 'total used free percent')
+
+
+class SpaceWidget(KnobWidget):
+    def file_size_mo(self, size):
+        abbrevs = ((1 << 30L, 'Gio'),
+                   (1 << 20L, 'Mio'),
+                   (1 << 10L, 'Kio'),
+                   (1, 'octet'))
+        if size == 0:
+            return 'None'
+        for factor, suffix in abbrevs:
+            if (size >= factor):
+                break
+        return '%.*f %s' % (2, self.file_size / factor, suffix)
+
+    def disk_usage(self, path):
+        """Return disk usage statistics about the given path.
+
+        Returned valus is a named tuple with attributes 'total', 'used' and
+        'free', which are the amount of total, used and free space, in bytes.
+        """
+        st = os.statvfs(path)
+        free = st.f_bavail * st.f_frsize
+        total = st.f_blocks * st.f_frsize
+        used = (st.f_blocks - st.f_bfree) * st.f_frsize
+        percent = (used / total * 100)
+        return _ntuple_diskusage(total, used, free, percent)
+
+    def get_value(self):
+        return 10
 
 
 class ServerWidget(NumberWidget):
