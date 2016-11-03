@@ -28,13 +28,13 @@ def file_size_mo(size):
 
 def convertColor(percent):
     b = 0
-    if space < 50:
+    if percent < 50:
         r = percent * 2.55 * 2
         g = 255
     else:
         r = 255
         g = (100 - percent) * 2.55 * 2
-    return r, g, b
+    return (r, g, b)
 
 
 class ProcessorWidget(KnobWidget):
@@ -84,7 +84,7 @@ class SpaceWidget(KnobWidget):
         return '%s free | %s used | %s total' % (file_size_mo(self.space.free), file_size_mo(self.space.used), file_size_mo(self.space.total))
 
     def get_data(self):
-        return {'readOnly': True}
+        return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % convertColor(self.percent)}
 
 
 class ServerWidget(NumberWidget):
