@@ -41,7 +41,7 @@ class ProcessorWidget(KnobWidget):
         space = psutil.cpu_percent(interval=1)
         r = space * 2.55
         g = (100 - space) * 2.55
-        b = 0
+        b = (100 - space) * 2.55
         return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % (r, g, b)}
 
 
