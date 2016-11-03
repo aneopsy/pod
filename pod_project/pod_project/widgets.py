@@ -12,21 +12,22 @@ import math
 import psutil
 
 
+def file_size_mo(self, size):
+    size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
+    try:
+        i = int(math.floor(math.log(size, 1024)))
+        p = math.pow(1024, i)
+        s = round(size/p, 2)
+        if (s > 0):
+            return '%.1f %s' % (s, size_name[i])
+        else:
+            return '0 octets'
+    except:
+        return '0 octets'
+
+
 class ProcessorWidget(KnobWidget):
     title = 'Processor'
-
-    def file_size_mo(self, size):
-        size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
-        try:
-            i = int(math.floor(math.log(size, 1024)))
-            p = math.pow(1024, i)
-            s = round(size/p, 2)
-            if (s > 0):
-                return '%.1f %s' % (s, size_name[i])
-            else:
-                return '0 octets'
-        except:
-            return '0 octets'
 
     def get_value(self):
         space = psutil.cpu_percent(interval=1)
@@ -34,7 +35,7 @@ class ProcessorWidget(KnobWidget):
 
     def get_more_info(self):
         space = psutil.net_io_counters('/')
-        return '%s Tx \n %s Rx' % (self.file_size_mo(space.bytes_sent), self.file_size_mo(space.bytes_recv))
+        return '%s Tx \n %s Rx' % (file_size_mo(space.bytes_sent), file_size_mo(space.bytes_recv))
 
 
     def get_data(self):
@@ -44,26 +45,13 @@ class ProcessorWidget(KnobWidget):
 class MemoryWidget(KnobWidget):
     title = 'Memory'
 
-    def file_size_mo(self, size):
-        size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
-        try:
-            i = int(math.floor(math.log(size, 1024)))
-            p = math.pow(1024, i)
-            s = round(size/p, 2)
-            if (s > 0):
-                return '%.1f %s' % (s, size_name[i])
-            else:
-                return '0 octets'
-        except:
-            return '0 octets'
-
     def get_value(self):
         space = psutil.virtual_memory()
         return (space.used * 100) / space.total
 
     def get_more_info(self):
         space = psutil.disk_usage('/')
-        return '%s free \n %s used \n %s' % (self.file_size_mo(space.free), self.file_size_mo(space.used), self.file_size_mo(space.total))
+        return '%s free \n %s used \n %s' % (file_size_mo(space.free), file_size_mo(space.used), file_size_mo(space.total))
 
     def get_data(self):
         return {'readOnly': True}
@@ -72,26 +60,13 @@ class MemoryWidget(KnobWidget):
 class SpaceWidget(KnobWidget):
     title = 'Space'
 
-    def file_size_mo(self, size):
-        size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
-        try:
-            i = int(math.floor(math.log(size, 1024)))
-            p = math.pow(1024, i)
-            s = round(size/p, 2)
-            if (s > 0):
-                return '%.1f %s' % (s, size_name[i])
-            else:
-                return '0 octets'
-        except:
-            return '0 octets'
-
     def get_value(self):
         space = psutil.disk_usage('/')
         return space.percent
 
     def get_more_info(self):
         space = psutil.disk_usage('/')
-        return '%s free \n %s used \n %s' % (self.file_size_mo(space.free), self.file_size_mo(space.used), self.file_size_mo(space.total))
+        return '%s free \n %s used \n %s' % (file_size_mo(space.free), file_size_mo(space.used), file_size_mo(space.total))
 
     def get_data(self):
         return {'readOnly': True}
