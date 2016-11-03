@@ -9,6 +9,7 @@ from random import randint
 from time import gmtime, strftime
 import os
 import math
+import psutil
 
 
 class SpaceWidget(KnobWidget):
@@ -27,26 +28,12 @@ class SpaceWidget(KnobWidget):
         except:
             return '0 octets'
 
-
-    def disk_usage(self, path):
-        """Return disk usage statistics about the given path.
-
-        Returned valus is a named tuple with attributes 'total', 'used' and
-        'free', which are the amount of total, used and free space, in bytes.
-        """
-        st = os.statvfs(path)
-        free = st.f_bavail * st.f_frsize
-        total = st.f_blocks * st.f_frsize
-        used = (st.f_blocks - st.f_bfree) * st.f_frsize
-        percent = (used * 100) / total
-        return (total, used, free, percent)
-
     def get_value(self):
-        space = self.disk_usage('/')
-        return space[3]
+        space = psutil.disk_usage('/').space
+        return space
 
     def get_more_info(self):
-        space = self.disk_usage('/')
+        space = psutil.disk_usage('/').free
         return '%s free \n %s used \n %s' % (self.file_size_mo(space[2]), self.file_size_mo(space[1]), self.file_size_mo(space[0]))
 
     def get_data(self):
