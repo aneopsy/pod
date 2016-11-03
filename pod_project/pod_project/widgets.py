@@ -40,7 +40,7 @@ class ProcessorWidget(KnobWidget):
     title = 'Processor'
 
     def __init__(self):
-        self.__init__(self)
+        KnobWidget.__init__(self)
         self.percent = psutil.cpu_percent(interval=1)
         self.net = psutil.net_io_counters()
 
