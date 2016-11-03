@@ -15,6 +15,19 @@ import psutil
 class ProcessorWidget(KnobWidget):
     title = 'Processor'
 
+    def file_size_mo(self, size):
+        size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
+        try:
+            i = int(math.floor(math.log(size, 1024)))
+            p = math.pow(1024, i)
+            s = round(size/p, 2)
+            if (s > 0):
+                return '%.1f %s' % (s, size_name[i])
+            else:
+                return '0 octets'
+        except:
+            return '0 octets'
+
     def get_value(self):
         space = psutil.cpu_percent(interval=1)
         return space
