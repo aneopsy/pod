@@ -34,7 +34,7 @@ class SpaceWidget(KnobWidget):
 
     def get_more_info(self):
         space = psutil.disk_usage('/')
-        return '%s free \n %s used \n %s' % (self.file_size_mo(space[2]), self.file_size_mo(space[1]), self.file_size_mo(space[0]))
+        return '%s free \n %s used \n %s' % (self.file_size_mo(space.free), self.file_size_mo(space.used), self.file_size_mo(space.total))
 
     def get_data(self):
         return {'readOnly': True}
