@@ -9,13 +9,17 @@ class NewClientsWidget(NumberWidget):
     title = 'Users'
 
     def get_value(self):
-        owners = User.objects.distinct().count()
-        print(owners)
-        owners = 10
-        return owners
+        nbr_video = 0
+        for user in User.objects.distinct():
+            nbr_video += user.pod_set.distinct().count()
+        return '%s videos' % nbr_video
 
     def get_detail(self):
-        return '10 actives'
+        nbr_video = 0
+        for user in User.objects.distinct():
+            nbr_video += user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count()
+        return '%d actives videos' % nbr_video
 
     def get_more_info(self):
-        return '10 fakes'
+        owners = User.objects.distinct().count()
+        return owners
