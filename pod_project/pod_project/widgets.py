@@ -6,13 +6,13 @@ from random import randint
 
 
 class NewClientsWidget(NumberWidget):
-    title = 'Users'
+    title = 'Videos'
 
     def get_value(self):
         nbr_video = 0
         for user in User.objects.distinct():
             nbr_video += user.pod_set.distinct().count()
-        return '%s videos' % nbr_video
+        return '%s' % nbr_video
 
     def get_detail(self):
         nbr_video = 0
@@ -22,4 +22,4 @@ class NewClientsWidget(NumberWidget):
 
     def get_more_info(self):
         owners = User.objects.distinct().count()
-        return owners
+        return '%d Owners' % owners
