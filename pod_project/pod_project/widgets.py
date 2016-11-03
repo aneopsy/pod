@@ -38,7 +38,11 @@ class ProcessorWidget(KnobWidget):
         return '%s Tx | %s Rx' % (file_size_mo(space.bytes_sent), file_size_mo(space.bytes_recv))
 
     def get_data(self):
-        return {'readOnly': True, 'fgColor': '#FF0000'}
+        space = psutil.cpu_percent(interval=1)
+        r = space
+        g = 100 - space
+        b = 0
+        return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % (r, g, b)}
 
 
 class MemoryWidget(KnobWidget):
