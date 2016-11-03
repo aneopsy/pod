@@ -34,7 +34,7 @@ def convertColor(percent):
     else:
         r = 255
         g = (100 - percent) * 5.1
-    return r, g, b
+    return [r, g, b]
 
 
 class ProcessorWidget(KnobWidget):
