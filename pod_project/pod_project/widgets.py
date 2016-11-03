@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 from dashing.widgets import ListWidget
 from dashing.widgets import NumberWidget
+from dashing.widgets import KnobWidget
 from random import randint
 from time import gmtime, strftime
 import os
