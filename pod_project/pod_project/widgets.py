@@ -25,28 +25,33 @@ def file_size_mo(size):
     except:
         return '0 octets'
 
+def convertColor(percent):
+    b = 0
+    if space < 50:
+        r = percent * 2.55 * 2
+        g = 255
+    else:
+        r = 255
+        g = (100 - percent) * 2.55 * 2
+    return (r, g, b)
+
 
 class ProcessorWidget(KnobWidget):
     title = 'Processor'
 
+    def __init__(self):
+        self.__init__(self)
+        self.percent = psutil.cpu_percent(interval=1)
+        self.net = psutil.net_io_counters()
+
     def get_value(self):
-        space = psutil.cpu_percent(interval=1)
-        return space
+        return self.percent
 
     def get_more_info(self):
-        space = psutil.net_io_counters()
-        return '%s Tx | %s Rx' % (file_size_mo(space.bytes_sent), file_size_mo(space.bytes_recv))
+        return '%s Tx | %s Rx' % (file_size_mo(self.net.bytes_sent), file_size_mo(self.net.bytes_recv))
 
     def get_data(self):
-        space = psutil.cpu_percent(interval=1)
-        b = 0
-        if space < 50:
-            r = space * 2.55 * 2
-            g = 255
-        else:
-            r = 255
-            g = (100 - space) * 2.55*2
-        return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % (r, g, b)}
+        return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % convertColor(self.percent)}
 
 
 class MemoryWidget(KnobWidget):
