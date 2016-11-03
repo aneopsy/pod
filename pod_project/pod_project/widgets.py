@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from dashing.widgets import ListWidget
 from dashing.widgets import NumberWidget
 from random import randint
+from time import gmtime, strftime
 
 
 class NewClientsWidget(NumberWidget):
@@ -33,7 +34,7 @@ class UsersWidget(ListWidget):
     more_info = ''
 
     def get_updated_at(self):
-        return u'Last updated'
+        return u'Last updated: {}' . format(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
     def get_data(self):
         users = []
@@ -47,10 +48,9 @@ class UsersWidget(ListWidget):
 class ChannelsWidget(ListWidget):
     title = 'Channels'
     more_info = ''
-    print('################')
 
     def get_updated_at(self):
-        return u'Last updated'
+        return u'Last updated: {}' . format(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
     def get_data(self):
         users = []
@@ -58,6 +58,4 @@ class ChannelsWidget(ListWidget):
         for user in Channel.objects.distinct():
             users.append(user.title)
             values.append(user.video_count())
-        print (users)
-        print (values)
         return [{'label': x, 'value': y} for x, y in zip(users, values)]
