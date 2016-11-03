@@ -59,15 +59,16 @@ class MemoryWidget(KnobWidget):
 
     def __init__(self):
         self.space = psutil.virtual_memory()
+        self.percent = (self.space.used * 100) / self.space.total
 
     def get_value(self):
-        return (self.space.used * 100) / self.space.total
+        return self.percent
 
     def get_more_info(self):
         return '%s free | %s used | %s total' % (file_size_mo(self.space.free), file_size_mo(self.space.used), file_size_mo(self.space.total))
 
     def get_data(self):
-        return {'readOnly': True}
+        return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % convertColor(self.percent)}
 
 
 class SpaceWidget(KnobWidget):
