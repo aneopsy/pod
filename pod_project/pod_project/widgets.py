@@ -14,15 +14,8 @@ class ServerWidget(NumberWidget):
     def get_value(self):
         return 'On'
 
-    def get_detail(self):
-        nbr_video = 0
-        for user in User.objects.distinct():
-            nbr_video += user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count()
-        return '%d actives videos' % nbr_video
-
-    def get_more_info(self):
-        owners = User.objects.distinct().count()
-        return '%d Owners' % owners
+    def get_updated_at(self):
+        return u'Last updated: {}' . format(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
 
 class VideosWidget(NumberWidget):
@@ -50,9 +43,6 @@ class UsersWidget(ListWidget):
 
     more_info = ''
 
-    def get_updated_at(self):
-        return u'Last updated: {}' . format(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
-
     def get_data(self):
         users = []
         values = []
@@ -66,9 +56,6 @@ class ChannelsWidget(ListWidget):
     title = 'Channels'
     more_info = ''
 
-    def get_updated_at(self):
-        return u'Last updated: {}' . format(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
-
     def get_data(self):
         channels = []
         values = []
@@ -81,9 +68,6 @@ class ChannelsWidget(ListWidget):
 class DisciplinesWidget(ListWidget):
     title = 'Disciplines'
     more_info = ''
-
-    def get_updated_at(self):
-        return u'Last updated: {}' . format(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
     def get_data(self):
         disciplines = []
