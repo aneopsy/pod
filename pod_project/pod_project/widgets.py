@@ -41,10 +41,11 @@ class SpaceWidget(KnobWidget):
     def get_value(self):
         space = self.disk_usage('/')
         print(space)
-        return 10
+        return space[3]
 
     def get_more_info(self):
-        return 'oki'
+        space = self.disk_usage('/')
+        return '%d free' % space[2]
 
 
 class ServerWidget(NumberWidget):
