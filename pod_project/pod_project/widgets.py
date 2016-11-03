@@ -15,6 +15,7 @@ _ntuple_diskusage = namedtuple('usage', 'total used free percent')
 
 class SpaceWidget(KnobWidget):
     title = 'Space'
+
     def file_size_mo(self, size):
         abbrevs = ((1 << 30L, 'Gio'),
                    (1 << 20L, 'Mio'),
@@ -25,7 +26,7 @@ class SpaceWidget(KnobWidget):
         for factor, suffix in abbrevs:
             if (size >= factor):
                 break
-        return '%.*f %s' % (2, self.file_size / factor, suffix)
+        return '%.*f %s' % (2, size / factor, suffix)
 
     def disk_usage(self, path):
         """Return disk usage statistics about the given path.
@@ -41,8 +42,8 @@ class SpaceWidget(KnobWidget):
         return _ntuple_diskusage(total, used, free, percent)
 
     def get_value(self):
-        space = self.disk_usage('/').percent
-        return 10
+        space = self.disk_usage('/')
+        return int(space)
 
     def get_more_info(self):
         space = self.disk_usage('/').free
