@@ -71,7 +71,7 @@ class DisciplinesWidget(ListWidget):
     def get_data(self):
         disciplines = []
         values = []
-        for user in Channel.objects.distinct():
+        for user in Discipline.objects.distinct():
             disciplines.append(user.title)
             values.append(user.video_count())
         return [{'label': x, 'value': y} for x, y in zip(disciplines, values)]
