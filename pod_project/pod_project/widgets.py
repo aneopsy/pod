@@ -14,16 +14,18 @@ class SpaceWidget(KnobWidget):
     title = 'Space'
 
     def file_size_mo(self, size):
-        abbrevs = ((1 << 30L, 'Gio'),
-                   (1 << 20L, 'Mio'),
-                   (1 << 10L, 'Kio'),
-                   (1, 'octet'))
-        if size == 0:
-            return 'None'
-        for factor, suffix in abbrevs:
-            if (size >= factor):
-                break
-        return '%.*f %s' % (2, size / factor, suffix)
+        size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
+        try:
+            i = int(math.floor(math.log(size, 1024)))
+            p = math.pow(1024, i)
+            s = round(size/p, 2)
+            if (s > 0):
+                return '%.1f %s' % (s, size_name[i])
+            else:
+                return '0 octets'
+        except:
+            return '0 octets'
+
 
     def disk_usage(self, path):
         """Return disk usage statistics about the given path.
