@@ -1,7 +1,11 @@
 # -*- encoding: utf-8 -*-
+from pods.models import Pod, Channel, Type, Discipline
+from django.contrib.sites.models import Site
+from django.conf import settings as django_settings
+from django.contrib.auth.models import User
+
 from dashing.widgets import NumberWidget
 from random import randint
-#from django.contrib.auth.models import User
 
 
 class NewClientsWidget(NumberWidget):
