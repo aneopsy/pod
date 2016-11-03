@@ -41,13 +41,13 @@ class SpaceWidget(KnobWidget):
         return _ntuple_diskusage(total, used, free, percent)
 
     def get_value(self):
-        space = self.disk_usage('/').free
-        print(space)
-        return 10
+        space = self.disk_usage('/').percent
+        return int(space)
 
     def get_more_info(self):
         space = self.disk_usage('/').free
-        return '%s free' % (self.file_size_mo(int(space)))
+        print (self.file_size_mo(int(space)))
+        return 'oki'
 
 
 class ServerWidget(NumberWidget):
