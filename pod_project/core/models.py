@@ -213,16 +213,17 @@ class Video(models.Model):
         return os.path.basename(self.video.name)
 
     def file_size_mo(self):
-        abbrevs = ((1 << 30L, 'Gio'),
-                   (1 << 20L, 'Mio'),
-                   (1 << 10L, 'Kio'),
-                   (1, 'octet'))
-        if self.file_size == 0:
-            return 'None'
-        for factor, suffix in abbrevs:
-            if (self.file_size >= factor):
-                break
-        return '%.*f %s' % (2, self.file_size / factor, suffix)
+        size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
+        try:
+            i = int(math.floor(math.log(self.file_size, 1024)))
+            p = math.pow(1024, i)
+            s = round(self.file_size/p, 3)
+            if (s > 0):
+                return '%.1f %s' % (s, size_name[i])
+            else:
+                return '0 octets'
+        except:
+            return '0 octets'
     file_size_mo.short_description = _('Size')
     file_size_mo.allow_tags = True
 

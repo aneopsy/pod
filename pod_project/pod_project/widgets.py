@@ -10,6 +10,7 @@ from time import gmtime, strftime
 import os
 import math
 
+
 class SpaceWidget(KnobWidget):
     title = 'Space'
 
@@ -18,7 +19,7 @@ class SpaceWidget(KnobWidget):
         try:
             i = int(math.floor(math.log(size, 1024)))
             p = math.pow(1024, i)
-            s = round(size/p, 2)
+            s = round(size/p, 3)
             if (s > 0):
                 return '%.1f %s' % (s, size_name[i])
             else:
@@ -37,7 +38,7 @@ class SpaceWidget(KnobWidget):
         free = st.f_bavail * st.f_frsize
         total = st.f_blocks * st.f_frsize
         used = (st.f_blocks - st.f_bfree) * st.f_frsize
-        percent = (used / total * 100)
+        percent = (used * 100) / total
         return (total, used, free, percent)
 
     def get_value(self):
