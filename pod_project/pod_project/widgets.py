@@ -12,7 +12,7 @@ import math
 import psutil
 
 
-def file_size_mo(self, size):
+def file_size_mo(size):
     size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
     try:
         i = int(math.floor(math.log(size, 1024)))
