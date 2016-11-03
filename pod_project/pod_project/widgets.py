@@ -25,6 +25,7 @@ def file_size_mo(size):
     except:
         return '0 octets'
 
+
 def convertColor(percent):
     b = 0
     if space < 50:
@@ -33,7 +34,7 @@ def convertColor(percent):
     else:
         r = 255
         g = (100 - percent) * 2.55 * 2
-    return (r, g, b)
+    return r, g, b
 
 
 class ProcessorWidget(KnobWidget):
@@ -72,13 +73,14 @@ class MemoryWidget(KnobWidget):
 class SpaceWidget(KnobWidget):
     title = 'Disk'
 
+    def __init__(self):
+        self.space = psutil.disk_usage('/')
+
     def get_value(self):
-        space = psutil.disk_usage('/')
-        return space.percent
+        return self.space.percent
 
     def get_more_info(self):
-        space = psutil.disk_usage('/')
-        return '%s free | %s used | %s total' % (file_size_mo(space.free), file_size_mo(space.used), file_size_mo(space.total))
+        return '%s free | %s used | %s total' % (file_size_mo(self.space.free), file_size_mo(self.space.used), file_size_mo(self.space.total))
 
     def get_data(self):
         return {'readOnly': True}
