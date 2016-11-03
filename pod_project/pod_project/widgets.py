@@ -29,12 +29,12 @@ def file_size_mo(size):
 def convertColor(percent):
     b = 0
     if percent < 50:
-        r = percent * 2.55 * 2
+        r = percent * 5.1
         g = 255
     else:
         r = 255
-        g = (100 - percent) * 2.55 * 2
-    return (r, g, b)
+        g = (100 - percent) * 5.1
+    return r, g, b
 
 
 class ProcessorWidget(KnobWidget):
