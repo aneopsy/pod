@@ -8,7 +8,7 @@ from dashing.widgets import KnobWidget
 from random import randint
 from time import gmtime, strftime
 import os
-
+import math
 
 class SpaceWidget(KnobWidget):
     title = 'Space'
