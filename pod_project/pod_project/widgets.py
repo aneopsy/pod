@@ -47,6 +47,7 @@ class UsersWidget(ListWidget):
 class ChannelsWidget(ListWidget):
     title = 'Channels'
     more_info = ''
+    print('################')
 
     def get_updated_at(self):
         return u'Last updated'
