@@ -34,7 +34,7 @@ def convertColor(percent):
     else:
         r = 255
         g = (100 - percent) * 5.1
-    return (r, g, b,)
+    return (r, g, b)
 
 
 class ProcessorWidget(KnobWidget):
@@ -84,7 +84,7 @@ class SpaceWidget(KnobWidget):
         return '%s free | %s used | %s total' % (file_size_mo(self.space.free), file_size_mo(self.space.used), file_size_mo(self.space.total))
 
     def get_data(self):
-        return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % convertColor(self.percent)}
+        return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % convertColor(self.space.percent)}
 
 
 class ServerWidget(NumberWidget):
