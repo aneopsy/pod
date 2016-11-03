@@ -34,6 +34,7 @@ class UsersWidget(ListWidget):
         return u'Last updated'
 
     def get_data(self):
-        return [{'label' : 'salut', 'value': 10}, {'label' : 's', 'value': 12}]
-        #user = User.objects.distinct()
-        #return [{'label': x, 'value': y} for x, y in zip(user.username, user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count())]
+        user = ['salut', 'oki']
+        nbr = [10, 23]
+        return [{'label': x, 'value': y} for x, y in zip(user, nbr)]
+#        return [{'label': x, 'value': y} for x, y in zip(user.username, user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count())]
