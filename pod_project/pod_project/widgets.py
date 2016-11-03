@@ -39,9 +39,13 @@ class ProcessorWidget(KnobWidget):
 
     def get_data(self):
         space = psutil.cpu_percent(interval=1)
-        r = space * 2.55
-        g = (100 - space) * 2.55
-        b = (100 - space) * 2.55
+        b = 0
+        if space < 50:
+            r = space * 2.55 * 2
+            g = 255
+        else
+            r = 255
+            g = (100 - space) * 2.55*2
         return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % (r, g, b)}
 
 
