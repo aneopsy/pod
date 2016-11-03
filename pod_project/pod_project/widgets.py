@@ -29,7 +29,7 @@ class SpaceWidget(KnobWidget):
             return '0 octets'
 
     def get_value(self):
-        space = psutil.disk_usage('/').space
+        space = psutil.disk_usage('/').percent
         return space
 
     def get_more_info(self):
