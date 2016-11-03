@@ -57,7 +57,7 @@ class MemoryWidget(KnobWidget):
 
 
 class SpaceWidget(KnobWidget):
-    title = 'Space'
+    title = 'Disk'
 
     def get_value(self):
         space = psutil.disk_usage('/')
@@ -98,7 +98,7 @@ class VideosWidget(NumberWidget):
 
     def get_more_info(self):
         owners = User.objects.distinct().count()
-        return '%d Owners' % owners
+        return '%d Users' % owners
 
 
 class UsersWidget(ListWidget):
@@ -112,7 +112,7 @@ class UsersWidget(ListWidget):
         for user in User.objects.distinct():
             users.append(user.username)
             values.append(user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count())
-        return [{'label': x, 'value': y} for x, y in zip(users, values)]
+        return [{'label': x, 'value': y, 'name': y} for x, y in zip(users, values)]
 
 
 class ChannelsWidget(ListWidget):
