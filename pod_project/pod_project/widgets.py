@@ -19,7 +19,7 @@ class SpaceWidget(KnobWidget):
         try:
             i = int(math.floor(math.log(size, 1024)))
             p = math.pow(1024, i)
-            s = round(size/p, 3)
+            s = round(size/p, 2)
             if (s > 0):
                 return '%.1f %s' % (s, size_name[i])
             else:
