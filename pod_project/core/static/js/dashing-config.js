@@ -26,7 +26,7 @@ dashboard.addWidget('videos_widget', 'Number', {
             $.extend(self.scope, scope);
         });
     },
-    interval: 5000
+    interval: 60000
 });
 
 dashboard.addWidget('memory_widget', 'Knob', {
@@ -56,7 +56,7 @@ dashboard.addWidget('space_widget', 'Knob', {
             $.extend(self.scope, scope);
         });
     },
-    interval: 5000
+    interval: 60000
 });
 
 dashboard.addWidget('users_widget', 'List', {
@@ -66,7 +66,7 @@ dashboard.addWidget('users_widget', 'List', {
             $.extend(self.scope, scope);
         });
     },
-    interval: 5000
+    interval: 60000
 });
 
 dashboard.addWidget('channels_widget', 'List', {
@@ -76,7 +76,7 @@ dashboard.addWidget('channels_widget', 'List', {
             $.extend(self.scope, scope);
         });
     },
-    interval: 5000
+    interval: 60000
 });
 
 dashboard.addWidget('disciplines_widget', 'List', {
@@ -86,5 +86,5 @@ dashboard.addWidget('disciplines_widget', 'List', {
             $.extend(self.scope, scope);
         });
     },
-    interval: 5000
+    interval: 60000
 });
