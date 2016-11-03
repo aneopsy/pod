@@ -19,6 +19,11 @@ class ProcessorWidget(KnobWidget):
         space = psutil.cpu_percent(interval=1)
         return space
 
+    def get_more_info(self):
+        space = psutil.net_io_counters('/')
+        return '%s Tx \n %s Rx' % (self.file_size_mo(space.bytes_sent), self.file_size_mo(space.bytes_recv))
+
+
     def get_data(self):
         return {'readOnly': True}
 
