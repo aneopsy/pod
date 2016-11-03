@@ -38,7 +38,7 @@ class ProcessorWidget(KnobWidget):
         return '%s Tx | %s Rx' % (file_size_mo(space.bytes_sent), file_size_mo(space.bytes_recv))
 
     def get_data(self):
-        return {'readOnly': True}
+        return {'readOnly': True, 'fgColor': '#FF0000'}
 
 
 class MemoryWidget(KnobWidget):
@@ -112,7 +112,7 @@ class UsersWidget(ListWidget):
         for user in User.objects.distinct():
             users.append(user.username)
             values.append(user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count())
-        return [{'label': x, 'value': y, 'name': y} for x, y in zip(users, values)]
+        return [{'label': x, 'value': y} for x, y in zip(users, values)]
 
 
 class ChannelsWidget(ListWidget):
