@@ -29,6 +29,16 @@ dashboard.addWidget('space_widget', 'Knob', {
     interval: 5000
 });
 
+dashboard.addWidget('memory_widget', 'Knob', {
+    getData: function () {
+        var self = this;
+        Dashing.utils.get('memory_widget', function(scope) {
+            $.extend(self.scope, scope);
+        });
+    },
+    interval: 5000
+});
+
 dashboard.addWidget('videos_widget', 'Number', {
     getData: function () {
         var self = this;

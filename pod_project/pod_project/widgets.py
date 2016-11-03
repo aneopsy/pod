@@ -12,6 +12,34 @@ import math
 import psutil
 
 
+class MemoryWidget(KnobWidget):
+    title = 'Memory'
+
+    def file_size_mo(self, size):
+        size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
+        try:
+            i = int(math.floor(math.log(size, 1024)))
+            p = math.pow(1024, i)
+            s = round(size/p, 2)
+            if (s > 0):
+                return '%.1f %s' % (s, size_name[i])
+            else:
+                return '0 octets'
+        except:
+            return '0 octets'
+
+    def get_value(self):
+        space = psutil.virtual_memory()
+        return (space.used * 100) / space.total
+
+    def get_more_info(self):
+        space = psutil.disk_usage('/')
+        return '%s free \n %s used \n %s' % (self.file_size_mo(space.free), self.file_size_mo(space.used), self.file_size_mo(space.total))
+
+    def get_data(self):
+        return {'readOnly': True}
+
+
 class SpaceWidget(KnobWidget):
     title = 'Space'
 
