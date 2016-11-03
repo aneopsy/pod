@@ -43,7 +43,7 @@ class ProcessorWidget(KnobWidget):
         if space < 50:
             r = space * 2.55 * 2
             g = 255
-        else
+        else:
             r = 255
             g = (100 - space) * 2.55*2
         return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % (r, g, b)}
