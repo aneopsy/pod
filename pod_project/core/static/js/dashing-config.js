@@ -19,10 +19,10 @@ dashboard.addWidget('server_widget', 'Number', {
     interval: 5000
 });
 
-dashboard.addWidget('space_widget', 'Knob', {
+dashboard.addWidget('videos_widget', 'Number', {
     getData: function () {
         var self = this;
-        Dashing.utils.get('space_widget', function(scope) {
+        Dashing.utils.get('videos_widget', function(scope) {
             $.extend(self.scope, scope);
         });
     },
@@ -36,13 +36,23 @@ dashboard.addWidget('memory_widget', 'Knob', {
             $.extend(self.scope, scope);
         });
     },
-    interval: 5000
+    interval: 1000
 });
 
-dashboard.addWidget('videos_widget', 'Number', {
+dashboard.addWidget('processor_widget', 'Knob', {
     getData: function () {
         var self = this;
-        Dashing.utils.get('videos_widget', function(scope) {
+        Dashing.utils.get('processor_widget', function(scope) {
+            $.extend(self.scope, scope);
+        });
+    },
+    interval: 1000
+});
+
+dashboard.addWidget('space_widget', 'Knob', {
+    getData: function () {
+        var self = this;
+        Dashing.utils.get('space_widget', function(scope) {
             $.extend(self.scope, scope);
         });
     },

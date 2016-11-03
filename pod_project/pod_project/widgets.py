@@ -12,6 +12,17 @@ import math
 import psutil
 
 
+class ProcessorWidget(KnobWidget):
+    title = 'Processor'
+
+    def get_value(self):
+        space = psutil.cpu_percent(interval=1)
+        return space
+
+    def get_data(self):
+        return {'readOnly': True}
+
+
 class MemoryWidget(KnobWidget):
     title = 'Memory'
 

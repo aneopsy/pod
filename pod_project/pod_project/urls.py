@@ -8,10 +8,11 @@ from dashing.utils import router
 
 admin.autodiscover()
 
-from .widgets import VideosWidget, ServerWidget, UsersWidget, ChannelsWidget, DisciplinesWidget, SpaceWidget, MemoryWidget
+from .widgets import VideosWidget, ServerWidget, UsersWidget, ChannelsWidget, DisciplinesWidget, SpaceWidget, MemoryWidget, ProcessorWidget
 router.register(VideosWidget, 'videos_widget')
 router.register(SpaceWidget, 'space_widget')
 router.register(MemoryWidget, 'memory_widget')
+router.register(MemoryWidget, 'processor_widget')
 router.register(ServerWidget, 'server_widget')
 router.register(UsersWidget, 'users_widget')
 router.register(ChannelsWidget, 'channels_widget')
