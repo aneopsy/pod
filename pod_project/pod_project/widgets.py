@@ -47,8 +47,6 @@ class SpaceWidget(KnobWidget):
         return 10
 
     def get_more_info(self):
-        space = self.disk_usage('/').free
-        print (space)
         return 'oki'
 
 
