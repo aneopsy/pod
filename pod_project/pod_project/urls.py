@@ -11,7 +11,7 @@ admin.autodiscover()
 from .widgets import VideosWidget, ServerWidget, UsersWidget, ChannelsWidget, DisciplinesWidget, SpaceWidget, MemoryWidget
 router.register(VideosWidget, 'videos_widget')
 router.register(SpaceWidget, 'space_widget')
-router.register(SpaceWidget, 'memory_widget')
+router.register(MemoryWidget, 'memory_widget')
 router.register(ServerWidget, 'server_widget')
 router.register(UsersWidget, 'users_widget')
 router.register(ChannelsWidget, 'channels_widget')
