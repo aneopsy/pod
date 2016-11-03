@@ -36,7 +36,7 @@ class ProcessorWidget(KnobWidget):
     def get_more_info(self):
         space = psutil.net_io_counters('/')
         print (space)
-        return '%s Tx \n %s Rx' % (file_size_mo(space.eth0.bytes_sent), file_size_mo(space.eth0.bytes_recv))
+        return '%s Tx \n %s Rx' % (file_size_mo(space[1].bytes_sent), file_size_mo(space[1].bytes_recv))
 
     def get_data(self):
         return {'readOnly': True}
