@@ -8,7 +8,7 @@ from random import randint
 from time import gmtime, strftime
 
 
-class NewClientsWidget(NumberWidget):
+class VideosWidget(NumberWidget):
     title = 'Videos'
 
     def get_value(self):
