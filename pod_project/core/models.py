@@ -45,6 +45,7 @@ from django.contrib.flatpages.models import FlatPage
 import sys
 import os
 import time
+import math
 import traceback
 from filer.models import Folder
 
@@ -217,7 +218,7 @@ class Video(models.Model):
         try:
             i = int(math.floor(math.log(self.file_size, 1024)))
             p = math.pow(1024, i)
-            s = round(self.file_size/p, 2)
+            s = round(self.file_size/p, 3)
             if (s > 0):
                 return '%.1f %s' % (s, size_name[i])
             else:
