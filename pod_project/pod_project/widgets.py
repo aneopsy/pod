@@ -35,7 +35,9 @@ class ProcessorWidget(KnobWidget):
 
     def get_more_info(self):
         space = psutil.net_io_counters('/')
-        return '%s Tx \n %s Rx' % (file_size_mo(space.bytes_sent), file_size_mo(space.bytes_recv))
+        print (space)
+        return "oki"
+#        return '%s Tx \n %s Rx' % (file_size_mo(space.bytes_sent), file_size_mo(space.bytes_recv))
 
     def get_data(self):
         return {'readOnly': True}
@@ -50,7 +52,7 @@ class MemoryWidget(KnobWidget):
 
     def get_more_info(self):
         space = psutil.virtual_memory()
-        return '%s free \n %s used \n %s' % (file_size_mo(space.free), file_size_mo(space.used), file_size_mo(space.total))
+        return '%s free | %s used | %s total' % (file_size_mo(space.free), file_size_mo(space.used), file_size_mo(space.total))
 
     def get_data(self):
         return {'readOnly': True}
@@ -65,7 +67,7 @@ class SpaceWidget(KnobWidget):
 
     def get_more_info(self):
         space = psutil.disk_usage('/')
-        return '%s free \n %s used \n %s' % (file_size_mo(space.free), file_size_mo(space.used), file_size_mo(space.total))
+        return '%s free | %s used | %s total' % (file_size_mo(space.free), file_size_mo(space.used), file_size_mo(space.total))
 
     def get_data(self):
         return {'readOnly': True}
