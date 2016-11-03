@@ -4,10 +4,10 @@ var dashboard = new Dashboard();
 
 dashboard.addWidget('clock_widget', 'Clock');
 
-dashboard.addWidget('new_users_widget', 'Number', {
+dashboard.addWidget('videos_widget', 'Number', {
     getData: function () {
         var self = this;
-        Dashing.utils.get('new_users_widget', function(scope) {
+        Dashing.utils.get('videos_widget', function(scope) {
             $.extend(self.scope, scope);
         });
     },
