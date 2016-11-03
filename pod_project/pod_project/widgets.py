@@ -29,11 +29,11 @@ class SpaceWidget(KnobWidget):
             return '0 octets'
 
     def get_value(self):
-        space = psutil.disk_usage('/').percent
-        return space
+        space = psutil.disk_usage('/')
+        return space.percent
 
     def get_more_info(self):
-        space = psutil.disk_usage('/').free
+        space = psutil.disk_usage('/')
         return '%s free \n %s used \n %s' % (self.file_size_mo(space[2]), self.file_size_mo(space[1]), self.file_size_mo(space[0]))
 
     def get_data(self):
