@@ -49,6 +49,9 @@ class SpaceWidget(KnobWidget):
         space = self.disk_usage('/')
         return '%s free \n %s used \n %s' % (self.file_size_mo(space[2]), self.file_size_mo(space[1]), self.file_size_mo(space[0]))
 
+    def get_data(self):
+        return {'readOnly': True}
+
 
 class ServerWidget(NumberWidget):
     title = 'Server'
