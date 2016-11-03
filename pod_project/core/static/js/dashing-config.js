@@ -33,3 +33,13 @@ dashboard.addWidget('channels_widget', 'List', {
     },
     interval: 5000
 });
+
+dashboard.addWidget('disciplines_widget', 'List', {
+    getData: function () {
+        var self = this;
+        Dashing.utils.get('disciplines_widget', function(scope) {
+            $.extend(self.scope, scope);
+        });
+    },
+    interval: 5000
+});

@@ -53,9 +53,25 @@ class ChannelsWidget(ListWidget):
         return u'Last updated: {}' . format(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
     def get_data(self):
-        users = []
+        channels = []
         values = []
         for user in Channel.objects.distinct():
-            users.append(user.title)
+            channels.append(user.title)
             values.append(user.video_count())
-        return [{'label': x, 'value': y} for x, y in zip(users, values)]
+        return [{'label': x, 'value': y} for x, y in zip(channels, values)]
+
+
+class DisciplinesWidget(ListWidget):
+    title = 'Disciplines'
+    more_info = ''
+
+    def get_updated_at(self):
+        return u'Last updated: {}' . format(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+
+    def get_data(self):
+        disciplines = []
+        values = []
+        for user in Channel.objects.distinct():
+            disciplines.append(user.title)
+            values.append(user.video_count())
+        return [{'label': x, 'value': y} for x, y in zip(disciplines, values)]
