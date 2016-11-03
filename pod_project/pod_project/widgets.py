@@ -56,13 +56,14 @@ class ProcessorWidget(KnobWidget):
 class MemoryWidget(KnobWidget):
     title = 'Memory'
 
+    def __init__(self):
+        self.space = psutil.virtual_memory()
+
     def get_value(self):
-        space = psutil.virtual_memory()
-        return (space.used * 100) / space.total
+        return (self.space.used * 100) / self.space.total
 
     def get_more_info(self):
-        space = psutil.virtual_memory()
-        return '%s free | %s used | %s total' % (file_size_mo(space.free), file_size_mo(space.used), file_size_mo(space.total))
+        return '%s free | %s used | %s total' % (file_size_mo(self.space.free), file_size_mo(self.space.used), file_size_mo(self.space.total))
 
     def get_data(self):
         return {'readOnly': True}
