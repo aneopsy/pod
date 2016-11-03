@@ -4,16 +4,6 @@ var dashboard = new Dashboard();
 
 dashboard.addWidget('clock_widget', 'Clock');
 
-dashboard.addWidget('videos_widget', 'Number', {
-    getData: function () {
-        var self = this;
-        Dashing.utils.get('videos_widget', function(scope) {
-            $.extend(self.scope, scope);
-        });
-    },
-    interval: 5000
-});
-
 dashboard.addWidget('server_widget', 'Number', {
     getData: function () {
         var self = this;
@@ -25,6 +15,16 @@ dashboard.addWidget('server_widget', 'Number', {
             title: 'Server',
             value: 'Off'
             });
+    },
+    interval: 5000
+});
+
+dashboard.addWidget('videos_widget', 'Number', {
+    getData: function () {
+        var self = this;
+        Dashing.utils.get('videos_widget', function(scope) {
+            $.extend(self.scope, scope);
+        });
     },
     interval: 5000
 });
