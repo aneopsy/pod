@@ -14,6 +14,16 @@ dashboard.addWidget('videos_widget', 'Number', {
     interval: 5000
 });
 
+dashboard.addWidget('server_widget', 'Number', {
+    getData: function () {
+        var self = this;
+        Dashing.utils.get('server_widget', function(scope) {
+            $.extend(self.scope, scope);
+        });
+    },
+    interval: 5000
+});
+
 dashboard.addWidget('users_widget', 'List', {
     getData: function () {
         var self = this;

@@ -8,6 +8,23 @@ from random import randint
 from time import gmtime, strftime
 
 
+class ServerWidget(NumberWidget):
+    title = 'Server'
+
+    def get_value(self):
+        return 'On'
+
+    def get_detail(self):
+        nbr_video = 0
+        for user in User.objects.distinct():
+            nbr_video += user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count()
+        return '%d actives videos' % nbr_video
+
+    def get_more_info(self):
+        owners = User.objects.distinct().count()
+        return '%d Owners' % owners
+
+
 class VideosWidget(NumberWidget):
     title = 'Videos'
 
