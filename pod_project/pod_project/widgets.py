@@ -38,7 +38,7 @@ def convertColor(percent):
 
 
 class ProcessorWidget(KnobWidget):
-    title = 'Processor'
+    title = 'Processors'
 
     def __init__(self):
         self.percent = psutil.cpu_percent(interval=1)
