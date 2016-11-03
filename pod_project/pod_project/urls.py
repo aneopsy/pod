@@ -8,9 +8,10 @@ from dashing.utils import router
 
 admin.autodiscover()
 
-from .widgets import NewClientsWidget, UsersWidget
+from .widgets import NewClientsWidget, UsersWidget, ChannelsWidget
 router.register(NewClientsWidget, 'new_users_widget')
 router.register(UsersWidget, 'users_widget')
+router.register(ChannelsWidget, 'channels_widget')
 
 urlpatterns = patterns(
     '',

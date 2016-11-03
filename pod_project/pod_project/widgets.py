@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+from pods.models import Pod, Channel, Type, Discipline
 from django.contrib.auth.models import User
 
 from dashing.widgets import ListWidget
@@ -28,7 +29,8 @@ class NewClientsWidget(NumberWidget):
 
 class UsersWidget(ListWidget):
     title = 'Users'
-    more_info = 'Those who have more requests'
+
+    more_info = ''
 
     def get_updated_at(self):
         return u'Last updated'
@@ -39,4 +41,20 @@ class UsersWidget(ListWidget):
         for user in User.objects.distinct():
             users.append(user.username)
             values.append(user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count())
+        return [{'label': x, 'value': y} for x, y in zip(users, values)]
+
+
+class ChannelsWidget(ListWidget):
+    title = 'Channels'
+    more_info = ''
+
+    def get_updated_at(self):
+        return u'Last updated'
+
+    def get_data(self):
+        users = []
+        values = []
+        for user in Channel.objects.distinct():
+            users.append(user.title)
+            values.append(user.users)
         return [{'label': x, 'value': y} for x, y in zip(users, values)]
