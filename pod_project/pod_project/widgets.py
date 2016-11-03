@@ -8,7 +8,8 @@ class NewClientsWidget(NumberWidget):
     title = 'New Users'
 
     def get_value(self):
-        owners = User.objects.distinct().count()
+#        owners = User.objects.distinct().count()
+        owners = 10
         return owners
 
     def get_detail(self):
