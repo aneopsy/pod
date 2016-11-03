@@ -68,7 +68,6 @@ class UserProfileInline(admin.StackedInline):
 # Define a new User admin
 
 class UserAdmin(UserAdmin):
-
     def clickable_email(self, obj):
         email = obj.email
         return format_html('<a href="mailto:{}">{}</a>', email, email)
