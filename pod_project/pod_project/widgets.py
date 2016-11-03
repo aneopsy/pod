@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 from django.contrib.auth.models import User
 
+from dashing.widgets import ListWidget
 from dashing.widgets import NumberWidget
 from random import randint
 
@@ -23,3 +24,15 @@ class NewClientsWidget(NumberWidget):
     def get_more_info(self):
         owners = User.objects.distinct().count()
         return '%d Owners' % owners
+
+
+class UsersWidget(ListWidget):
+    title = 'Users'
+    more_info = 'Those who have more requests'
+
+    def get_updated_at(self):
+        return u'Last updated'
+
+    def get_data(self):
+        user = User.objects.distinct()
+        return [{'label': x, 'value': y} for x, y in zip(user.username, user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count())]
