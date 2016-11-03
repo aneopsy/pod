@@ -57,4 +57,6 @@ class ChannelsWidget(ListWidget):
         for user in Channel.objects.distinct():
             users.append(user.title)
             values.append(user.video_count())
+        print (users)
+        print (values)
         return [{'label': x, 'value': y} for x, y in zip(users, values)]
