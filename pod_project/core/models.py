@@ -213,7 +213,7 @@ class Video(models.Model):
         return os.path.basename(self.video.name)
 
     def file_size_mo(self):
-        size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
+        size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio')
         try:
             i = int(math.floor(math.log(self.file_size, 1024)))
             p = math.pow(1024, i)
@@ -221,9 +221,9 @@ class Video(models.Model):
             if (s > 0):
                 return '%.1f %s' % (s, size_name[i])
             else:
-                return '0 octets'
+                return '0 octet'
         except:
-            return '0 octets'
+            return '0 octet'
     file_size_mo.short_description = _('Size')
     file_size_mo.allow_tags = True
 
