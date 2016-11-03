@@ -8,9 +8,6 @@ from dashing.widgets import KnobWidget
 from random import randint
 from time import gmtime, strftime
 import os
-from collections import namedtuple
-
-_ntuple_diskusage = namedtuple('usage', 'total used free percent')
 
 
 class SpaceWidget(KnobWidget):
@@ -39,7 +36,7 @@ class SpaceWidget(KnobWidget):
         total = st.f_blocks * st.f_frsize
         used = (st.f_blocks - st.f_bfree) * st.f_frsize
         percent = (used / total * 100)
-        return _ntuple_diskusage(total, used, free, percent)
+        return (total, used, free, percent)
 
     def get_value(self):
         space = self.disk_usage('/')
