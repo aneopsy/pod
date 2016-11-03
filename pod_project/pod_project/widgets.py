@@ -45,7 +45,7 @@ class SpaceWidget(KnobWidget):
 
     def get_more_info(self):
         space = self.disk_usage('/')
-        return '%s free' % self.file_size_mo(space[2])
+        return '%s free \n %s used \n %s' % (self.file_size_mo(space[2]), self.file_size_mo(space[1]), self.file_size_mo(space[0]))
 
 
 class ServerWidget(NumberWidget):
