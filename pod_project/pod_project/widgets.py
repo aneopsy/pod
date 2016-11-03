@@ -31,7 +31,7 @@ class VideosWidget(NumberWidget):
         nbr_video = 0
         for user in User.objects.distinct():
             nbr_video += user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count()
-        return '%d actives videos' % nbr_video
+        return '%d actives' % nbr_video
 
     def get_more_info(self):
         owners = User.objects.distinct().count()

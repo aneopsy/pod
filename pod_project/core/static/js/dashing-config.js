@@ -20,6 +20,11 @@ dashboard.addWidget('server_widget', 'Number', {
         Dashing.utils.get('server_widget', function(scope) {
             $.extend(self.scope, scope);
         });
+
+        $.extend(this.scope, {
+            title: 'Server',
+            value: 'Off'
+            });
     },
     interval: 5000
 });
