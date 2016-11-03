@@ -19,7 +19,7 @@ dashboard.addWidget('server_widget', 'Number', {
     interval: 5000
 });
 
-dashboard.addWidget('space_widget', 'Number', {
+dashboard.addWidget('space_widget', 'Knob', {
     getData: function () {
         var self = this;
         Dashing.utils.get('space_widget', function(scope) {
