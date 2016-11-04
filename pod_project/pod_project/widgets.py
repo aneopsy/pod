@@ -6,11 +6,10 @@ from dashing.widgets import ListWidget
 from dashing.widgets import NumberWidget
 from dashing.widgets import KnobWidget
 from random import randint
-from time import gmtime, strftime
 import os
 import math
 import psutil
-
+import time
 
 def file_size_mo(size):
     size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
@@ -38,7 +37,7 @@ def convertColor(percent):
 
 
 class ProcessorWidget(KnobWidget):
-    title = 'Processors'
+    title = 'Processor'
 
     def __init__(self):
         self.percent = psutil.cpu_percent(interval=1)
@@ -94,7 +93,7 @@ class ServerWidget(NumberWidget):
         return 'On'
 
     def get_updated_at(self):
-        return u'Last updated: {}' . format(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+        return u'Last updated: {}'.format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
 
 class VideosWidget(NumberWidget):
