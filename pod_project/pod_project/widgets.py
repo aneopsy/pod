@@ -67,10 +67,9 @@ class MemoryWidget(KnobWidget):
         return self.percent
 
     def get_more_info(self):
-        return '%s free | %s used | %s total'
-        % (file_size_mo(self.space.free),
-           file_size_mo(self.space.used),
-           file_size_mo(self.space.total))
+        return '%s free | %s used | %s total' % (file_size_mo(self.space.free),
+                                                 file_size_mo(self.space.used),
+                                                 file_size_mo(self.space.total))
 
     def get_data(self):
         return {'readOnly': True,
@@ -118,8 +117,7 @@ class VideosWidget(NumberWidget):
         nbr_video = 0
         for user in User.objects.distinct():
             nbr_video += user.pod_set.filter(is_draft=False,
-                                             encodingpods__gt=0).distinct()
-            .count()
+                                             encodingpods__gt=0).distinct().count()
         return '%d actives' % nbr_video
 
     def get_more_info(self):
