@@ -93,7 +93,7 @@ class ServerWidget(NumberWidget):
         return 'On'
 
     def get_updated_at(self):
-        return u'Last updated: {}'.format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(10.5)))
+        return u'Last updated: {}'.format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
 
 class VideosWidget(NumberWidget):
