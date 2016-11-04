@@ -21,14 +21,17 @@ voir http://www.gnu.org/licenses/
 """
 import os
 from django import forms
-from django.forms import ModelForm, DateField, ValidationError, FileField, CharField, Form, PasswordInput
+from django.forms import ModelForm, DateField, ValidationError
+from django.forms import FileField, CharField, Form, PasswordInput
 from django.contrib.admin import widgets
 from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 from itertools import chain
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-from pods.models import Channel, Theme, Pod, ContributorPods, TrackPods, DocPods, ChapterPods, Favorites, Type, Discipline, Mediacourses, EnrichPods, Notes
+from pods.models import Channel, Theme, Pod, ContributorPods, TrackPods
+from pods.models import DocPods, ChapterPods, Favorites, Type, Discipline
+from pods.models import Mediacourses, EnrichPods, Notes
 from modeltranslation.forms import TranslationModelForm
 from django.forms.widgets import HiddenInput
 
@@ -82,7 +85,7 @@ class ThemeForm(ModelForm):
 
     class Meta:
         model = Theme
-        #exclude = ('title','slug', 'owner', 'users' )
+        # exclude = ('title','slug', 'owner', 'users' )
         fields = ['title', 'description', 'headband']
         widgets = {
             'description': forms.Textarea(attrs={'rows': 3, 'cols': 15}),
@@ -104,7 +107,7 @@ class NotesForm(ModelForm):
 
     class Meta:
         model = Notes
-        #exclude = ('title','slug', 'owner', 'users' )
+        # exclude = ('title','slug', 'owner', 'users' )
         fields = ['note']
         widgets = {
             'note': forms.Textarea(attrs={'rows': 5, 'cols': 15, 'class': "form-control"}),

@@ -86,7 +86,9 @@ class SpaceWidget(KnobWidget):
         return self.space.percent
 
     def get_more_info(self):
-        return '%s free | %s used | %s total' % (file_size_mo(self.space.free), file_size_mo(self.space.used), file_size_mo(self.space.total))
+        return '%s free | %s used | %s total' % (file_size_mo(self.space.free),
+                                                 file_size_mo(self.space.used),
+                                                 file_size_mo(self.space.total))
 
     def get_data(self):
         return {'readOnly': True,
@@ -135,7 +137,8 @@ class UsersWidget(ListWidget):
         values = []
         for user in User.objects.distinct():
             users.append(user.username)
-            values.append(user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count())
+            values.append(user.pod_set.filter(is_draft=False,
+                                              encodingpods__gt=0).distinct().count())
         return [{'label': x, 'value': y} for x, y in zip(users, values)]
 
 
