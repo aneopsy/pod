@@ -48,7 +48,7 @@
     "pk": 5,
     "fields": {
       "bitrate_audio": "128k",
-      "output_height": 240,
+      "output_height": 0,
       "name": "audio",
       "mediatype": "audio",
       "bitrate_video":""
