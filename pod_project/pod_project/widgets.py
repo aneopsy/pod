@@ -11,8 +11,9 @@ import math
 import psutil
 import time
 
+
 def file_size_mo(size):
-    size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio', 'Zio', 'Yio')
+    size_name = ('Octets', 'Kio', 'Mio', 'Gio', 'Tio')
     try:
         i = int(math.floor(math.log(size, 1024)))
         p = math.pow(1024, i)
@@ -47,10 +48,12 @@ class ProcessorWidget(KnobWidget):
         return self.percent
 
     def get_more_info(self):
-        return '%s Tx | %s Rx' % (file_size_mo(self.net.bytes_sent), file_size_mo(self.net.bytes_recv))
+        return '%s Tx | %s Rx' % (file_size_mo(self.net.bytes_sent),
+                                  file_size_mo(self.net.bytes_recv))
 
     def get_data(self):
-        return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % convertColor(self.percent)}
+        return {'readOnly': True,
+                'fgColor': '#%02x%02x%02x' % convertColor(self.percent)}
 
 
 class MemoryWidget(KnobWidget):
@@ -64,10 +67,14 @@ class MemoryWidget(KnobWidget):
         return self.percent
 
     def get_more_info(self):
-        return '%s free | %s used | %s total' % (file_size_mo(self.space.free), file_size_mo(self.space.used), file_size_mo(self.space.total))
+        return '%s free | %s used | %s total'
+        % (file_size_mo(self.space.free),
+           file_size_mo(self.space.used),
+           file_size_mo(self.space.total))
 
     def get_data(self):
-        return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % convertColor(self.percent)}
+        return {'readOnly': True,
+                'fgColor': '#%02x%02x%02x' % convertColor(self.percent)}
 
 
 class SpaceWidget(KnobWidget):
@@ -83,7 +90,8 @@ class SpaceWidget(KnobWidget):
         return '%s free | %s used | %s total' % (file_size_mo(self.space.free), file_size_mo(self.space.used), file_size_mo(self.space.total))
 
     def get_data(self):
-        return {'readOnly': True, 'fgColor': '#%02x%02x%02x' % convertColor(self.space.percent)}
+        return {'readOnly': True,
+                'fgColor': '#%02x%02x%02x' % convertColor(self.space.percent)}
 
 
 class ServerWidget(NumberWidget):
@@ -93,7 +101,8 @@ class ServerWidget(NumberWidget):
         return 'On'
 
     def get_updated_at(self):
-        return u'Last updated: {}'.format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        return u'Last updated: {}'.format(time.strftime("%Y-%m-%d %H:%M:%S",
+                                                        time.localtime()))
 
 
 class VideosWidget(NumberWidget):
@@ -108,7 +117,9 @@ class VideosWidget(NumberWidget):
     def get_detail(self):
         nbr_video = 0
         for user in User.objects.distinct():
-            nbr_video += user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count()
+            nbr_video += user.pod_set.filter(is_draft=False,
+                                             encodingpods__gt=0).distinct()
+            .count()
         return '%d actives' % nbr_video
 
     def get_more_info(self):
