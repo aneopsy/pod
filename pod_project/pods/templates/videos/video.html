@@ -196,7 +196,7 @@ $(document).on('click', '#button_video_favorite', function (event) {
                                 {% csrf_token %}
                                 <!-- if marked as fav, display #fav. Else #mark-as-fav -->
                                 {% if video.id in request.user.favorites_set.all|only_video %}
-                                    <button type="submit" class="btn btn-default" id="button_video_favorite" title="{% trans 'favorite' %} style="color: #ee7d19"">
+                                    <button type="submit" class="btn btn-default" id="button_video_favorite" title="{% trans 'favorite' %}" style="color: #ee7d19">
                                         <span id="fav" class="glyphicon glyphicon-star"></span>
                                         <span class="sr-only">{% trans 'favorite' %}</span>
                                     </button>
