@@ -16,7 +16,7 @@ translate:                      ok
     -download the document      ok
 admin design                    ok
 channel banner:                 ok
-channel without banner:         ko
+channel without banner:         ok
 channel property:               ok
 design:                         ok
     -Materialize:               ok
@@ -32,3 +32,4 @@ dashboard:                      ok
     -disk:                      ok
     -list:                      ok
 cas:                            ko
+ldap:                           ko
