@@ -12,11 +12,8 @@ import os
 #
 from settings_local import *
 
-<<<<<<< HEAD
 # Mettre url de production
 ALLOWED_HOSTS = ['v-podcast.upf.pf']
-=======
->>>>>>> original_project/master
 
 ##
 # Installed applications list
@@ -105,7 +102,6 @@ REST_FRAMEWORK = {
     )
 }
 
-<<<<<<< HEAD
 # Constantes utilisées dans les templates
 TITLE_SITE = 'Pod'
 TITLE_ETB = 'Université'
@@ -123,7 +119,6 @@ HELP_MAIL = 'assistance@univ.fr'
 WEBTV = '<a href="https://www.upf.pf" id="webtv" class="btn btn-sm primary-color">' \
     'UPF<span class="glyphicon glyphicon-link"></span>' \
     '</a>'
-=======
 
 ##
 # Internationalisation
@@ -133,8 +128,6 @@ USE_L10N = True
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
->>>>>>> original_project/master
-
 
 ##
 # Datetimes are timezone-aware by default (True) or not (False)
@@ -206,12 +199,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'core', 'theme', TEMPLATE_THEME, 'assets'),
 )
 
-<<<<<<< HEAD
 # Mettre à '' si non utilise
 FMS_LIVE_URL = 'rtmp://fms.univ.fr'
 FMS_ROOT_URL = 'http://v-podcast.upf.pf'
-=======
->>>>>>> original_project/master
 
 ##
 # Overwriting django-bootstrap3 default configuration settings

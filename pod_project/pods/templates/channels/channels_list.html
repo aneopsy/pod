@@ -26,19 +26,11 @@ voir http://www.gnu.org/licenses/
 	<div class="video-thumb col-xs-6 col-md-4">
 	    <a class="video-holder" href="{% url "channel" slug_c=channel.slug %}" title="{{channel.title}} ({{channel.video_count}})">
     		<span class="poster">
-<<<<<<< HEAD
     			{% if channel.headband %}
                     <img alt="img" src="{% thumbnail channel.headband 285x160 crop upscale subject_location=channel.headband.subject_location %}" alt="{{channel.title}}" class="preview card-panel">
                 {%else%}
                     <img alt="img" src="{% static DEFAULT_IMG %}" alt="{{channel.title}}" class="card-panel preview">
                 {% endif %}
-=======
-			{% if channel.headband %}
-                <img alt="img" src="{% thumbnail channel.headband 285x160 crop upscale subject_location=channel.headband.subject_location %}" alt="{{channel.title}}" class="preview">
-            {%else%}
-                <img alt="img" src="{% static DEFAULT_IMG %}" alt="{{channel.title}}" class="preview">
-            {% endif %}
->>>>>>> original_project/master
     		</span>
     		<h5>{{channel.title|safe|striptags|truncatechars:32}} ({{channel.video_count}})</h5>
 		</a>
