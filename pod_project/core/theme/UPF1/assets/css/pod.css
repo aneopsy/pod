@@ -28,7 +28,7 @@ body > .page-header {
   margin: 0 0 0 0;
   padding-bottom: 9px;
   padding-top: 10px;
-  background-color: #0061AB
+  background-color: #3C424E
 }
 body > .page-header .user-area {
   position: relative;
@@ -389,7 +389,7 @@ footer {
   border-top-color: #0061AB;
   text-align: left;
   background-color: #97BF0D;
-  color: #391F0E;
+  color: #282C34;
   margin-top: 10px;
 }
 footer row {
