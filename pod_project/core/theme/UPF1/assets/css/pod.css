@@ -388,8 +388,8 @@ footer {
   border-top-style: solid;
   border-top-color: #0061AB;
   text-align: left;
-  background-color: #97BF0D;
-  color: #282C34;
+  background-color: #282C34;
+  color: #F0F0F0;
   margin-top: 10px;
 }
 footer row {
@@ -422,7 +422,7 @@ footer .btn-link:active {
 	margin-left: 30px;
 }
 footer h4 {
-	color: #391F0E;
+	color: #FFF;
     font-size: 20px;
 }
 footer .adressed {
