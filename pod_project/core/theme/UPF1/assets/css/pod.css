@@ -28,7 +28,7 @@ body > .page-header {
   margin: 0 0 0 0;
   padding-bottom: 9px;
   padding-top: 10px;
-  background-color: #282C34
+  background-color: #0061AB
 }
 body > .page-header .user-area {
   position: relative;
@@ -388,8 +388,8 @@ footer {
   border-top-style: solid;
   border-top-color: #0061AB;
   text-align: left;
-  background-color: #282C34;
-  color: #bfbfc0;
+  background-color: #97BF0D;
+  color: #391F0E;
   margin-top: 10px;
 }
 footer row {
@@ -422,7 +422,7 @@ footer .btn-link:active {
 	margin-left: 30px;
 }
 footer h4 {
-	color: #fff;
+	color: #391F0E;
     font-size: 20px;
 }
 footer .adressed {
@@ -866,7 +866,7 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 
 .secondary-color {
   color: #fff;
-  background-color: #DC8B08 !important;
+  background-color: #97BF0D !important;
 }
 
 .primary-color.btn:hover {
@@ -1034,4 +1034,34 @@ nav li {
 .dropdown-content li > a > i {
   height: inherit;
   line-height: inherit;
+}
+
+.logo {
+    width: 150px !important;
+    top: -10px;
+    position: relative;
+}
+
+.logo-container {
+    position: relative;
+    height: 85px;
+    width: 200px;
+    text-align: center;
+}
+
+.logo-container:before {
+     content: '';
+     position: absolute;
+     top: -20px;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     background: white;
+     border-bottom-left-radius: 10px;
+     border-bottom-right-radius: 10px;
+      -webkit-transform: skew(0deg, -3deg);
+      -moz-transform: skew(0deg, -3deg);
+      -ms-transform: skew(0deg, -3deg);
+      -o-transform: skew(0deg, -3deg);
+      transform: skew(0deg, -3deg);
 }
