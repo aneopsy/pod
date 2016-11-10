@@ -1047,14 +1047,14 @@ nav li {
     position: relative;
 }
 
-.logo-container {
+.logo-container1 {
     position: relative;
     height: 85px;
     width: 200px;
     text-align: center;
 }
 
-.logo-container:before {
+.logo-container1:before {
      content: '';
      position: absolute;
      top: -20px;
