@@ -22,7 +22,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # Mettre url de production
-ALLOWED_HOSTS = ['pod.upf.pf']
+ALLOWED_HOSTS = ['v-podcast.upf.pf']
 
 # Liste des applications
 # https://docs.djangoproject.com/en/1.7/topics/migrations/#upgrading-from-south
@@ -126,15 +126,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 
 # Paramètres spécifiques au projet
-EMAIL_HOST = 'smtp.univ.fr'
+EMAIL_HOST = 'smtp.upf.pf'
 EMAIL_PORT = 25
-DEFAULT_FROM_EMAIL = 'default.mail@univ.fr'
+DEFAULT_FROM_EMAIL = 'default.mail@upf.pf'
 
 SITE_ID = 1
 
 FILER_ENABLE_PERMISSIONS = True
 
-#URL FOR ELASTICSEARCH ['host1', 'host2', ...]
+# URL FOR ELASTICSEARCH ['host1', 'host2', ...]
 ES_URL = ['http://127.0.0.1:9200/']
 
 CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
@@ -156,6 +156,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAdminUser',
     )
 }
+
 #curl -X GET http://127.0.0.1:8000/api/example/ -H 'Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b'
 
 # Login
@@ -207,7 +208,7 @@ LOGO_ETB = 'images/lille1_top-01.png'
 LOGO_PLAYER = 'images/logo_white_compact.png'
 SERV_LOGO = 'images/semm.png'
 
-HELP_MAIL = 'assistance@univ.fr'
+HELP_MAIL = 'assistance@upf.pf'
 WEBTV = '<a href="" id="webtv" class="btn btn-sm waves-effect secondary-color">' \
     'UPF<span class="glyphicon glyphicon-link"></span>' \
     '</a>'
@@ -394,4 +395,4 @@ RECORDER_SALT = "abcdefgh"
 
 # Signalement des vidéos
 SHOW_REPORT = True
-REPORT_VIDEO_MAIL_TO = ['alert@univ.fr']
+REPORT_VIDEO_MAIL_TO = ['alert@upf.pf']
