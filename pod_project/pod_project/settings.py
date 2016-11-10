@@ -290,7 +290,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 # Mettre à '' si non utilise
 FMS_LIVE_URL = 'rtmp://fms.univ.fr'
-FMS_ROOT_URL = 'http://root.univ.fr'
+FMS_ROOT_URL = 'http://v-podcast.upf.pf'
 
 BOOTSTRAP3 = {
     'jquery_url': os.path.join(STATIC_URL, 'js/jquery.min.js'),
