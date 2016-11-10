@@ -859,9 +859,14 @@ ul li.vjs-menu-title.vjs-disp-menu-title:hover {
 .background-color {
   background-color: #eeeeee !important;
 }
+
 .primary-color {
   color: #fff;
   background-color: #0061AB !important;
+}
+
+.primary-color2 {
+  color: #0061AB !important;
 }
 
 .secondary-color {
