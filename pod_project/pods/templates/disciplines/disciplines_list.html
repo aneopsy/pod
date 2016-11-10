@@ -23,6 +23,7 @@ voir http://www.gnu.org/licenses/
 
 <div id="video-list" class="row card-panel background-color">
 {% for discipline in disciplines %}
+<<<<<<< HEAD
 	<div class="video-thumb col-xs-6 col-md-4 s">
 	    <a href="{% url "videos" %}?discipline={{discipline.slug}}" title="{{discipline.title}} ({{discipline.video_count}})">
 		<span class="poster">
@@ -35,11 +36,26 @@ voir http://www.gnu.org/licenses/
                 <img src="{% thumbnail discipline.headband 285x160 crop upscale subject_location=discipline.headband.subject_location %}" alt="{{discipline.title}}" class="preview card-panel">
             {%else%}
                 <img alt="img" src="{% static DEFAULT_IMG %}" alt="{{discipline.title}}" class="card-panel preview">
+=======
+	<div class="video-thumb col-xs-6 col-md-4">
+	    <a class="video-holder" href="{% url "videos" %}?discipline={{discipline.slug}}" title="{{discipline.title}} ({{discipline.video_count}})">
+    		<span class="poster">
+    		{% if discipline.headband %}
+                <img src="{% thumbnail discipline.headband 285x160 crop upscale subject_location=discipline.headband.subject_location %}" alt="{{discipline.title}}" class="preview">
+            {%else%}
+                <img alt="img" src="{% static DEFAULT_IMG %}" alt="{{discipline.title}}" class="preview">
+>>>>>>> original_project/master
             {% endif %}
-		</span>
-		<h5>{{discipline.title|safe|striptags|truncatechars:32}} ({{discipline.video_count}})</h5>
+    		</span>
+    		<h5>{{discipline.title|safe|striptags|truncatechars:32}} ({{discipline.video_count}})</h5>
 		</a>
 	</div>
 {%endfor%}
 </div>
+<<<<<<< HEAD
 {% block pagination %} {% pagination disciplines %}{% endblock %}
+=======
+<div class="pager">
+    {% block pagination %} {% pagination disciplines %}{% endblock %}
+</div>
+>>>>>>> original_project/master

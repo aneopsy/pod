@@ -24,7 +24,7 @@ voir http://www.gnu.org/licenses/
 from django.shortcuts import render
 from core.forms import FileBrowseForm, ProfileForm, ContactUsModelForm
 from django.shortcuts import render_to_response, get_object_or_404
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 
 from django.utils.translation import ugettext_lazy as _
@@ -199,7 +199,13 @@ def contact_us(request):
                 'site_title': settings.TITLE_SITE,
                 'message': contact.message.replace("\n", "<br/>")
                 }
+<<<<<<< HEAD
             msg_txt = strip_tags(u'%s' % msg_html)
+=======
+            msg_txt = strip_tags(u'%s' %msg_html)
+
+
+>>>>>>> original_project/master
             email_msg = EmailMultiAlternatives(
                 "[" + settings.TITLE_SITE + "] %s %s" % (_('your message intitled'), contact.subject), msg_txt, settings.HELP_MAIL, [contact.email])
             email_msg.attach_alternative(msg_html, "text/html")
@@ -220,3 +226,10 @@ def contact_us(request):
     return render_to_response('flatpages/default.html',
                               {'flatpage': flatpage, },
                               context_instance=RequestContext(request))
+<<<<<<< HEAD
+=======
+
+def status(request):
+    """ simple status page who returns a code 200 """
+    return HttpResponse(status=200)
+>>>>>>> original_project/master
