@@ -31,6 +31,7 @@ from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.utils import timezone
 from django.conf import settings
 from django.dispatch import receiver
 from django.db.models.signals import post_save, pre_save
@@ -1086,7 +1087,7 @@ class ReportVideo(models.Model):
         null=True, blank=True, verbose_name=_('Comment'))
     answer = models.TextField(null=True, blank=True, verbose_name=_('Answer'))
     date_added = models.DateTimeField(
-        'Date', default=datetime.now, editable=False)
+        'Date', default=timezone.now, editable=False)
 
     def __unicode__(self):
         return "%s - %s" % (self.video, self.user)
