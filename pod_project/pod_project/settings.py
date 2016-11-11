@@ -128,7 +128,7 @@ CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 # Paramètres spécifiques au projet
 EMAIL_HOST = 'smtp.upf.pf'
 EMAIL_PORT = 25
-DEFAULT_FROM_EMAIL = 'default.mail@upf.pf'
+DEFAULT_FROM_EMAIL = 'paultevatheis@gmail.com'
 
 SITE_ID = 1
 
@@ -208,7 +208,7 @@ LOGO_ETB = 'images/lille1_top-01.png'
 LOGO_PLAYER = 'images/logo_white_compact.png'
 SERV_LOGO = 'images/semm.png'
 
-HELP_MAIL = 'assistance@upf.pf'
+HELP_MAIL = 'paultevatheis@gmail.com'
 WEBTV = '<a href="" id="webtv" class="btn btn-sm waves-effect secondary-color">' \
     'UPF<span class="glyphicon glyphicon-link"></span>' \
     '</a>'
@@ -395,4 +395,4 @@ RECORDER_SALT = "abcdefgh"
 
 # Signalement des vidéos
 SHOW_REPORT = True
-REPORT_VIDEO_MAIL_TO = ['alert@upf.pf']
+REPORT_VIDEO_MAIL_TO = ['paultevatheis@gmail.com']

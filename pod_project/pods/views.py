@@ -534,10 +534,8 @@ def video_add_favorite(request, slug):
 def video_add_report(request, slug):
     video = get_object_or_404(Pod, slug=slug)
     if request.POST and request.POST.get('comment'):
-        print("#POST: ok")
         report = ReportVideo.objects.create(
             user=request.user, video=video, comment='%s' % request.POST['comment'])
-        print("#REPORT: ok")
         try:
             subject = _(u'Video report confirmation')
 
@@ -592,16 +590,13 @@ def video_add_report(request, slug):
             email_msg.send(fail_silently=False)
         except:
             print("Warning: Mail can't send...")
-        print("#MAIL: OK")
         if request.is_ajax():
-            print("#is_ajax: OK")
             msg = _(u'This video has been reported.')
             some_data_to_dump = {'msg': "%s" % msg}
             data = json.dumps(some_data_to_dump)
             return HttpResponse(data, content_type='application/json')
 
         messages.add_message(request, messages.INFO, msg)
-        print("#fail")
         return HttpResponseRedirect(reverse('pods.views.video', args=(video.slug,)))
     else:
         messages.add_message(
