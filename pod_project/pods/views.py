@@ -533,6 +533,7 @@ def video_add_favorite(request, slug):
 @csrf_protect
 def video_add_report(request, slug):
     video = get_object_or_404(Pod, slug=slug)
+    print(request.POST.get('comment'))
     if request.POST and request.POST.get('comment'):
         report = ReportVideo.objects.create(
             user=request.user, video=video, comment='%s' % request.POST['comment'])
