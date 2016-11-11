@@ -33,3 +33,4 @@ dashboard:                      ok
     -list:                      ok
 cas:                            ko
 ldap:                           ko
+ test
