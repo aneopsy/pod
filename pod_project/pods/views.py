@@ -538,57 +538,60 @@ def video_add_report(request, slug):
         report = ReportVideo.objects.create(
             user=request.user, video=video, comment='%s' % request.POST['comment'])
         print("#REPORT: ok")
-        subject = _(u'Video report confirmation')
+        try:
+            subject = _(u'Video report confirmation')
 
-        msg = _("\nYou just report the video: \"%(title)s\" with this comment: \n\"%(comment)s\".\n"
-                "\nAn email has just been sent to us and your request recorded."
-                "\nBest regards."
-                "\nThe Pod team.") % {'title': video.title, 'comment': '%s' % request.POST['comment']}
+            msg = _("\nYou just report the video: \"%(title)s\" with this comment: \n\"%(comment)s\".\n"
+                    "\nAn email has just been sent to us and your request recorded."
+                    "\nBest regards."
+                    "\nThe Pod team.") % {'title': video.title, 'comment': '%s' % request.POST['comment']}
 
-        msg_html = _("<p>You just report the video: \"%(title)s\" with this comment:<br/> \"%(comment)s\".</p>"
-                     "<p>An email has just been sent to us and your request recorded.</p>"
-                     "<p>Best regards</p>"
-                     "<p>The Pod team</p>") % {'title': video.title, 'comment': '%s' % request.POST['comment'].replace("\n", "<br/>")}
+            msg_html = _("<p>You just report the video: \"%(title)s\" with this comment:<br/> \"%(comment)s\".</p>"
+                         "<p>An email has just been sent to us and your request recorded.</p>"
+                         "<p>Best regards</p>"
+                         "<p>The Pod team</p>") % {'title': video.title, 'comment': '%s' % request.POST['comment'].replace("\n", "<br/>")}
 
-        email_msg = EmailMultiAlternatives(
-            "[" + settings.TITLE_SITE + "]  %s" % subject, msg, settings.DEFAULT_FROM_EMAIL, ['%s' % request.user.email])
-        email_msg.attach_alternative(msg_html, "text/html")
-        email_msg.send(fail_silently=False)
+            email_msg = EmailMultiAlternatives(
+                "[" + settings.TITLE_SITE + "]  %s" % subject, msg, settings.DEFAULT_FROM_EMAIL, ['%s' % request.user.email])
+            email_msg.attach_alternative(msg_html, "text/html")
+            email_msg.send(fail_silently=False)
 
-        subject = _(u'A video has just been reported.')
+            subject = _(u'A video has just been reported.')
 
-        msg = _(u'The video intitled "%(video_title)s" has just been reported by %(user_firstname)s %(user_lastname)s <%(user_email)s>.\n'
-                'here is the comment posted: \n'
-                '%(comment)s\n'
-                'here is some more information about the video:\n'
-                'Description: %(description)s.\n'
-                'url: %(url)s.\n'
-                'Video posted by: %(owner_firstname)s %(owner_lastname)s <%(owner_email)s>.\n'
-                'Video added on: %(video_date_added)s.\n') % {
-                    'video_title': video.title, 'user_firstname': request.user.first_name, 'user_lastname': request.user.last_name,
-                    'user_email': request.user.email, 'comment': request.POST['comment'], 'description': video.description,
-                    'url': ''.join(['http://', get_current_site(request).domain, video.get_absolute_url()]),
-                    'owner_firstname': video.owner.first_name, 'owner_lastname': video.owner.last_name, 'owner_email': video.owner.email,
-                    'video_date_added': video.date_added}
+            msg = _(u'The video intitled "%(video_title)s" has just been reported by %(user_firstname)s %(user_lastname)s <%(user_email)s>.\n'
+                    'here is the comment posted: \n'
+                    '%(comment)s\n'
+                    'here is some more information about the video:\n'
+                    'Description: %(description)s.\n'
+                    'url: %(url)s.\n'
+                    'Video posted by: %(owner_firstname)s %(owner_lastname)s <%(owner_email)s>.\n'
+                    'Video added on: %(video_date_added)s.\n') % {
+                        'video_title': video.title, 'user_firstname': request.user.first_name, 'user_lastname': request.user.last_name,
+                        'user_email': request.user.email, 'comment': request.POST['comment'], 'description': video.description,
+                        'url': ''.join(['http://', get_current_site(request).domain, video.get_absolute_url()]),
+                        'owner_firstname': video.owner.first_name, 'owner_lastname': video.owner.last_name, 'owner_email': video.owner.email,
+                        'video_date_added': video.date_added}
 
-        msg_html = _(u'<p>The video intitled "%(video_title)s" has just been reported by %(user_firstname)s %(user_lastname)s &lt;<a href=\"mailto:%(user_email)s\">%(user_email)s</a>&gt;.</p>'
-                     '<p>here is the comment posted: <br/>'
-                     '%(comment)s</p>'
-                     '<p>here is some more information about the video:<br/>'
-                     'Description: %(description)s<br/>'
-                     'url: <a href=\"%(url)s\">%(url)s</a><br/>'
-                     'Video posted by: %(owner_firstname)s %(owner_lastname)s &lt;<a href=\"mailto:%(owner_email)s\">%(owner_email)s&gt;</a>.<br/>'
-                     'Video added on: %(video_date_added)s.</p>') % {
-            'video_title': video.title, 'user_firstname': request.user.first_name, 'user_lastname': request.user.last_name,
-            'user_email': request.user.email, 'comment': request.POST['comment'].replace("\n", "<br/>"), 'description': video.description,
-            'url': ''.join(['http://', get_current_site(request).domain, video.get_absolute_url()]),
-            'owner_firstname': video.owner.first_name, 'owner_lastname': video.owner.last_name, 'owner_email': video.owner.email,
-            'video_date_added': video.date_added}
+            msg_html = _(u'<p>The video intitled "%(video_title)s" has just been reported by %(user_firstname)s %(user_lastname)s &lt;<a href=\"mailto:%(user_email)s\">%(user_email)s</a>&gt;.</p>'
+                         '<p>here is the comment posted: <br/>'
+                         '%(comment)s</p>'
+                         '<p>here is some more information about the video:<br/>'
+                         'Description: %(description)s<br/>'
+                         'url: <a href=\"%(url)s\">%(url)s</a><br/>'
+                         'Video posted by: %(owner_firstname)s %(owner_lastname)s &lt;<a href=\"mailto:%(owner_email)s\">%(owner_email)s&gt;</a>.<br/>'
+                         'Video added on: %(video_date_added)s.</p>') % {
+                'video_title': video.title, 'user_firstname': request.user.first_name, 'user_lastname': request.user.last_name,
+                'user_email': request.user.email, 'comment': request.POST['comment'].replace("\n", "<br/>"), 'description': video.description,
+                'url': ''.join(['http://', get_current_site(request).domain, video.get_absolute_url()]),
+                'owner_firstname': video.owner.first_name, 'owner_lastname': video.owner.last_name, 'owner_email': video.owner.email,
+                'video_date_added': video.date_added}
 
-        email_msg = EmailMultiAlternatives(
-            "[" + settings.TITLE_SITE + "]  %s" % subject, msg, settings.DEFAULT_FROM_EMAIL, settings.REPORT_VIDEO_MAIL_TO)
-        email_msg.attach_alternative(msg_html, "text/html")
-        email_msg.send(fail_silently=False)
+            email_msg = EmailMultiAlternatives(
+                "[" + settings.TITLE_SITE + "]  %s" % subject, msg, settings.DEFAULT_FROM_EMAIL, settings.REPORT_VIDEO_MAIL_TO)
+            email_msg.attach_alternative(msg_html, "text/html")
+            email_msg.send(fail_silently=False)
+        except:
+            print("Warning: Mail can't send...")
         print("#MAIL: OK")
         if request.is_ajax():
             print("#is_ajax: OK")
