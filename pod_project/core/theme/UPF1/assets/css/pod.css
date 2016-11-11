@@ -294,7 +294,7 @@ aside .form-group.show-all .more {
   box-sizing: border-box;
 }
 #page-video #mark-as-fav.glyphicon.glyphicon-star {
-  color: #000;
+  color: #333;
 }
 #page-video #fav.glyphicon.glyphicon-star {
   color: #DC8B08 !important;
