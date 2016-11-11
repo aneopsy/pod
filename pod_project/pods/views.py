@@ -536,7 +536,7 @@ def video_add_report(request, slug):
     if request.POST and request.POST.get('comment'):
         report = ReportVideo.objects.create(
             user=request.user, video=video, comment='%s' % request.POST['comment'])
-'''
+            
         subject = _(u'Video report confirmation')
 
         msg = _("\nYou just report the video: \"%(title)s\" with this comment: \n\"%(comment)s\".\n"
@@ -588,7 +588,7 @@ def video_add_report(request, slug):
             "[" + settings.TITLE_SITE + "]  %s" % subject, msg, settings.DEFAULT_FROM_EMAIL, settings.REPORT_VIDEO_MAIL_TO)
         email_msg.attach_alternative(msg_html, "text/html")
         email_msg.send(fail_silently=False)
-'''
+
         if request.is_ajax():
             msg = _(u'This video has been reported.')
             some_data_to_dump = {'msg': "%s" % msg}
