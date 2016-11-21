@@ -50,7 +50,7 @@ class PopulatedCASBackend(CASBackend):
                    l = ldap.initialize(settings.AUTH_LDAP_SERVER_URI)
                    l.protocol_version = ldap.VERSION3
                    if settings.AUTH_LDAP_BIND_DN != '':
-                       l.simple_bind_s(settings.AUTH_LDAP_BIND_DN,settings.AUTH_LDAP_BIND_PASSWORD)
+                       l.simple_bind_s(settings.AUTH_LDAP_BIND_DN, settings.AUTH_LDAP_BIND_PASSWORD)
 
                    ldap_scope = {'ONELEVEL': ldap.SCOPE_ONELEVEL, 'SUBTREE': ldap.SCOPE_SUBTREE}
 
@@ -59,16 +59,16 @@ class PopulatedCASBackend(CASBackend):
                        list_value.append(str(val))
                    try:
                        r = l.search_s(settings.AUTH_LDAP_USER_SEARCH[0], ldap_scope[settings.AUTH_LDAP_SCOPE], settings.AUTH_LDAP_USER_SEARCH[1] %{"uid" : user.username}, list_value)
-                       (dn, attrs) = r[0] #une seule entree par uid
+                       (dn, attrs) = r[0] # une seule entree par uid
                        if settings.AUTH_USER_ATTR_MAP.get('first_name') and attrs.get(settings.AUTH_USER_ATTR_MAP['first_name']):
-                           user.first_name = attrs[settings.AUTH_USER_ATTR_MAP['first_name']][0] #get first value
+                           user.first_name = attrs[settings.AUTH_USER_ATTR_MAP['first_name']][0] # get first value
                        if settings.AUTH_USER_ATTR_MAP.get('last_name') and attrs.get(settings.AUTH_USER_ATTR_MAP['last_name']):
-                           user.last_name = attrs[settings.AUTH_USER_ATTR_MAP['last_name']][0] #get first value
+                           user.last_name = attrs[settings.AUTH_USER_ATTR_MAP['last_name']][0] # get first value
                        if settings.AUTH_USER_ATTR_MAP.get('email') and attrs.get(settings.AUTH_USER_ATTR_MAP['email']):
-                           user.email = attrs[settings.AUTH_USER_ATTR_MAP['email']][0] #get first value
+                           user.email = attrs[settings.AUTH_USER_ATTR_MAP['email']][0] # get first value
                        if settings.AUTH_USER_ATTR_MAP.get('affiliation') and attrs.get(settings.AUTH_USER_ATTR_MAP['affiliation']):
                            try:
-                               user.userprofile.affiliation = attrs[settings.AUTH_USER_ATTR_MAP['affiliation']][0] #get first value
+                               user.userprofile.affiliation = attrs[settings.AUTH_USER_ATTR_MAP['affiliation']][0] # get first value
                                user.userprofile.save()
 
                                if user.userprofile.affiliation in settings.AFFILIATION_STAFF:
@@ -79,7 +79,7 @@ class PopulatedCASBackend(CASBackend):
                                    user.groups.add(Group.objects.get(name='Etudiant'))
 
                            except:
-                               print u'\n*****Unexpected error link :%s - %s' % abs(sys.exc_info()[0], sys.exc_info()[1])
+                               print u'\n*****Unexpected error link :%s - %s' % (sys.exc_info()[0], sys.exc_info()[1])
                                msg = u'\n*****Unexpected error link :%s - %s' % (sys.exc_info()[0], sys.exc_info()[1])
                                logger.error(msg)
                    except:

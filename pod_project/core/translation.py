@@ -6,7 +6,7 @@ le redistribuer et/ou le modifier sous les termes
 de la licence GNU Public Licence telle que publiée
 par la Free Software Foundation, soit dans la
 version 3 de la licence, ou (selon votre choix)
-toute version ultérieure. 
+toute version ultérieure.
 Ce programme est distribué avec l'espoir
 qu'il sera utile, mais SANS AUCUNE
 GARANTIE : sans même les garanties
@@ -21,10 +21,9 @@ voir http://www.gnu.org/licenses/
 """
 
 from modeltranslation.translator import translator, TranslationOptions
-from django.contrib.flatpages.models import FlatPage 
-
-class FlatPageTranslationOptions(TranslationOptions): 
-        fields = ('title', 'content',) 
-translator.register(FlatPage, FlatPageTranslationOptions) 
+from django.contrib.flatpages.models import FlatPage
 
 
+class FlatPageTranslationOptions(TranslationOptions):
+        fields = ('title', 'content',)
+translator.register(FlatPage, FlatPageTranslationOptions)

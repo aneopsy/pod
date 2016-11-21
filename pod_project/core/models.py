@@ -77,8 +77,8 @@ class PagesMenuBas(models.Model):
         ordering = ['order', 'page__title']
         verbose_name = _('page bottom menu')
         verbose_name_plural = _('pages bottom menu')
-        #app_label = 'Menus'
-        #db_table = 'core_pagesmenubas'
+        # app_label = 'Menus'
+        # db_table = 'core_pagesmenubas'
 
     def __unicode__(self):
         return self.page.title

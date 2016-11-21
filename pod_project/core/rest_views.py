@@ -60,7 +60,7 @@ class GetUserView(APIView):
         output_serializer = UserOutputSerializer(
             instance, context={'request': request})
         return Response(output_serializer.data)
-        #{"username":"root"}
+        # {"username":"root"}
 
 
 class UserViewSet(viewsets.ModelViewSet):

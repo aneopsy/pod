@@ -95,7 +95,8 @@ def core_login(request):
 
     if request.POST and request.POST['username'] and request.POST['password']:
         user = authenticate(
-            username=request.POST['username'], password=request.POST['password'])
+            username=request.POST['username'],
+            password=request.POST['password'])
         if user is not None:
             if user.is_active:
                 login(request, user)
@@ -220,6 +221,7 @@ def contact_us(request):
     return render_to_response('flatpages/default.html',
                               {'flatpage': flatpage, },
                               context_instance=RequestContext(request))
+
 
 def status(request):
     """ simple status page who returns a code 200 """
