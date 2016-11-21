@@ -31,6 +31,7 @@ import sys
 import logging
 logger = logging.getLogger(__name__)
 
+
 class PopulatedCASBackend(CASBackend):
     """CAS authentication backend with user data populated from AD"""
 
@@ -42,7 +43,7 @@ class PopulatedCASBackend(CASBackend):
         if user is not None:
             user.is_active = True
             user.save()
-            if settings.USE_LDAP_TO_POPULATE_USER :
+            if settings.USE_LDAP_TO_POPULATE_USER:
                 import ldap
                 try:
                    l = ldap.initialize(settings.AUTH_LDAP_SERVER_URI)
@@ -50,7 +51,7 @@ class PopulatedCASBackend(CASBackend):
                    if settings.AUTH_LDAP_BIND_DN != '':
                        l.simple_bind_s(settings.AUTH_LDAP_BIND_DN,settings.AUTH_LDAP_BIND_PASSWORD)
 
-                   ldap_scope = {'ONELEVEL':ldap.SCOPE_ONELEVEL, 'SUBTREE':ldap.SCOPE_SUBTREE}
+                   ldap_scope = {'ONELEVEL': ldap.SCOPE_ONELEVEL, 'SUBTREE': ldap.SCOPE_SUBTREE}
 
                    list_value = []
                    for val in settings.AUTH_USER_ATTR_MAP.values():
@@ -72,10 +73,8 @@ class PopulatedCASBackend(CASBackend):
                                if user.userprofile.affiliation in settings.AFFILIATION_STAFF:
                                    user.is_staff = True
                                    user.is_manager = True
-
-                               if not user.groups.filter(name='Etudiant').exists():
-                                   g = Group.objects.get(name='Etudiant')
-                                   g.user_set.add(user)
+                               else:
+                                   user.is_member = True
 
                            except:
                                print u'\n*****Unexpected error link :%s - %s' % abs(sys.exc_info()[0], sys.exc_info()[1])
@@ -101,7 +100,7 @@ class PopulatedCASBackend(CASBackend):
                             user.userprofile.affiliation = request.session['attributes'][settings.AUTH_USER_ATTR_MAP['affiliation']]
                             user.userprofile.save()
 
-                            if user.userprofile.affiliation in settings.AFFILIATION_STAFF :
+                            if user.userprofile.affiliation in settings.AFFILIATION_STAFF:
                                 user.is_staff = True
 
                         except:
@@ -118,7 +117,7 @@ class PopulatedCASBackend(CASBackend):
                 logger.error(msg)
 
         else:
-            msg = u'%s' %_(u'Unable to authenticate')
+            msg = u'%s' % _(u'Unable to authenticate')
             messages.add_message(request, messages.ERROR, msg)
 
         return user

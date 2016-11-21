@@ -86,6 +86,7 @@ class PagesMenuBas(models.Model):
     def __str__(self):
         return "%s" % (self.page.title)
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     image = FilerImageField(null=True, blank=True, verbose_name=_('Avatar'),
@@ -109,6 +110,9 @@ class UserProfile(models.Model):
 
     def is_manager(self):
         return self.user.groups.filter(name='Manager')
+
+    def is_member(self):
+        return self.user.groups.filter(name='Member')
     # def get_absolute_url(self):
     #    return reverse('core.views.user')
 

@@ -114,10 +114,12 @@ voir http://www.gnu.org/licenses/
                 </li>
     			<li><a href="{% url 'videos' %}">{% trans "Videos" %}</a></li>
 			</ul>
+            {% if user.is_superuser or user.userprofile.is_manager %}
 			<a href="{% url 'video_edit' %}" class="btn navbar-btn navbar-right waves-effect secondary-color">
                 <span class="glyphicon glyphicon-plus"></span>
                 {% trans "Add a new video" %}
             </a>
+            {% endif %}
 			<form class="navbar-form navbar-right" role="search" method="get" action="{% url "search_videos" %}">
 				<div id="searchBar" class="input-group">
 					<input type="text" class="form-control" autofocus="autofocus" name="q" placeholder="{% trans "Search" %}" />
