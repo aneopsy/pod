@@ -209,7 +209,7 @@ LOGO_PLAYER = 'images/logo_white_compact.png'
 SERV_LOGO = 'images/semm.png'
 
 HELP_MAIL = 'paultevatheis@gmail.com'
-WEBTV = '<a href="" id="webtv" class="btn btn-sm waves-effect secondary-color">' \
+WEBTV = '<a href="https://www.upf.pf" id="webtv" class="btn btn-sm waves-effect secondary-color">' \
     'UPF<span class="glyphicon glyphicon-link"></span>' \
     '</a>'
 
