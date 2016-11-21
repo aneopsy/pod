@@ -161,7 +161,7 @@ REST_FRAMEWORK = {
 
 # Login
 LOGIN_URL = '/login/'
-USE_CAS = False
+USE_CAS = True
 if USE_CAS:
     MIDDLEWARE_CLASSES = list(MIDDLEWARE_CLASSES)
     MIDDLEWARE_CLASSES.append('django_cas_gateway.middleware.CASMiddleware')
@@ -174,17 +174,17 @@ CAS_VERSION = '3'
 # LDAP
 USE_LDAP_TO_POPULATE_USER = True
 AUTH_LDAP_SERVER_URI = 'ldap://ldap.upf.pf'
-AUTH_LDAP_BIND_DN = ''
-AUTH_LDAP_BIND_PASSWORD = ''
+AUTH_LDAP_BIND_DN = 'cn=upfLecteur,dc=upf,dc=pf'
+AUTH_LDAP_BIND_PASSWORD = 'upfLecteur2012-UPF
 AUTH_LDAP_SCOPE = 'ONELEVEL'
 # ('ldap', 'parameters')
-AUTH_LDAP_USER_SEARCH = ('ou=people,dc=upf,dc=fr', "(uid=%(uid)s)")
+AUTH_LDAP_USER_SEARCH = ('ou=people,dc=upf,dc=pf', "(uid=%u)")
 AUTH_LDAP_UID_TEST = ""
 
 AUTH_USER_ATTR_MAP = {
     'first_name': 'givenName',
     'last_name': 'sn',
-    'email': 'mailLocalAddress',
+    'email': 'mail',
     'affiliation': 'eduPersonPrimaryAffiliation'
 }
 AFFILIATION_STAFF = ('employee', 'faculty')
