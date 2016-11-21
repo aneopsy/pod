@@ -40,11 +40,11 @@ class PopulatedCASBackend(CASBackend):
         """Authenticates CAS ticket and retrieves user data"""
 
         user = super(PopulatedCASBackend, self).authenticate(ticket, service, request)
-
         if user is not None:
             user.is_active = True
             user.save()
             if settings.USE_LDAP_TO_POPULATE_USER:
+                logger.debug("LDAP")
                 import ldap
                 try:
                    l = ldap.initialize(settings.AUTH_LDAP_SERVER_URI)
