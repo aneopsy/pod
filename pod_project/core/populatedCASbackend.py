@@ -6,7 +6,7 @@ le redistribuer et/ou le modifier sous les termes
 de la licence GNU Public Licence telle que publiée
 par la Free Software Foundation, soit dans la
 version 3 de la licence, ou (selon votre choix)
-toute version ultérieure. 
+toute version ultérieure.
 Ce programme est distribué avec l'espoir
 qu'il sera utile, mais SANS AUCUNE
 GARANTIE : sans même les garanties
@@ -49,10 +49,10 @@ class PopulatedCASBackend(CASBackend):
                    l.protocol_version = ldap.VERSION3
                    if settings.AUTH_LDAP_BIND_DN != '':
                        l.simple_bind_s(settings.AUTH_LDAP_BIND_DN,settings.AUTH_LDAP_BIND_PASSWORD)
-                       
+
                    ldap_scope = {'ONELEVEL':ldap.SCOPE_ONELEVEL, 'SUBTREE':ldap.SCOPE_SUBTREE}
-                   
-                   list_value = [] 
+
+                   list_value = []
                    for val in settings.AUTH_USER_ATTR_MAP.values():
                        list_value.append(str(val))
                    try:
@@ -68,10 +68,12 @@ class PopulatedCASBackend(CASBackend):
                            try:
                                user.userprofile.affiliation = attrs[settings.AUTH_USER_ATTR_MAP['affiliation']][0] #get first value
                                user.userprofile.save()
-                               
-                               if user.userprofile.affiliation in settings.AFFILIATION_STAFF :
+                               user.groups.filter(name='Etudiant')
+
+                               if user.userprofile.affiliation in settings.AFFILIATION_STAFF:
                                    user.is_staff = True
-                               
+                                   user.is_manager = True
+
                            except:
                                print u'\n*****Unexpected error link :%s - %s' %(sys.exc_info()[0], sys.exc_info()[1])
                                msg = u'\n*****Unexpected error link :%s - %s' %(sys.exc_info()[0], sys.exc_info()[1])
@@ -95,24 +97,24 @@ class PopulatedCASBackend(CASBackend):
                         try:
                             user.userprofile.affiliation = request.session['attributes'][settings.AUTH_USER_ATTR_MAP['affiliation']]
                             user.userprofile.save()
-                            
+
                             if user.userprofile.affiliation in settings.AFFILIATION_STAFF :
                                 user.is_staff = True
-                            
+
                         except:
-                            msg = u'\n*****Unexpected error link :%s - %s' %(sys.exc_info()[0], sys.exc_info()[1])
+                            msg = u'\n*****Unexpected error link :%s - %s' % (sys.exc_info()[0], sys.exc_info()[1])
                             logger.error(msg)
 
-            #on sauvegarde l'utilisateur
+            # on sauvegarde l'utilisateur
             user.save()
             try:
-                user.userprofile.auth_type="cas"
+                user.userprofile.auth_type = "cas"
                 user.userprofile.save()
             except:
-                msg = u'\n*****Unexpected error link :%s - %s' %(sys.exc_info()[0], sys.exc_info()[1])
+                msg = u'\n*****Unexpected error link :%s - %s' % (sys.exc_info()[0], sys.exc_info()[1])
                 logger.error(msg)
-            
-        else :
+
+        else:
             msg = u'%s' %_(u'Unable to authenticate')
             messages.add_message(request, messages.ERROR, msg)
 
