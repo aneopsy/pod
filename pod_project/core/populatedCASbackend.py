@@ -68,20 +68,23 @@ class PopulatedCASBackend(CASBackend):
                            try:
                                user.userprofile.affiliation = attrs[settings.AUTH_USER_ATTR_MAP['affiliation']][0] #get first value
                                user.userprofile.save()
-                               user.groups.filter(name='Etudiant')
 
                                if user.userprofile.affiliation in settings.AFFILIATION_STAFF:
                                    user.is_staff = True
                                    user.is_manager = True
 
+                               if not user.groups.filter(name='Etudiant').exists():
+                                   g = Group.objects.get(name='Etudiant')
+                                   g.user_set.add(user)
+
                            except:
-                               print u'\n*****Unexpected error link :%s - %s' %(sys.exc_info()[0], sys.exc_info()[1])
-                               msg = u'\n*****Unexpected error link :%s - %s' %(sys.exc_info()[0], sys.exc_info()[1])
+                               print u'\n*****Unexpected error link :%s - %s' % abs(sys.exc_info()[0], sys.exc_info()[1])
+                               msg = u'\n*****Unexpected error link :%s - %s' % (sys.exc_info()[0], sys.exc_info()[1])
                                logger.error(msg)
                    except:
                        user.is_active = False
                        user.save()
-                       msg = u'\n*****Unexpected error link :%s - %s' %(sys.exc_info()[0], sys.exc_info()[1])
+                       msg = u'\n*****Unexpected error link :%s - %s' % (sys.exc_info()[0], sys.exc_info()[1])
                        logger.error(msg)
                 except ldap.LDAPError, e:
                    logger.error(e)
