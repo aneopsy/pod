@@ -26,6 +26,7 @@ from django_cas_gateway.backends import CASBackend
 from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from django.contrib.auth.models import User, Group
 
 import sys
 import logging
