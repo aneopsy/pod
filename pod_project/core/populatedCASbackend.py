@@ -75,6 +75,7 @@ class PopulatedCASBackend(CASBackend):
                                if user.userprofile.affiliation in settings.AFFILIATION_STAFF:
                                    user.is_staff = True
                                    user.is_manager = True
+                                   user.groups.add(Group.objects.get(name='Professeur'))
                                else:
                                    user.is_member = True
                                    user.groups.add(Group.objects.get(name='Etudiant'))
@@ -105,6 +106,7 @@ class PopulatedCASBackend(CASBackend):
 
                             if user.userprofile.affiliation in settings.AFFILIATION_STAFF:
                                 user.is_staff = True
+                                user.groups.add(Group.objects.get(name='Professeur'))
                             else:
                                 user.is_member = True
                                 user.groups.add(Group.objects.get(name='Etudiant'))
