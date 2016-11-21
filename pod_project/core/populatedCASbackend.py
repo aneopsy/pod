@@ -75,6 +75,8 @@ class PopulatedCASBackend(CASBackend):
                                    user.is_manager = True
                                else:
                                    user.is_member = True
+                                   g = Group.objects.get(name='Etudiant')
+                                   g.user_set.add(user)
 
                            except:
                                print u'\n*****Unexpected error link :%s - %s' % abs(sys.exc_info()[0], sys.exc_info()[1])
@@ -102,6 +104,10 @@ class PopulatedCASBackend(CASBackend):
 
                             if user.userprofile.affiliation in settings.AFFILIATION_STAFF:
                                 user.is_staff = True
+                            else:
+                                user.is_member = True
+                                g = Group.objects.get(name='Etudiant')
+                                g.user_set.add(user)
 
                         except:
                             msg = u'\n*****Unexpected error link :%s - %s' % (sys.exc_info()[0], sys.exc_info()[1])
