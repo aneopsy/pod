@@ -175,10 +175,10 @@ CAS_VERSION = '3'
 USE_LDAP_TO_POPULATE_USER = True
 AUTH_LDAP_SERVER_URI = 'ldap://ldap.upf.pf'
 AUTH_LDAP_BIND_DN = 'cn=upfLecteur,dc=upf,dc=pf'
-AUTH_LDAP_BIND_PASSWORD = 'upfLecteur-2012-UPF'
+AUTH_LDAP_BIND_PASSWORD = 'upfLecteur_2012-UPF'
 AUTH_LDAP_SCOPE = 'ONELEVEL'
 # ('ldap', 'parameters')
-AUTH_LDAP_USER_SEARCH = ('ou=people,dc=upf,dc=pf', "(uid=%u)")
+AUTH_LDAP_USER_SEARCH = ('ou=people,dc=upf,dc=pf', "(uid=%(uid)s)")
 AUTH_LDAP_UID_TEST = ""
 
 AUTH_USER_ATTR_MAP = {
