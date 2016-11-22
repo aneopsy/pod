@@ -31,6 +31,6 @@ dashboard:                      ok
     -memory:                    ok
     -disk:                      ok
     -list:                      ok
-cas:                            ko
-ldap:                           ko
+cas:                            ok
+ldap:                           ok
  test
