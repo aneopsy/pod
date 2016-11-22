@@ -62,7 +62,7 @@ pod_project/pods/viewsv1.py
 # Theme files #
 ###############
 /pod_project/core/theme/*
-!/pod_project/core/theme/DEFAULT/
+!/pod_project/core/theme/UPF1/
 /pod_project/core/theme/DEFAULT/config.codekit
 
 # IDE Files #
