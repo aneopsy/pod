@@ -1071,3 +1071,9 @@ nav li {
       -o-transform: skew(0deg, -3deg);
       transform: skew(0deg, -3deg);
 }
+
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
