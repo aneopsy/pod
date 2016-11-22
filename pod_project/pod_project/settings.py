@@ -400,3 +400,9 @@ RECORDER_SALT = "abcdefgh"
 # Signalement des vidéos
 SHOW_REPORT = True
 REPORT_VIDEO_MAIL_TO = ['paultevatheis@gmail.com']
+
+DASHING = {
+    'PERMISSION_CLASSES': (
+        'dashing.permissions.IsAdminUser',
+    )
+}
