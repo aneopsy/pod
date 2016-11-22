@@ -28,11 +28,9 @@ voir http://www.gnu.org/licenses/
 		<div class="row">
 			<div class="col-sm-8 hidden-xs">
                 <a href="/" class="link hidden-xs">
-				    <h1 class="sr-only">{{ TITLE_SITE }}</h1>
-                    <div class="logo-container">
-				        <img class="logo" src="{% static LOGO_SITE %}" alt="{{ TITLE_SITE }}" />
-                    </div>
-                </a>
+                   <h1 class="sr-only">{{ TITLE_SITE }}</h1>
+                   <img src="{% static LOGO_SITE %}" alt="{{ TITLE_SITE }}" />
+               </a>
             </div>
 			<div class="user-area text-right col-sm-4 col-xs-12">
 				<form class="form form-inline" action="{% url 'set_language' %}" method="post">
