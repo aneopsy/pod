@@ -114,7 +114,7 @@ voir http://www.gnu.org/licenses/
                 </li>
     			<li><a href="{% url 'videos' %}">{% trans "Videos" %}</a></li>
 			</ul>
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and 1=1%}
 			<a href="{% url 'video_edit' %}" class="btn navbar-btn navbar-right waves-effect secondary-color">
                 <span class="glyphicon glyphicon-plus"></span>
                 {% trans "Add a new video" %}
