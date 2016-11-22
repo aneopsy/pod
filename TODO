@@ -35,3 +35,4 @@ dashboard:                      ok
 cas:                            ok
 ldap:                           ok
 test:                           ok
+fix_dashboard:                  ok
