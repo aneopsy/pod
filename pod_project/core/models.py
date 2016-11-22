@@ -220,7 +220,7 @@ class Video(models.Model):
         verbose_name = _("video")
         verbose_name_plural = _("video")
         abstract = True
-        permissions = (('can_add_video', 'Can add a video'))
+        permissions = (('video', 'add video'))
 
     def __unicode__(self):
         return u"Titre:%s - Prop:%s - Date:%s" % (self.title, self.owner, self.date_added)
