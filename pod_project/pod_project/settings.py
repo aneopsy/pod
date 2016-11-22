@@ -43,6 +43,8 @@ INSTALLED_APPS = (
     'ckeditor',
     'filer',
     'easy_thumbnails',
+    'dashing',
+    'sysmon',
     # https://bitbucket.org/cpcc/django-cas -> application modifiée pour ajout
     # gateway et double authentification
     'django_cas_gateway',
