@@ -136,10 +136,9 @@ class UsersWidget(ListWidget):
         users = []
         values = []
         for user in User.objects.distinct():
-            cval = user.pod_set.filter(is_draft=False, encodingpods__gt=0).distinct().count()
-            if int(cval) > 0:
-                user.append(user.username)
-                values.append(cval)
+            users.append(user.username)
+            values.append(user.pod_set.filter(is_draft=False,
+                                              encodingpods__gt=0).distinct().count())
         return [{'label': x, 'value': y} for x, y in zip(users, values)]
 
 
