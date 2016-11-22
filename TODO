@@ -31,6 +31,7 @@ dashboard:                      ok
     -memory:                    ok
     -disk:                      ok
     -list:                      ok
+-
 cas:                            ok
 ldap:                           ok
- test
+test:                           ok
