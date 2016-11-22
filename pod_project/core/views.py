@@ -178,33 +178,34 @@ def contact_us(request):
         # check the input
         if form.is_valid():
             contact = form.save()
-            msg_html = _(u'\n<p>The user %(sender_name)s &lt;<a href=\"mailto:%(sender_email)s\">%(sender_email)s</a>&gt; send a message from <strong>%(site_title)s.</strong></p>\n'
-                         '<p>Here is the message sent : <br/>\n\n'
-                         '%(message)s</p>\n\n'
-                         '<p>Referrer page : <a href=\"%(url)s\">%(url)s</a></p>\n\n'
-                         ) % {
-                'sender_name': contact.name, 'site_title': settings.TITLE_SITE,
-                'sender_email': contact.email, 'message': contact.message.replace("\n", "<br/>"),
-                'url': form.cleaned_data['url_referrer']
-                }
-            msg_txt = strip_tags(u'%s' % msg_html)
-            email_msg = EmailMultiAlternatives(
-                "[" + settings.TITLE_SITE + "]  %s" % contact.subject, msg_txt, contact.email, settings.REPORT_VIDEO_MAIL_TO)
-            email_msg.attach_alternative(msg_html, "text/html")
-            email_msg.send(fail_silently=False)
-            msg_html = _(u'\n<p>You just send a message from <strong>%(site_title)s.</strong></p>\n'
-                         '<p>Here is the message sent : <br/>\n\n'
-                         '%(message)s</p>\n\n'
-                         '<p>Regards</p>\n\n'
-                         ) % {
-                'site_title': settings.TITLE_SITE,
-                'message': contact.message.replace("\n", "<br/>")
-                }
-            msg_txt = strip_tags(u'%s' % msg_html)
-            email_msg = EmailMultiAlternatives(
-                "[" + settings.TITLE_SITE + "] %s %s" % (_('your message intitled'), contact.subject), msg_txt, settings.HELP_MAIL, [contact.email])
-            email_msg.attach_alternative(msg_html, "text/html")
-            email_msg.send(fail_silently=False)
+            if settings.USE_EMAIL:
+                msg_html = _(u'\n<p>The user %(sender_name)s &lt;<a href=\"mailto:%(sender_email)s\">%(sender_email)s</a>&gt; send a message from <strong>%(site_title)s.</strong></p>\n'
+                             '<p>Here is the message sent : <br/>\n\n'
+                             '%(message)s</p>\n\n'
+                             '<p>Referrer page : <a href=\"%(url)s\">%(url)s</a></p>\n\n'
+                             ) % {
+                    'sender_name': contact.name, 'site_title': settings.TITLE_SITE,
+                    'sender_email': contact.email, 'message': contact.message.replace("\n", "<br/>"),
+                    'url': form.cleaned_data['url_referrer']
+                    }
+                msg_txt = strip_tags(u'%s' % msg_html)
+                email_msg = EmailMultiAlternatives(
+                    "[" + settings.TITLE_SITE + "]  %s" % contact.subject, msg_txt, contact.email, settings.REPORT_VIDEO_MAIL_TO)
+                email_msg.attach_alternative(msg_html, "text/html")
+                email_msg.send(fail_silently=False)
+                msg_html = _(u'\n<p>You just send a message from <strong>%(site_title)s.</strong></p>\n'
+                             '<p>Here is the message sent : <br/>\n\n'
+                             '%(message)s</p>\n\n'
+                             '<p>Regards</p>\n\n'
+                             ) % {
+                    'site_title': settings.TITLE_SITE,
+                    'message': contact.message.replace("\n", "<br/>")
+                    }
+                msg_txt = strip_tags(u'%s' % msg_html)
+                email_msg = EmailMultiAlternatives(
+                    "[" + settings.TITLE_SITE + "] %s %s" % (_('your message intitled'), contact.subject), msg_txt, settings.HELP_MAIL, [contact.email])
+                email_msg.attach_alternative(msg_html, "text/html")
+                email_msg.send(fail_silently=False)
 
             messages.add_message(
                 request, messages.INFO, _(u'Your message has been sent.'))
