@@ -115,7 +115,7 @@ voir http://www.gnu.org/licenses/
     			<li><a href="{% url 'videos' %}">{% trans "Videos" %}</a></li>
 			</ul>
             {% if user.is_authenticated %}
-            {% for type in user.user_permissions.all() %}
+            {% for type in user.user_permissions.all %}
                 <li><a href="{% url 'videos' %}?type={{type.slug}}">{{type}}</a></li>
             {% endfor %}
 			<a href="{% url 'video_edit' %}" class="btn navbar-btn navbar-right waves-effect secondary-color">
