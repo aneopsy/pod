@@ -128,7 +128,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 
 # Paramètres spécifiques au projet
-USE_EMAIL = TRUE
+USE_EMAIL = True
 EMAIL_HOST = 'ssmtp.upf.pf'
 EMAIL_PORT = 25
 DEFAULT_FROM_EMAIL = 'paultevatheis@gmail.com'
