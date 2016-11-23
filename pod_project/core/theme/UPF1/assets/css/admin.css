@@ -29,6 +29,7 @@ body {
 }
 #container {
   background: #fff;
+  background-image: url("http://www.upf.pf/sites/all/themes/custom/upf/images/bg/bg-page.png");
 }
 .module h2,
 .module caption,
