@@ -41,7 +41,7 @@ Icon?
 
 # Custom files  #
 #################
-#pod_project/pod_project/settings.py
+pod_project/pod_project/settings.py
 pod_project/pod_project/settings_local.py
 pod_project/pod_project/urls.py
 pod_project/pod_project/wsgi.py

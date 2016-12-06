@@ -60,7 +60,7 @@ DATABASES = {
         'NAME': 'pod',
         'USER': 'pod',
         'PASSWORD': '********',
-        'HOST': 'bdd.univ.fr',
+        'HOST': '',
         'PORT': '',
         #'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'}
     }
@@ -70,16 +70,16 @@ DATABASES = {
 Attention, pour PostGreSql, il faudra installer ces paquets supplémentaires :
 
 ```sh
-(django_pod)pod@podvm:~# sudo aptitude install libpq-dev
-(django_pod)pod@podvm:~# pip install psycopg2
+(django_pod)v-podcast@v-podcast:~# sudo aptitude install libpq-dev
+(django_pod)v-podcast@v-podcast:~# pip install psycopg2
 ```
 
 #### CREATION BDD :
 On repasse en pod et on crée les tables dans la bases de données :
 ```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ python manage.py migrate
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ python manage.py loaddata core/fixtures/initial_data.json
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ python manage.py createsuperuser --username root
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ python manage.py migrate
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ python manage.py loaddata core/fixtures/initial_data.json
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ python manage.py createsuperuser --username root
 ```
 
 ### Serveur Web en Frontal
@@ -87,12 +87,12 @@ On repasse en pod et on crée les tables dans la bases de données :
 
 **Installation des paquets**
 ```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ sudo aptitude install apache2 apache2.2-common apache2-mpm-prefork apache2-utils libexpat1 libapache2-mod-wsgi
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ sudo aptitude install apache2 apache2.2-common apache2-mpm-prefork apache2-utils libexpat1 libapache2-mod-wsgi
 ```
 
 **Création du virtual host**
 ```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ sudo vim /etc/apache2/sites-available/pod.conf
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ sudo vim /etc/apache2/sites-available/pod.conf
 ```
 
 _Voici un exemple de vhost :_
@@ -162,35 +162,34 @@ _Attention, les données sont à modifier selon votre installation_
 
 <VirtualHost *:80>
 
-        ServerName pod.univ.fr
+        ServerName v-podcast.upf.pf
 
-        ServerAdmin admin@univ.fr
+        ServerAdmin admin@upf.pf
 
 
         ErrorLog ${APACHE_LOG_DIR}/pod-error.log
         CustomLog ${APACHE_LOG_DIR}/pod-access.log combined
 
-        Alias /robots.txt /home/pod/django_projects/pod/pod_project/static/robots.txt
-        Alias /favicon.ico /home/pod/django_projects/pod/pod_project/static/favicon.ico
+        Alias /robots.txt /home/v-podcast/django_projects/pod/pod_project/static/robots.txt
+        Alias /favicon.ico /home/v-podcast/django_projects/pod/pod_project/static/favicon.ico
 
-        Alias /media/ /var/pod/media/
-        Alias /static/ /home/pod/django_projects/pod/pod_project/static/
+        Alias /media/ /var/v-podcast/media/
+        Alias /static/ /home/v-podcast/django_projects/pod/pod_project/static/
 
-        <Directory /home/pod/django_projects/pod/pod_project/static>
+        <Directory /home/v-podcast/django_projects/pod/pod_project/static>
         Require all granted
         </Directory>
 
-        <Directory /var/pod/media>
+        <Directory /var/v-podcast/media>
         Require all granted
         </Directory>
 
-        WSGIScriptAlias / /home/pod/django_projects/pod/pod_project/pod_project/wsgi.py
+        WSGIScriptAlias / /home/v-podcast/django_projects/pod/pod_project/pod_project/wsgi.py
         #WSGIPythonPath /home/pod/django_projects/pod/pod_project:/var/www/.virtualenvs/django_pod/lib/python2.7/site-packages
+        WSGIDaemonProcess v-podcast python-path=/home/v-podcast/django_projects/pod/pod_project:/home/pod/.virtualenvs/django_pod/lib/python2.7/site-packages
+        WSGIProcessGroup v-podcast
 
-        WSGIDaemonProcess pod python-path=/home/pod/django_projects/pod/pod_project:/home/pod/.virtualenvs/django_pod/lib/python2.7/site-packages
-        WSGIProcessGroup pod
-
-        <Directory /home/pod/django_projects/pod/pod_project/pod_project>
+        <Directory /home/v-podcast/django_projects/pod/pod_project/pod_project>
         <Files wsgi.py>
         Require all granted
         </Files>
@@ -204,69 +203,18 @@ _Attention, les données sont à modifier selon votre installation_
 ***
 > _Attention, les vidéos vont être uploadées dans le répertoire « média ». Il faut donc prévoir de l'espace disque pour ce répertoire et **donner le droit en lecture et en écriture** à l'utilisateur web (www-data)_
 ```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ sudo chown -R www-data:www-data media/
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ sudo chown -R www-data:www-data media/
 ```
 
 **Activer le vhost**
 ```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ sudo a2ensite pod.conf
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ sudo a2ensite pod.conf
   Enabling site pod.
   To activate the new configuration, you need to run:
     service apache2 reload
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ service apache2 reload
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ sudo service apache2 reload
   [ ok ] Reloading web server config: apache2.
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$
-```
-#### NGINX en frontal
-
-**Installation de NGINX**
-
-https://code.djangoproject.com/wiki/DjangoAndNginx
-
-```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ sudo aptitude install nginx python-flup
-```
-Dans le répertoire du projet django lancer le fastcgi :
-```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ python ./manage.py runfcgi host=127.0.0.1 port=8080
-```
-Créer les fichiers de configurations de NGINX pour votre projet, ici on va appeler le projet pod :
-```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ sudo touch /etc/nginx/sites-available/pod.conf
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ sudo ln -s /etc/nginx/sites-available/sample_project.conf /etc/nginx/sites-enabled/pod.conf
-```
-Configuration minimale du fichier pod.conf
-```sh
-server {
-  listen 80;
-  server_name myhostname.com;
-  access_log /var/log/nginx/pod.access.log;
-  error_log /var/log/nginx/pod.error.log;
-
-  # https://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-in-production
-  location /static/ { # STATIC_URL
-      alias /home/www/myhostname.com/static/; # STATIC_ROOT
-      expires 30d;
-  }
-
-  location /media/ { # MEDIA_URL
-      alias /home/www/myhostname/static/; # MEDIA_ROOT
-      expires 30d;
-  }
-
-  location / {
-      include fastcgi_params;
-      fastcgi_pass 127.0.0.1:8080;
-  }
-}
-```
-Relancer nginx :
-```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ sudo /etc/init.d/nginx reload
-```
-Si les urls ne fonctionnent pas, rajouter dans le fichier pod.conf dans location /
-```sh
-fastcgi_split_path_info ^()(.*)$;
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$
 ```
 
 ### Fichier static
@@ -275,8 +223,8 @@ Par défaut, chaque application possède ses propres fichiers statiques (images,
 La commande ci-après permet de les centraliser pour que ces fichiers soient distribués plus facilement par le fontal web.
 
 ```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ mkdir static
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ ll
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ mkdir static
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ ll
   total 968
   drwxr-xr-x 7 pod pod   4096 mai   19 17:12 core
   -rw-r--r-- 1 pod pod 221184 mai   19 17:12 db.sqlite3
@@ -288,7 +236,7 @@ La commande ci-après permet de les centraliser pour que ces fichiers soient dis
   drwxr-xr-x 5 pod pod   4096 mai   19 16:00 pods
   -rwxr-xr-x 1 pod pod 730429 avril 25 17:24 schema_bdd.jpg
   drwxr-xr-x 2 pod pod   4096 mai   19 17:26 static
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ python manage.py collectstatic
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ python manage.py collectstatic
 ```
 
 **Attention, il faudra donc répéter cette commande lors de chaque mise en production.**
@@ -302,7 +250,7 @@ cd pod/pod_project/
 ### Relance du serveur et tests finaux
 
 ```sh
-(django_pod)pod@podvm:~/django_projects/pod/pod_project$ sudo service apache2 restart
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ sudo service apache2 restart
   [ ok ] Restarting web server: apache2 ... waiting
 ```
 
