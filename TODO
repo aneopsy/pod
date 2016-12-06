@@ -36,3 +36,5 @@ cas:                            ok
 ldap:                           ok
 test:                           ok
 fix_dashboard:                  ok
+dashboard_only_admin:           ok
+admin_design:                   ok
