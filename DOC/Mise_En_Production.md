@@ -92,69 +92,11 @@ On repasse en pod et on crée les tables dans la bases de données :
 
 **Création du virtual host**
 ```sh
-(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ sudo vim /etc/apache2/sites-available/pod.conf
+(django_pod)v-podcast@v-podcast:~/django_projects/pod/pod_project$ sudo nano /etc/apache2/sites-available/pod.conf
 ```
 
 _Voici un exemple de vhost :_
 _Attention, les données sont à modifier selon votre installation_
-
-> Apache 2.2
-
-```sh
-
-<VirtualHost *:80>
-
-        ServerName pod.univ.fr
-
-        ServerAdmin admin@univ.fr
-
-
-        ErrorLog ${APACHE_LOG_DIR}/pod-error.log
-        CustomLog ${APACHE_LOG_DIR}/pod-access.log combined
-
-        #Alias /robots.txt /usr/local/django_projects/pod/pod_project/static/robots.txt
-        Alias /favicon.ico /usr/local/django_projects/pod/pod_project/static/LILLE1/images/favicon.ico
-
-        Alias /media/ /var/pod/media/
-        Alias /static/ /usr/local/django_projects/pod/pod_project/static/
-
-        <Directory /usr/local/django_projects/pod/pod_project/static>
-                Order deny,allow
-                Allow from all
-                Options FollowSymLinks
-                AllowOverride None
-        </Directory>
-
-        <Directory /var/pod/media>
-                Order deny,allow
-                Allow from all
-                Options FollowSymLinks
-                AllowOverride None
-        </Directory>
-
-        WSGIScriptAlias / /usr/local/django_projects/pod/pod_project/pod_project/wsgi.py
-        #WSGIPythonPath /usr/local/django_projects/pod/pod_project:/home/pod/.virtualenvs/django_pod/lib/python2.7/site-packages
-
-        WSGIDaemonProcess pod python-path=/usr/local/django_projects/pod/pod_project:/home/pod/.virtualenvs/django_pod/lib/python2.7/site-packages
-        WSGIProcessGroup pod
-
-        <Directory /usr/local/django_projects/pod/pod_project/pod_project>
-                <Files wsgi.py>
-                  Order deny,allow
-                  Allow from all
-                </Files>
-        </Directory>
-
-        <LocationMatch "\.(jpg|css|gif|pdf|ico)$">
-                SetHandler None
-        </LocationMatch>
-
-        AddType video/mp4       .mp4
-        AddType video/webm      .webm
-
-</VirtualHost>
-
-```
 
 > Apache 2.4
 
