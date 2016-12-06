@@ -184,8 +184,7 @@ La commande ci-après permet de les centraliser pour que ces fichiers soient dis
 **Attention, il faudra donc répéter cette commande lors de chaque mise en production.**
 ```sh
 workon django_pod
-cd django_projects
-cd pod/pod_project/
+cd /home/v-podcast/django_projects/pod/pod_project/
 ./manage.py collectstatic
 ```
 
