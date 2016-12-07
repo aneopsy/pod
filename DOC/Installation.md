@@ -91,7 +91,6 @@ $> git config --global http.proxy http://PROXY:PORT
 (django_pod)v-podcast@v-podcast:~$ sudo chown pod:pod /usr/local/django_projects
 (django_pod)v-podcast@v-podcast:~$ ls -ld /usr/local/django_projects
 drwxr-sr-x 2 pod pod 4096 mars  13 10:02 /usr/local/django_projects
-(django_pod)v-podcast@v-podcast:~$ cd django_projects
 (django_pod)v-podcast@v-podcast:~/django_projects$ git clone https://github.com/aneopsy/pod.git
 
 Cloning into 'pod'...
@@ -104,6 +103,7 @@ Resolving deltas: 100% (66/66), done.
 
 ### Installation de toutes les librairies python :
 ```sh
+(django_pod)v-podcast@v-podcast:~/django_projects$ cd pod
 (django_pod)v-podcast@v-podcast:~/django_projects/pod$ pip install -r requirements.txt
 ```
 De même, si vous devez utiliser un proxy :
