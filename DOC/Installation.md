@@ -81,17 +81,16 @@ _Placez vous dans le répertoire django_projects_
 (django_pod)v-podcast@v-podcast:~$ cd django_projects
 (django_pod)v-podcast@v-podcast:~/django_projects$
 ```
-_On récupère les sources https://github.com/aneopsy/pod:_
+_On récupère les sources https://github.com/tice-upf/pod:_
 Attention, si vous devez utiliser un proxy, vous pouvez le spécifier avec cette commande :
 ```sh
 $> git config --global http.proxy http://PROXY:PORT
 ```
-
 ```sh
-(django_pod)v-podcast@v-podcast:~$ sudo chown pod:pod /usr/local/django_projects
+(django_pod)v-podcast@v-podcast:~$ sudo chown v-podcast:v-podcast /usr/local/django_projects
 (django_pod)v-podcast@v-podcast:~$ ls -ld /usr/local/django_projects
 drwxr-sr-x 2 pod pod 4096 mars  13 10:02 /usr/local/django_projects
-(django_pod)v-podcast@v-podcast:~/django_projects$ git clone https://github.com/aneopsy/pod.git
+(django_pod)v-podcast@v-podcast:~/django_projects$ git clone https://github.com/tice-upf/pod.git
 
 Cloning into 'pod'...
 remote: Counting objects: 350, done.
